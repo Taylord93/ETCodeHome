@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+<head>
+<style>
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {font-family:Arial, sans-serif;font-size:13px;padding:70px;background-color:#F9F9F9;}
+.txtinput {padding:10px;margin-bottom:15px;border:1px solid #AFAFAF;background-color:#f9f9f9;display:block;width:364px;border-radius:5px;border-top:2px solid #AFAFAF;color:#666666;}
+hr {margin-bottom:35px;}
+.set {width:880px;margin:auto;border:1px solid #CCCCCC;padding:3px;margin-bottom:20px;background-color:#f1f1f1;}
+.row {border-bottom:1px solid #CCCCCC;border-right:1px solid #CCCCCC;border-left:1px solid #CCCCCC;border-top:1px solid #FFFFFF;padding:12px 25px 8px 25px;}
+.set .row:first-child {border-top:1px solid #CCCCCC;}
+h1 {color:#646464;text-transform:uppercase;margin:12px 0px 12px 0px;text-align:center;font-weight:bold;}
+h2 {color:#646464;text-transform:uppercase;font-size:10px;letter-spacing:1px;margin-bottom:6px;}
+.left {float:left;}
+.right {float:right;}
+.clear {clear:both;}
+</style>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<body>
+<form id="form">
+<div class="set">
+	<div  class="left">
+        <div class="row">
+            <h2>Banner Image Path <span class="right">(690 x 374)</span></h2>
+            <input type="text" class="txtinput" id="bannerpath" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/">
+        </div>
+		<div class="row">
+            <h2>Banner Image Link</h2>
+            <input type="text" class="txtinput" id="bannerlink" value="http://www.">
+        </div>
+        <div class="row">
+            <h2>Banner Image Title/Alt</h2>
+            <input type="text" class="txtinput" id="bannertitle"  value="Evenflo">
+        </div>
+	</div>
+    <div class="right">
+    	<div class="row">
+       	  <h2>Banner Code:</h2>
+			<textarea rows="13" class="txtinput" id="bannerCode" value=""></textarea>
+    	</div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="set">
+    <div class="left">
+        <div class="row">
+            <h2>Intro Copy (HTML)</h2>
+            <textarea class="txtinput" id="intro" rows="6" placeholder="The Evenflo ADVANCED SensorSafe&trade; EMBRACE&trade; DLX Infant Car Seat and the ADVANCED SensorSafe&trade; Epic Travel System are now available on &lt;a href=“http://www.walmart.com/search/?query=Evenflo+SensorSafe”&gt;walmart.com&lt;/a&gt;. When a simple reminder can save a life, it just makes sense." value=""></textarea>
+        </div>
+        <div class="row">
+            <h2>Call to Action URL</h2>
+            <input type="text" class="txtinput" id="ctaLink" value="http://www.">
+
+            <h2>Call to Action Type</h2>
+            <select id="ctatype">
+                <option value="cta1" label="Shop Now"/>
+                <option value="cta2" label="Buy Now"/>
+            </select>
+        </div>
+    </div>
+    <div class="right">
+    	<div class="row">
+	    	<h2>Intro Code:</h2>
+			<textarea rows="15" id="introCode" value="" class="txtinput"></textarea>
+    	</div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="set">
+	<h1>THREE-COLUMN SECTION</h1>
+    <div class="left">
+        <div class="row">
+            <h2>Thumbnail Path <span class="right">(180 X 99)</span></h2>
+            <input type="text" class="txtinput" id="fea1path" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/">
+            
+            <h2>Caption</h2>
+            <input type="text" class="txtinput" id="fea1cap" value="">
+            
+            <h2>URL</h2>
+            <input type="text" class="txtinput" id="fea1url" value="">
+        </div>
+        <div class="row">
+            <h2>Thumbnail Path <span class="right">(180 X 99)</span></h2>
+            <input type="text" class="txtinput" id="fea2path" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/">
+            
+            <h2>Caption</h2>
+            <input type="text" class="txtinput" id="fea2cap" value="">
+            
+            <h2>URL</h2>
+            <input type="text" class="txtinput" id="fea2url" value="">
+        </div>
+        <div class="row">
+            <h2>Thumbnail  Path <span class="right">(180 X 99)</span></h2>
+            <input type="text" class="txtinput" id="fea3path" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/">
+            
+            <h2>Caption</h2>
+            <input type="text" class="txtinput" id="fea3cap" value="">
+            
+            <h2>URL</h2>
+            <input type="text" class="txtinput" id="fea3url" value="">
+        </div>
+    </div>
+    <div class="right">
+    	<div class="row">
+	    	<h2>Features Code:</h2>
+			<textarea rows="45" id="feaCode" value="" class="txtinput"></textarea>
+    	</div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<div class="set">
+	<h1>TWO-COLUMN SECTION</h1>
+    <div class="left">
+        <div class="row">
+            <h2>Thumbnail Path <span class="right">(620 X 222)</span></h2>
+            <input type="text" class="txtinput" id="block1path" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/">
+            
+            <h2>Caption</h2>
+            <input type="text" class="txtinput" id="block1cap" value="">
+            
+            <h2>URL</h2>
+            <input type="text" class="txtinput" id="block1url" value="">
+        </div>
+        <div class="row">
+            <h2>Thumbnail Path <span class="right">(620 X 222)</span></h2>
+            <input type="text" class="txtinput" id="block2path" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/">
+            
+            <h2>Caption</h2>
+            <input type="text" class="txtinput" id="block2cap" value="">
+            
+            <h2>URL</h2>
+            <input type="text" class="txtinput" id="block2url" value="">
+        </div>
+    </div>
+    <div class="right">
+    	<div class="row">
+	    	<h2>Code:</h2>
+			<textarea rows="29" id="block1Code" value="" class="txtinput"></textarea>
+    	</div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="set">
+	<h1>TWO-COLUMN SECTION</h1>
+    <div class="left">
+        <div class="row">
+            <h2>Thumbnail Path <span class="right">(620 X 222)</span></h2>
+            <input type="text" class="txtinput" id="block3path" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/">
+            
+            <h2>Caption</h2>
+            <input type="text" class="txtinput" id="block3cap" value="">
+            
+            <h2>URL</h2>
+            <input type="text" class="txtinput" id="block3url" value="">
+        </div>
+        <div class="row">
+            <h2>Thumbnail Path <span class="right">(620 X 222)</span></h2>
+            <input type="text" class="txtinput" id="block4path" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/">
+            
+            <h2>Caption</h2>
+            <input type="text" class="txtinput" id="block4cap" value="">
+            
+            <h2>URL</h2>
+            <input type="text" class="txtinput" id="block4url" value="">
+        </div>
+    </div>
+    <div class="right">
+    	<div class="row">
+	    	<h2>Code:</h2>
+			<textarea rows="29" id="block2Code" value="" class="txtinput"></textarea>
+    	</div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<br /><br />
+<div class="set" style="text-align:center">
+	<input type="submit" value="Generate ET Code" >
+</div>
+</form>
+<div id="build"></div>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	
+	var bannerWRAP = '<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" valign="middle"><a border="0" target="_blank"><img class="fullwidth" border="0" /></a></td></tr></tbody></table>'
+	
+	var introWRAP = '<table width="580" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center"><tbody><tr><td style="padding: 15px 5px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom: 15px; line-height: 20px; text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="left" class="item_container" %%=v(@Item_Container_Style)=%%><span id="myCopy"></span></td></tr></tbody></table><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr style="padding: 0px 50px;"><td align="center" bgcolor="#ffffff" style="padding: 0px 40px 10px;" class="item_container" %%=v(@Item_Container_Style)=%%><table class="fullwidth" align="center" border="0" cellspacing="0" cellpadding="0"></table>';
+
+	var ctaWRAP = '<table border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" class="blockme" valign="top" style="padding-right: 5px;"><table align="center" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center"></td></tr><tr><td align="center"><a class="myCTA"><img border="0" width="90%" /></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>';
+	
+	var feaWRAP = '<div style="height: 0px; display: none !important;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:13px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; line-height: 20px; display: inline-block; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; padding-top: 10px; font-weight: bold; font-family:\',@Title_Font,\'; font-size:16px; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:11px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650px" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 10px 40px 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="33%" align="center" style="padding-right:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="###FEA1URL###" class="f1a" target="_blank"><img class="centerme f1i" src="###FEA1PATH###" border="0" alt="###FEA1CAPTION###" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="f1c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">###FEA1CAPTION###</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-right: 5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="###FEA2URL###" target="_blank" class="f2a"><img class="centerme f2i" src="###FEA2PATH###" border="0" alt="###FEA2CAPTION###" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><tr><td class="description_text f2c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">###FEA2CAPTION###</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="###FEA3URL###" target="_blank" class="f3a"><img class="centerme f3i" src="###FEA3PATH###" border="0" alt="###FEA3CAPTION###" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="description_text f3c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">###FEA3CAPTION###</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>';
+
+	var blockWRAP = '<div style="display:none !important; height:0px;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:14px; line-height: 20px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; font-family:\',@Title_Font,\'; font-size:20px; font-weight: bold; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:14px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="###" class="block1a"><img class="fullwidth block1i" src="###" alt="###" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">###CAPTION#GOES#HERE###</td></tr><tr><td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="###" class="block1a"><span style="color:#00bfbd;">READ MORE</span></a></td></tr></tbody></table></td></tr></tbody></table>    </td><td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="###" class="block2a"><img class="fullwidth block2i" src="###" alt="###" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">###CAPTION#GOES#HERE###</td></tr><tr><td align="left" style="padding-top:10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="###" class="block2a"><span style="color:#00bfbd;">READ MORE</span></a></td></tr></tbody></table></td></tr></tbody></table>    </td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table>'
+
+    $('#form').submit(function( event ) {
+  		event.preventDefault();
+		
+		//BUILD BANNER OUTPUT
+		$('#build').append(bannerWRAP);
+		$('#build a').attr("href", $('#bannerlink').val());
+		$('#build img').attr("src", $('#bannerpath').val()).attr("title", $('#bannertitle').val()).attr("alt", $('#bannertitle').val());
+		$('#bannerCode').val($('#build').html());
+		$('#build').empty();
+		
+		//BUILD INTRO OUTPUT
+		$('#build').append(introWRAP).append(ctaWRAP);
+		$('#build #myCopy').replaceWith($('#intro').val());
+		
+		$('.myCTA').attr('href', $('#ctaLink').val()); // URL
+		if($('#ctatype').val() == 'cta1') {
+			$('.myCTA img').attr('src', 'http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now.png').attr('title', 'Shop Now').attr('alt', 'Shop Now');
+		}
+		else {
+			$('.myCTA img').attr('src', 'http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/buy-now.png').attr('title', 'Buy Now').attr('alt', 'Buy Now');
+		}
+		$('.myCTA').removeClass('myCTA');
+		$('#introCode').val($('#build').html());
+		$('#build').empty();
+		
+		//BUILD FEATURES
+		$('#build').append(feaWRAP);
+		$('#build .f1a').attr("href", $('#fea1url').val()).removeClass('f1a');
+		$('#build .f1i').attr("src", $('#fea1path').val()).attr("alt", $('#fea1cap').val()).removeClass('f1i');
+		$('#build .f1c').text($('#fea1cap').val()).removeClass('f1c');
+		
+		
+		$('#build .f2a').attr("href", $('#fea2url').val()).removeClass('f2a');
+		$('#build .f2i').attr("src", $('#fea2path').val()).attr("alt", $('#fea2cap').val()).removeClass('f2i');;
+		$('#build .f2c').text($('#fea2cap').val()).removeClass('f2c');
+		
+		$('#build .f3a').attr("href", $('#fea3url').val()).removeClass('f3a');
+		$('#build .f3i').attr("src", $('#fea3path').val()).attr("alt", $('#fea3cap').val()).removeClass('f3i');
+		$('#build .f3c').text($('#fea3cap').val()).removeClass('f3c');
+		$('#feaCode').val($('#build').html());
+		$('#build').empty();
+		
+		//BUILD FIRST TWO BLOCKS
+		$('#build').append(blockWRAP);
+		$('#build .block1a').attr("href", $('#block1url').val()).removeClass('block1a');
+		$('#build .block1i').attr("src", $('#block1path').val()).attr("alt", $('#block1cap').val()).removeClass('block1i');
+		$('#build .block1c').text($('#block1cap').val()).removeClass('block2c');
+		
+		$('#build .block2a').attr("href", $('#block2url').val()).removeClass('block2a');
+		$('#build .block2i').attr("src", $('#block2path').val()).attr("alt", $('#block2cap').val()).removeClass('block2i');
+		$('#build .block2c').text($('#block2cap').val()).removeClass('block2c');
+		
+		$('#block1Code').val($('#build').html());
+		$('#build').empty();
+		
+		//BUILD SECOND TWO BLOCKS
+		$('#build').append(blockWRAP);
+		$('#build .block1a').attr("href", $('#block3url').val()).removeClass('block1a');
+		$('#build .block1i').attr("src", $('#block3path').val()).attr("alt", $('#block3cap').val()).removeClass('block1i');
+		$('#build .block1c').text($('#block3cap').val()).removeClass('block2c');
+		
+		$('#build .block2a').attr("href", $('#block4url').val()).removeClass('block2a');
+		$('#build .block2i').attr("src", $('#block4path').val()).attr("alt", $('#block4cap').val()).removeClass('block2i');
+		$('#build .block2c').text($('#block4cap').val()).removeClass('block2c');
+		
+		$('#block2Code').val($('#build').html());
+		$('#build').empty();
+	});
+});
+</script>
+</body>
+</html>
+
