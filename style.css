@@ -1,0 +1,63 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {font-family:Arial, sans-serif;font-size:13px;padding:70px;background-color:#F9F9F9;}
+.txtinput {padding:10px;margin-bottom:15px;border:1px solid #AFAFAF;background-color:#f9f9f9;display:block;width:364px;border-radius:5px;border-top:2px solid #AFAFAF;color:#666666;}
+hr {margin-bottom:35px;}
+.set {width:880px;margin:auto;border:1px solid #CCCCCC;padding:3px;margin-bottom:20px;background-color:#f1f1f1;}
+.row {border-bottom:1px solid #CCCCCC;border-right:1px solid #CCCCCC;border-left:1px solid #CCCCCC;border-top:1px solid #FFFFFF;padding:12px 25px 8px 25px;}
+.set .row:first-child {border-top:1px solid #CCCCCC;}
+h1 {color:#646464;text-transform:uppercase;margin:12px 0px 12px 0px;text-align:center;font-weight:bold;}
+h2 {color:#646464;text-transform:uppercase;font-size:10px;letter-spacing:1px;margin-bottom:6px;}
+.left {float:left;}
+.right {float:right;}
+.clear {clear:both;}
+textarea{
+	resize: none !important;
+}
