@@ -1,6 +1,7 @@
 
 $(document).ready(function(e) {
 	
+	/*
 	var bannerWRAP = $.ajax({type: "GET", url: "partials/banner.html", async: false}).responseText;
 	
 	var introWRAP = $.ajax({type: "GET", url: "partials/intro.html", async: false}).responseText;
@@ -10,15 +11,24 @@ $(document).ready(function(e) {
 	var feaWRAP = $.ajax({type: "GET", url: "partials/features.html", async: false}).responseText;
 	
 	var blockWRAP = $.ajax({type: "GET", url: "partials/blockwrap.html", async: false}).responseText;
+	*/
+	
+	//Not working in chrome (localhost http request) temporarily based in vars.js file.
+	
+	var $buildArray = [];
 	
     $('#form').submit(function( event ) {
+  		
   		event.preventDefault();
+		
+		$buildArray = [];
 		
 		//BUILD BANNER OUTPUT
 		$('#build').append(bannerWRAP);
 		$('#build a').attr("href", $('#bannerlink').val());
 		$('#build img').attr("src", $('#bannerpath').val()).attr("title", $('#bannertitle').val()).attr("alt", $('#bannertitle').val());
 		$('#bannerCode').val($('#build').html());
+		$buildArray.push($('#bannerCode').val());
 		$('#build').empty();
 		
 		//BUILD INTRO OUTPUT
@@ -34,6 +44,7 @@ $(document).ready(function(e) {
 		}
 		$('.myCTA').removeClass('myCTA');
 		$('#introCode').val($('#build').html());
+		$buildArray.push($('#introCode').val());
 		$('#build').empty();
 		
 		//BUILD FEATURES
@@ -50,6 +61,7 @@ $(document).ready(function(e) {
 		$('#build .f3i').attr("src", $('#fea3path').val()).attr("alt", $('#fea3cap').val()).removeClass('f3i');
 		$('#build .f3c').text($('#fea3cap').val()).removeClass('f3c');
 		$('#feaCode').val($('#build').html());
+		$buildArray.push($('#feaCode').val());
 		$('#build').empty();
 		
 		//BUILD FIRST TWO BLOCKS
@@ -63,6 +75,7 @@ $(document).ready(function(e) {
 		$('#build .block2c').text($('#block2cap').val()).removeClass('block2c');
 		
 		$('#block1Code').val($('#build').html());
+		$buildArray.push($('#block1Code').val());
 		$('#build').empty();
 		
 		//BUILD SECOND TWO BLOCKS
@@ -76,6 +89,54 @@ $(document).ready(function(e) {
 		$('#build .block2c').text($('#block4cap').val()).removeClass('block2c');
 		
 		$('#block2Code').val($('#build').html());
+		$buildArray.push($('#block2Code').val());
 		$('#build').empty();
 	});
+	
+	$('#formContainer').addClass('active');
+	
+	$('#previewButton').click(function(event){
+	
+		event.preventDefault();
+		
+		if ($buildArray.length == 0) {
+			alert("You didn't do a build!");
+		}else{
+			$('.active').fadeOut(0);
+			$('.active').removeClass('active');
+			$('#preview').fadeIn(0);
+			$('#preview').addClass('active');
+			$('#preview>.container').append($buildArray);
+		}
+
+	});
+	
+	$('#sourceButton').click(function(event){
+	
+		event.preventDefault();
+		
+		if ($buildArray.length == 0) {
+			alert("You didn't do a build!");
+		}else{
+			$('.active').fadeOut(0);
+			$('.active').removeClass('active');
+			$('#source').fadeIn(0);
+			$('#source').addClass('active');
+			$('#source>.container').text($buildArray).append();
+		}
+	
+	});
+	
+	$('.exit').click(function(event){
+	
+		event.preventDefault();
+		
+		$('.active').fadeOut(0);
+		$('.active').removeClass('active');
+		$('.container').empty();
+		
+		$('#formContainer').fadeIn(0);
+		$('#formContainer').addClass('active');
+	
+	});	
 });

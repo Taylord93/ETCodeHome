@@ -8,6 +8,7 @@
 </head>
 
 <body>
+	<div id="formContainer">
 	<form id="form">
 	<div class="set">
 		<div  class="left">
@@ -165,19 +166,50 @@
 	    </div>
 	    <div class="clear"></div>
 	</div>
-	
-	
-	<br /><br />
-	<div class="set" style="text-align:center">
-		<input type="submit" value="Generate ET Code" >
-	</div>
+
+		<br />
+		<div class="set controls" style="text-align:center">
+			<input type="submit" value="Generate ET Code" >
+			<button id="previewButton">Preview</button>
+			<button id="sourceButton">View Source</button>
+			<!--
+			<button id="copySource" data-clipboard-target="builds">Copy Source</button>
+			-->
+		</div>
+		
 	</form>
 	<div id="build"></div>
 	
-	
 	<div id="testerDiv"></div>
+	</div>
+	
+	<div id="preview">
+	
+		<div class="exit">
+			<button class="exit">EXIT</button>
+		</div>
+		
+		<div class="container">
+		
+		</div>
+	
+	</div>
+	
+	<div id="source">
+	
+		<div class="exit">
+			<button class="exit">EXIT</button>
+		</div>
+		
+		<div class="container" name="builds" id="builds">
+			
+		</div>
+	
+	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!--<script src="ZeroClipboard.min.js"></script>-->
+	<script src="vars.js"></script>
 	<script src="script.js"></script>
 	</body>
 </html>
