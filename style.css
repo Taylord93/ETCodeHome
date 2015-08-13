@@ -185,9 +185,7 @@ button.exit {
 	margin: auto;
 	float: none;
 }
-button.exit:hover{
-	background: rgba(0, 0, 0, 0.2);
-}
+
 .controls button:hover, .controls input[type="submit"]:hover{
 	background: rgba(255, 255, 255, 0.1);
 }
@@ -214,6 +212,9 @@ a{
 }
 div.controls{
 	border: none !important;
+}
+button.exit:hover{
+	background: rgba(0, 0, 0, 0.2);
 }
 @keyframes reminder {
 	0%{
