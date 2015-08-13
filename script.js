@@ -21,11 +21,15 @@ $(document).ready(function(e) {
   		
   		event.preventDefault();
 		
+		$('.inactive').removeClass('inactive');
+		
 		if ($('#form input[type="submit"]').hasClass('errorAnimated')) {
 			$('#form input[type="submit"]').removeClass('errorAnimated');
 		}
 		
 		$('#form input[type="submit"]').addClass('done');
+		
+		$('.controls input[type="submit"]').val("Code Generated");
 		
 		$buildArray = [];
 		
@@ -134,6 +138,22 @@ $(document).ready(function(e) {
 			$('#source').fadeIn(0);
 			$('#source').addClass('active');
 			$('#source>.container').text($buildArray).append();
+		}
+	
+	});
+	
+	$('#clearButton').click(function(event){
+	
+		event.preventDefault();
+		
+		if ($buildArray.length == 0) {
+			$('#form input[type="submit"]').addClass('errorAnimated');
+		}else{
+			$buildArray.length = [];
+			$('textarea').val("");
+			$('#form input[type="submit"]').removeClass('done');
+			$('.controls input[type="submit"]').val("Generate Code");
+			$('.button').addClass('inactive');
 		}
 	
 	});

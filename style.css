@@ -18,7 +18,7 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
+	border: none;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
@@ -110,31 +110,34 @@ textarea{
 	resize: none !important;
 }
 #formContainer {
-    padding-top: 70px;
+    padding-top: 80px;
     padding-bottom: 20px;
 }
 .controls {
     position: fixed !important;
     top: 0px;
-    z-index: 2;
+    z-index: 20;
     left: 0px;
     right: 0px;
     width: 100%;
     padding: 0px;
-    margin: 0px;
-    height: 51px;
-    background: #2D2D2D none repeat scroll 0% 0%;
+    margin: 0px !important;
+    height: 60px;
+    background: #2D2D2D;
 }
-.controls button, .controls input[type="submit"] {
+button, input[type="submit"] {
     border-radius: 2px;
-    padding: 10px 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: auto;
     font-size: 15px;
     margin-left: 10px;
     margin-right: 10px;
     border: 1px solid #B4B4B4;
-    margin-top: 4px;
+    margin-top: 10px;
     color: #B4B4B4;
     background: none;
+    height: 40px;
 }
 .controls input[type="submit"] {
     float: left;
@@ -157,19 +160,13 @@ textarea{
 	float: none;
 	margin: auto;
 }
-div.exit {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 100;
-}
 button.exit {
     background: none;
     color: #963232;
     border: 1px solid #963232;
-    padding: 10px 20px;
     font-size: 15px;
     border-radius: 2px;
+    margin-left: 10px !important;
 }
 .container {
     text-align: center;
@@ -179,7 +176,7 @@ button.exit {
     margin: auto;
     float: none;
     height: 100%;
-    padding-top: 30px;
+    padding-top: 90px;
     padding-bottom: 30px;
     border-left: 20px solid rgb(35, 35, 35);
     border-right: 20px solid rgb(35, 35, 35);
@@ -198,15 +195,26 @@ button:focus, input[type="submit"]:focus{
 	outline: none;
 }
 input[type="submit"].done{
-	animation: gtg 0.5s ease-in-out;
-	animation-fill-mode: forwards;
+	border: 1px solid RGB(127, 194, 57);
+	color: RGB(127, 194, 57);
 }
 input[type="submit"].errorAnimated{
 	animation: reminder 2s ease-in-out;
 	animation-fill-mode: forwards;
 }
-
-
+.inactive{
+	border: 1px solid rgb(100, 100, 100) !important;
+	color: rgb(100, 100, 100) !important;
+}
+.inactive:hover{
+	background: none !important;
+}
+a{
+	text-decoration: none !important;
+}
+div.controls{
+	border: none !important;
+}
 @keyframes reminder {
 	0%{
 		border: 1px solid #B4B4B4;
@@ -231,15 +239,5 @@ input[type="submit"].errorAnimated{
 	100%{
 		color: #963232;
 		border: 1px solid #963232;
-	}
-}
-@keyframes gtg {
-	0%{
-		border: 1px solid #B4B4B4;
-		color: #B4B4B4;
-	}
-	100%{
-		border: 1px solid RGB(127, 194, 57);
-		color: RGB(127, 194, 57);
 	}
 }
