@@ -134,7 +134,7 @@ textarea{
     border: 1px solid #B4B4B4;
     margin-top: 4px;
     color: #B4B4B4;
-    background: transparent none repeat scroll 0% 0%;
+    background: none;
 }
 .controls input[type="submit"] {
     float: left;
@@ -150,7 +150,12 @@ textarea{
     min-height: 100%;
     width: 100%;
     display: none;
-    background: rgba(35, 35, 35, 0.9) none repeat scroll 0% 0%;
+    background: rgb(220, 220, 220);
+    text-align: center;
+}
+#preview .container{
+	float: none;
+	margin: auto;
 }
 div.exit {
     position: fixed;
@@ -159,7 +164,7 @@ div.exit {
     z-index: 100;
 }
 button.exit {
-    background: transparent none repeat scroll 0% 0%;
+    background: none;
     color: #963232;
     border: 1px solid #963232;
     padding: 10px 20px;
@@ -176,4 +181,65 @@ button.exit {
     height: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
+    border-left: 20px solid rgb(35, 35, 35);
+    border-right: 20px solid rgb(35, 35, 35);
+}
+.container table, .container div{
+	margin: auto;
+	float: none;
+}
+button.exit:hover{
+	background: rgba(0, 0, 0, 0.2);
+}
+.controls button:hover, .controls input[type="submit"]:hover{
+	background: rgba(255, 255, 255, 0.1);
+}
+button:focus, input[type="submit"]:focus{
+	outline: none;
+}
+input[type="submit"].done{
+	animation: gtg 0.5s ease-in-out;
+	animation-fill-mode: forwards;
+}
+input[type="submit"].errorAnimated{
+	animation: reminder 2s ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+
+@keyframes reminder {
+	0%{
+		border: 1px solid #B4B4B4;
+		color: #B4B4B4;
+	}
+	20%{
+		color: #963232;
+		border: 1px solid #963232;
+	}
+	40%{
+		border: 1px solid #B4B4B4;
+		color: #B4B4B4;
+	}
+	60%{
+		color: #963232;
+		border: 1px solid #963232;
+	}
+	80%{
+		border: 1px solid #B4B4B4;
+		color: #B4B4B4;
+	}
+	100%{
+		color: #963232;
+		border: 1px solid #963232;
+	}
+}
+@keyframes gtg {
+	0%{
+		border: 1px solid #B4B4B4;
+		color: #B4B4B4;
+	}
+	100%{
+		border: 1px solid RGB(127, 194, 57);
+		color: RGB(127, 194, 57);
+	}
 }

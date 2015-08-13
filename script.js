@@ -21,6 +21,12 @@ $(document).ready(function(e) {
   		
   		event.preventDefault();
 		
+		if ($('#form input[type="submit"]').hasClass('errorAnimated')) {
+			$('#form input[type="submit"]').removeClass('errorAnimated');
+		}
+		
+		$('#form input[type="submit"]').addClass('done');
+		
 		$buildArray = [];
 		
 		//BUILD BANNER OUTPUT
@@ -36,12 +42,17 @@ $(document).ready(function(e) {
 		$('#build #myCopy').replaceWith($('#intro').val());
 		
 		$('.myCTA').attr('href', $('#ctaLink').val()); // URL
+		
 		if($('#ctatype').val() == 'cta1') {
 			$('.myCTA img').attr('src', 'http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now.png').attr('title', 'Shop Now').attr('alt', 'Shop Now');
-		}
-		else {
+		}else if ($('#ctatype').val() == 'cta2'){
 			$('.myCTA img').attr('src', 'http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/buy-now.png').attr('title', 'Buy Now').attr('alt', 'Buy Now');
+		}else if ($('#ctatype').val() == 'cta3'){
+			$('.myCTA img').attr('src', 'http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/learn-more.png').attr('title', 'Buy Now').attr('alt', 'Learn More');
+		}else {
+			$('.myCTA img').attr('src', 'http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/enter-to-win.png').attr('title', 'Buy Now').attr('alt', 'Enter to Win');
 		}
+		
 		$('.myCTA').removeClass('myCTA');
 		$('#introCode').val($('#build').html());
 		$buildArray.push($('#introCode').val());
@@ -100,7 +111,7 @@ $(document).ready(function(e) {
 		event.preventDefault();
 		
 		if ($buildArray.length == 0) {
-			alert("You didn't do a build!");
+			$('#form input[type="submit"]').addClass('errorAnimated');
 		}else{
 			$('.active').fadeOut(0);
 			$('.active').removeClass('active');
@@ -116,7 +127,7 @@ $(document).ready(function(e) {
 		event.preventDefault();
 		
 		if ($buildArray.length == 0) {
-			alert("You didn't do a build!");
+			$('#form input[type="submit"]').addClass('errorAnimated');
 		}else{
 			$('.active').fadeOut(0);
 			$('.active').removeClass('active');
@@ -139,4 +150,5 @@ $(document).ready(function(e) {
 		$('#formContainer').addClass('active');
 	
 	});	
+	
 });
