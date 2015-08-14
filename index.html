@@ -2,228 +2,224 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
+	<meta charlarge-6 columns="UTF-8">
 	<title>ET Code Home</title>
 	<link rel="stylesheet" href="css/normalize.css" />
-	<link rel="stylesheet" href="foundation.min.css" />
-	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="css/foundation.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
 	
 	<script src="js/vendor/jquery.js"></script>
 	
 	<script src="js/angular/angular.min.js"></script>
-	<script src="js/angular-route.js"></script>
+	<script src="js/angular/angular-route.js"></script>
+	<script src="js/angular/angular-sanitize.js"></script>
 	
-	<script src="vars.js"></script>
+	<script src="js/vars.js"></script>
 	
-	<script src="app.js"></script>
+	<script src="js/angular/app.js"></script>
 	
 </head>
 
-<body>
-	<div id="formContainer">
-	<form id="form">
-	<div class="set">
-		<div  class="left">
-	        <div class="row">
-	            <h2>Banner Image Path <span class="right">(690 x 374)</span></h2>
-	            <input type="text" class="txtinput" id="bannerpath" value="http://placehold.it/690x374">
-	        </div>
-			<div class="row">
-	            <h2>Banner Image Link</h2>
-	            <input type="text" class="txtinput" id="bannerlink" value="http://www.">
-	        </div>
-	        <div class="row">
-	            <h2>Banner Image Title/Alt</h2>
-	            <input type="text" class="txtinput" id="bannertitle"  value="Evenflo">
-	        </div>
-		</div>
-	    <div class="right">
-	    	<div class="row">
-	       	  <h2>Banner Code:</h2>
-				<textarea rows="13" class="txtinput" id="bannerCode" value=""></textarea>
-	    	</div>
-	    </div>
-	    <div class="clear"></div>
-	</div>
-	<div class="set">
-	    <div class="left">
-	        <div class="row">
-	            <h2>Intro Copy (HTML)</h2>
-	            <textarea class="txtinput" id="intro" rows="6" placeholder="The Evenflo ADVANCED SensorSafe&trade; EMBRACE&trade; DLX Infant Car Seat and the ADVANCED SensorSafe&trade; Epic Travel System are now available on &lt;a href=“http://www.walmart.com/search/?query=Evenflo+SensorSafe”&gt;walmart.com&lt;/a&gt;. When a simple reminder can save a life, it just makes sense." value=""></textarea>
-	        </div>
-	        <div class="row">
-	            <h2>Call to Action URL</h2>
-	            <input type="text" class="txtinput" id="ctaLink" value="http://www.">
-	
-	            <h2>Call to Action Type</h2>
-	            <select id="ctatype">
-	                <option value="cta1" label="Shop Now"/>Shop Now
-	                <option value="cta2" label="Buy Now"/>Buy Now
-	                <option value="cta3" label="Learn More"/>Learn More
-	                <option value="cta4" label="Enter to Win"/>Enter To Win
-	            </select>
-	        </div>
-	    </div>
-	    <div class="right">
-	    	<div class="row">
-		    	<h2>Intro Code:</h2>
-				<textarea rows="15" id="introCode" value="" class="txtinput"></textarea>
-	    	</div>
-	    </div>
-	    <div class="clear"></div>
-	</div>
-	<div class="set">
-		<h1>THREE-COLUMN SECTION</h1>
-	    <div class="left">
-	        <div class="row">
-	            <h2>Thumbnail Path <span class="right">(180 X 99)</span></h2>
-	            <input type="text" class="txtinput" id="fea1path" value="http://placehold.it/180x99">
-	            
-	            <h2>Caption</h2>
-	            <input type="text" class="txtinput" id="fea1cap" value="">
-	            
-	            <h2>URL</h2>
-	            <input type="text" class="txtinput" id="fea1url" value="">
-	        </div>
-	        <div class="row">
-	            <h2>Thumbnail Path <span class="right">(180 X 99)</span></h2>
-	            <input type="text" class="txtinput" id="fea2path" value="http://placehold.it/180x99">
-	            
-	            <h2>Caption</h2>
-	            <input type="text" class="txtinput" id="fea2cap" value="">
-	            
-	            <h2>URL</h2>
-	            <input type="text" class="txtinput" id="fea2url" value="">
-	        </div>
-	        <div class="row">
-	            <h2>Thumbnail  Path <span class="right">(180 X 99)</span></h2>
-	            <input type="text" class="txtinput" id="fea3path" value="http://placehold.it/180x99">
-	            
-	            <h2>Caption</h2>
-	            <input type="text" class="txtinput" id="fea3cap" value="">
-	            
-	            <h2>URL</h2>
-	            <input type="text" class="txtinput" id="fea3url" value="">
-	        </div>
-	    </div>
-	    <div class="right">
-	    	<div class="row">
-		    	<h2>Features Code:</h2>
-				<textarea rows="45" id="feaCode" value="" class="txtinput"></textarea>
-	    	</div>
-	    </div>
-	    <div class="clear"></div>
-	</div>
-	
-	<div class="set">
-		<h1>TWO-COLUMN SECTION</h1>
-	    <div class="left">
-	        <div class="row">
-	            <h2>Thumbnail Path <span class="right">(620 X 222)</span></h2>
-	            <input type="text" class="txtinput" id="block1path" value="http://placehold.it/620x222">
-	            
-	            <h2>Caption</h2>
-	            <input type="text" class="txtinput" id="block1cap" value="">
-	            
-	            <h2>URL</h2>
-	            <input type="text" class="txtinput" id="block1url" value="">
-	        </div>
-	        <div class="row">
-	            <h2>Thumbnail Path <span class="right">(620 X 222)</span></h2>
-	            <input type="text" class="txtinput" id="block2path" value="http://placehold.it/620x222">
-	            
-	            <h2>Caption</h2>
-	            <input type="text" class="txtinput" id="block2cap" value="">
-	            
-	            <h2>URL</h2>
-	            <input type="text" class="txtinput" id="block2url" value="">
-	        </div>
-	    </div>
-	    <div class="right">
-	    	<div class="row">
-		    	<h2>Code:</h2>
-				<textarea rows="29" id="block1Code" value="" class="txtinput"></textarea>
-	    	</div>
-	    </div>
-	    <div class="clear"></div>
-	</div>
-	
-	<div class="set">
-		<h1>TWO-COLUMN SECTION</h1>
-	    <div class="left">
-	        <div class="row">
-	            <h2>Thumbnail Path <span class="right">(620 X 222)</span></h2>
-	            <input type="text" class="txtinput" id="block3path" value="http://placehold.it/620x222">
-	            
-	            <h2>Caption</h2>
-	            <input type="text" class="txtinput" id="block3cap" value="">
-	            
-	            <h2>URL</h2>
-	            <input type="text" class="txtinput" id="block3url" value="">
-	        </div>
-	        <div class="row">
-	            <h2>Thumbnail Path <span class="right">(620 X 222)</span></h2>
-	            <input type="text" class="txtinput" id="block4path" value="http://placehold.it/620x222">
-	            
-	            <h2>Caption</h2>
-	            <input type="text" class="txtinput" id="block4cap" value="">
-	            
-	            <h2>URL</h2>
-	            <input type="text" class="txtinput" id="block4url" value="">
-	        </div>
-	    </div>
-	    <div class="right">
-	    	<div class="row">
-		    	<h2>Code:</h2>
-				<textarea rows="29" id="block2Code" value="" class="txtinput"></textarea>
-	    	</div>
-	    </div>
-	    <div class="clear"></div>
-	</div>
-	
-	<div class="set controls" style="text-align:center">
-		<input type="submit" value="Generate Code" >
-		<button id="previewButton" class="inactive button">Preview</button>
-		<button id="sourceButton" class="inactive button">View Source</button>
-		<button id="clearButton" class="inactive button">Clear</button>
-		<!--
-		<button id="copySource" data-clipboard-target="builds">Copy Source</button>
-		-->
-	</div>
-		
-	</form>
-	<div id="build"></div>
-	
-	<div id="testerDiv"></div>
-	</div>
-	
-	<div id="preview">
-	
-		<div class="controls">
-			<button class="exit">EXIT</button>
-		</div>
-		
-		<div class="container">
-		
-		</div>
-	
-	</div>
-	
-	<div id="source">
-	
-		<div class="controls">
-			<button class="exit">EXIT</button>
-		</div>
-		
-		<div class="container" name="builds" id="builds">
-			
-		</div>
-	
-	</div>
+<body ng-app="codegen">
 
+	<div id="container">
+	
+		<div class="small-12 medium-6 large-5 columns banner" ng-controller="bannerController">
+		
+			<div  class="large-12 columns">
+		        <div class="row">
+		            <h2>Banner Image Path (690 x 374)</h2>
+		            <input type="text" class="txtinput" id="bannerpath" value="http://placehold.it/690x374" ng-model="src">
+		        </div>
+				<div class="row">
+		            <h2>Banner Image Link</h2>
+		            <input type="text" class="txtinput" id="bannerlink" value="http://www." ng-model="href">
+		        </div>
+		        <div class="row">
+		            <h2>Banner Image Title/Alt</h2>
+		            <input type="text" class="txtinput" id="bannertitle"  placeholder="Evenflo" ng-model="alt">
+		        </div>
+			</div>
+		    <!--
+		    	Banner Email HTML
+		    -->
+		    <xmp class="banner large-12 columns"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" valign="middle"><a href="{{ href }}" border="0" target="_blank"><img class="fullwidth" border="0" src="{{ src }}" alt="{{ alt }}"/></a></td></tr></tbody></table>
+		    </xmp>
+		    
+		</div>
+		<!--
+		<div class="large-6 columns">
+		
+		    <div class="large-6 columns">
+		    
+		        <div class="row">
+		            <h2>Intro Copy (HTML)</h2>
+		            <textarea class="txtinput" id="intro" rows="6" placeholder="The Evenflo ADVANCED SensorSafe&trade; EMBRACE&trade; DLX Infant Car Seat and the ADVANCED SensorSafe&trade; Epic Travel System are now available on &lt;a href=“http://www.walmart.com/search/?query=Evenflo+SensorSafe”&gt;walmart.com&lt;/a&gt;. When a simple reminder can save a life, it just makes sense." value=""></textarea>
+		        </div>
+		        
+		        <div class="row">
+		            <h2>Call to Action URL</h2>
+		            <input type="text" class="txtinput" id="ctaLink" value="http://www.">
+		
+		            <h2>Call to Action Type</h2>
+		            <select id="ctatype">
+		                <option value="cta1" label="Shop Now"/>Shop Now
+		                <option value="cta2" label="Buy Now"/>Buy Now
+		                <option value="cta3" label="Learn More"/>Learn More
+		                <option value="cta4" label="Enter to Win"/>Enter To Win
+		            </select>
+		        </div>
+		    </div>
+		    
+		    <div class="large-6 columns">
+		    	<div class="row">
+			    	<h2>Intro Code:</h2>
+					<textarea rows="15" id="introCode" value="" class="txtinput"></textarea>
+		    	</div>
+		    </div>
+		   
+		</div>
+		
+		<div class="large-6 columns">
+			<h1>THREE-COLUMN SECTION</h1>
+		    <div class="large-6 columns">
+		        <div class="row">
+		            <h2>Thumbnail Path <span class="large-6 columns">(180 X 99)</span></h2>
+		            <input type="text" class="txtinput" id="fea1path" value="http://placehold.it/180x99">
+		            
+		            <h2>Caption</h2>
+		            <input type="text" class="txtinput" id="fea1cap" value="">
+		            
+		            <h2>URL</h2>
+		            <input type="text" class="txtinput" id="fea1url" value="">
+		        </div>
+		        <div class="row">
+		            <h2>Thumbnail Path <span class="large-6 columns">(180 X 99)</span></h2>
+		            <input type="text" class="txtinput" id="fea2path" value="http://placehold.it/180x99">
+		            
+		            <h2>Caption</h2>
+		            <input type="text" class="txtinput" id="fea2cap" value="">
+		            
+		            <h2>URL</h2>
+		            <input type="text" class="txtinput" id="fea2url" value="">
+		        </div>
+		        <div class="row">
+		            <h2>Thumbnail  Path <span class="large-6 columns">(180 X 99)</span></h2>
+		            <input type="text" class="txtinput" id="fea3path" value="http://placehold.it/180x99">
+		            
+		            <h2>Caption</h2>
+		            <input type="text" class="txtinput" id="fea3cap" value="">
+		            
+		            <h2>URL</h2>
+		            <input type="text" class="txtinput" id="fea3url" value="">
+		        </div>
+		    </div>
+		    <div class="large-6 columns">
+		    	<div class="row">
+			    	<h2>Features Code:</h2>
+					<textarea rows="45" id="feaCode" value="" class="txtinput"></textarea>
+		    	</div>
+		    </div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="large-6 columns">
+			<h1>TWO-COLUMN SECTION</h1>
+		    <div class="large-6 columns">
+		        <div class="row">
+		            <h2>Thumbnail Path <span class="large-6 columns">(620 X 222)</span></h2>
+		            <input type="text" class="txtinput" id="block1path" value="http://placehold.it/620x222">
+		            
+		            <h2>Caption</h2>
+		            <input type="text" class="txtinput" id="block1cap" value="">
+		            
+		            <h2>URL</h2>
+		            <input type="text" class="txtinput" id="block1url" value="">
+		        </div>
+		        <div class="row">
+		            <h2>Thumbnail Path <span class="large-6 columns">(620 X 222)</span></h2>
+		            <input type="text" class="txtinput" id="block2path" value="http://placehold.it/620x222">
+		            
+		            <h2>Caption</h2>
+		            <input type="text" class="txtinput" id="block2cap" value="">
+		            
+		            <h2>URL</h2>
+		            <input type="text" class="txtinput" id="block2url" value="">
+		        </div>
+		    </div>
+		    <div class="large-6 columns">
+		    	<div class="row">
+			    	<h2>Code:</h2>
+					<textarea rows="29" id="block1Code" value="" class="txtinput"></textarea>
+		    	</div>
+		    </div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="large-6 columns">
+			<h1>TWO-COLUMN SECTION</h1>
+		    <div class="large-6 columns">
+		        <div class="row">
+		            <h2>Thumbnail Path <span class="large-6 columns">(620 X 222)</span></h2>
+		            <input type="text" class="txtinput" id="block3path" value="http://placehold.it/620x222">
+		            
+		            <h2>Caption</h2>
+		            <input type="text" class="txtinput" id="block3cap" value="">
+		            
+		            <h2>URL</h2>
+		            <input type="text" class="txtinput" id="block3url" value="">
+		        </div>
+		        <div class="row">
+		            <h2>Thumbnail Path <span class="large-6 columns">(620 X 222)</span></h2>
+		            <input type="text" class="txtinput" id="block4path" value="http://placehold.it/620x222">
+		            
+		            <h2>Caption</h2>
+		            <input type="text" class="txtinput" id="block4cap" value="">
+		            
+		            <h2>URL</h2>
+		            <input type="text" class="txtinput" id="block4url" value="">
+		        </div>
+		    </div>
+		    <div class="large-6 columns">
+		    	<div class="row">
+			    	<h2>Code:</h2>
+					<textarea rows="29" id="block2Code" value="" class="txtinput"></textarea>
+		    	</div>
+		    </div>
+		    <div class="clear"></div>
+		</div>
+		
+		<div class="large-6 columns controls" style="text-align:center">
+			<input type="submit" value="Generate Code" >
+			<button id="previewButton" class="inactive button">Preview</button>
+			<button id="sourceButton" class="inactive button">View Source</button>
+			<button id="clearButton" class="inactive button">Clear</button>
+		</div>
+		<div id="build"></div>
+		
+		<div id="testerDiv"></div>
+		
+	</div>
+	-->
+	</div>
+	<div class="small-12 medium-6 large-7 columns">
+		<nav id="viewerNav">
+			<button id="design">View Design</button>
+			<button id="code">View Code</button>
+		</nav>
+		<div id="viewer"></div>
+	</div>
+	
+	<script src="js/zeroclipboard.min.js"></script>
 	<script src="js/foundation.min.js"></script>
 	
-	<script src="script.js"></script>
+	<script src="js/script.js"></script>
+	
+	<script>
+	$(document).foundation();
+	</script>
 	
 	</body>
 </html>

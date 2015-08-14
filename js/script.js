@@ -1,7 +1,7 @@
-
+/*
 $(document).ready(function(e) {
 	
-	/*
+	
 	var bannerWRAP = $.ajax({type: "GET", url: "partials/banner.html", async: false}).responseText;
 	
 	var introWRAP = $.ajax({type: "GET", url: "partials/intro.html", async: false}).responseText;
@@ -11,7 +11,7 @@ $(document).ready(function(e) {
 	var feaWRAP = $.ajax({type: "GET", url: "partials/features.html", async: false}).responseText;
 	
 	var blockWRAP = $.ajax({type: "GET", url: "partials/blockwrap.html", async: false}).responseText;
-	*/
+	
 	
 	//Not working in chrome (localhost http request) temporarily based in vars.js file.
 	
@@ -172,3 +172,38 @@ $(document).ready(function(e) {
 	});	
 	
 });
+*/
+$(window).ready(function(){
+	
+	var orig = $('xmp.banner').clone(true).html();
+	var unes = unescape(orig)
+	var html = $.parseHTML(unes);
+	$('#viewer').append(html);
+	
+});
+
+$('input').focus(function(){
+	
+	if ($(this).hasClass("dirty")) {
+		
+	}else {
+		$(this).val("");
+		$(this).addClass("dirty");
+	}
+	
+});
+
+$('input[type="text"]').change(function(){
+	
+	$('#viewer').empty();
+	var orig = $('xmp.banner').clone(true).html();
+	var unes = unescape(orig)
+	var html = $.parseHTML(unes);
+	$('#viewer').append(html);
+	console.log(html);
+	
+});
+
+
+
+

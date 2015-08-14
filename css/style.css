@@ -1,3 +1,4 @@
+/*
 .txtinput {
 	padding:10px;
 	margin-bottom:15px;
@@ -43,6 +44,7 @@ h2 {
 	letter-spacing:1px;
 	margin-bottom:6px;
 }
+
 .left {
 	float:left;
 }
@@ -161,6 +163,10 @@ a{
 div.controls{
 	border: none !important;
 }
+
+
+
+*/
 @keyframes reminder {
 	0%{
 		border: 1px solid #B4B4B4;
@@ -186,4 +192,34 @@ div.controls{
 		color: #963232;
 		border: 1px solid #963232;
 	}
+}
+xmp, pre, code{
+	width: 450px;
+	background: white;
+	overflow-y: visible;
+	word-break: normal;
+	height: 300px !important;
+	word-wrap: break-word;
+	clear: both;
+}
+h2{
+	font-size: 1em;
+}
+input{
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+#viewer{
+	margin: auto;
+	width: auto;
+	float: none;
+}
+#viewer table, #viewer div{
+	float: none;
+	margin: auto;
+}
+#viewer>*{
+	margin: 0px;
+	padding: 0px;
+	float: none;
 }
