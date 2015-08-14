@@ -1,19 +1,41 @@
 var app = angular.module('codegen', []);
 
 app.controller('bannerController', ['$scope', function($scope) {
-		//$scope.src = $('input#bannerpath').change().val();
-		//$scope.alt = $('input#bannertitle').change().val();
-		//$scope.href = $('input#bannerlink').change().val();
-		$scope.code = '<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" valign="middle"><a href="'+ $scope.href +'" border="0" target="_blank"><img class="fullwidth" border="0" src="'+$scope.src+'" alt="'+$scope.alt+'"/></a></td></tr></tbody></table>';
-		//$scope.src = 'bob';
 		
 }]);	
+app.controller('ctaController', ['$scope', function($scope) {
+		
+}]);	
+
+
 app.filter('rawHtml', ['$sce', function($sce){
   return function(val) {
     return $sce.trustAsHtml(val);
   };
 }]);
 app.directive('input', function ($parse) {
+  return {
+    restrict: 'E',
+    require: '?ngModel',
+    link: function (scope, element, attrs) {
+      if (attrs.ngModel && attrs.value) {
+        $parse(attrs.ngModel).assign(scope, attrs.value);
+      }
+    }
+  };
+});
+app.directive('textarea', function ($parse) {
+  return {
+    restrict: 'E',
+    require: '?ngModel',
+    link: function (scope, element, attrs) {
+      if (attrs.ngModel && attrs.value) {
+        $parse(attrs.ngModel).assign(scope, attrs.value);
+      }
+    }
+  };
+});
+app.directive('select', function ($parse) {
   return {
     restrict: 'E',
     require: '?ngModel',

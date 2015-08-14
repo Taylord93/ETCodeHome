@@ -24,9 +24,9 @@
 
 <body ng-app="codegen">
 
-	<div id="container">
+	<div id="container small-12 medium-6 large-5 columns">
 	
-		<div class="small-12 medium-6 large-5 columns banner" ng-controller="bannerController">
+		<div class="large-6 columns banner" ng-controller="bannerController">
 		
 			<div  class="large-12 columns">
 		        <div class="row">
@@ -45,42 +45,36 @@
 		    <!--
 		    	Banner Email HTML
 		    -->
-		    <xmp class="banner large-12 columns"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" valign="middle"><a href="{{ href }}" border="0" target="_blank"><img class="fullwidth" border="0" src="{{ src }}" alt="{{ alt }}"/></a></td></tr></tbody></table>
-		    </xmp>
+		    <xmp class="banner large-12 columns"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" valign="middle"><a href="{{ href }}" border="0" target="_blank"><img class="fullwidth" border="0" src="{{ src }}" alt="{{ alt }}"/></a></td></tr></tbody></table></xmp>
 		    
 		</div>
-		<!--
-		<div class="large-6 columns">
+		
+		<div class="large-6 columns clear" ng-controller="ctaController">
 		
 		    <div class="large-6 columns">
 		    
 		        <div class="row">
 		            <h2>Intro Copy (HTML)</h2>
-		            <textarea class="txtinput" id="intro" rows="6" placeholder="The Evenflo ADVANCED SensorSafe&trade; EMBRACE&trade; DLX Infant Car Seat and the ADVANCED SensorSafe&trade; Epic Travel System are now available on &lt;a href=“http://www.walmart.com/search/?query=Evenflo+SensorSafe”&gt;walmart.com&lt;/a&gt;. When a simple reminder can save a life, it just makes sense." value=""></textarea>
+		            <textarea class="txtinput" id="intro" rows="6" value="The Evenflo ADVANCED SensorSafe&trade; EMBRACE&trade; DLX Infant Car Seat and the ADVANCED SensorSafe&trade; Epic Travel System are now available on &lt;a href=“http://www.walmart.com/search/?query=Evenflo+SensorSafe”&gt;walmart.com&lt;/a&gt;. When a simple reminder can save a life, it just makes sense." ng-model="copy"></textarea>
 		        </div>
 		        
 		        <div class="row">
 		            <h2>Call to Action URL</h2>
-		            <input type="text" class="txtinput" id="ctaLink" value="http://www.">
+		            <input type="text" class="txtinput" id="ctaLink" value="http://www." ng-model="href">
 		
 		            <h2>Call to Action Type</h2>
-		            <select id="ctatype">
-		                <option value="cta1" label="Shop Now"/>Shop Now
-		                <option value="cta2" label="Buy Now"/>Buy Now
-		                <option value="cta3" label="Learn More"/>Learn More
-		                <option value="cta4" label="Enter to Win"/>Enter To Win
+		            <select id="ctatype" ng-model="type" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now.png">
+		                <option value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now.png" label="Shop Now"/>Shop Now
+		                <option value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/buy-now.png" label="Buy Now"/>Buy Now
+		                <option value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/learn-more.png" label="Learn More"/>Learn More
+		                <option value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/enter-to-win.png" label="Enter to Win"/>Enter To Win
 		            </select>
 		        </div>
 		    </div>
 		    
-		    <div class="large-6 columns">
-		    	<div class="row">
-			    	<h2>Intro Code:</h2>
-					<textarea rows="15" id="introCode" value="" class="txtinput"></textarea>
-		    	</div>
-		    </div>
-		   
+		    <xmp class="cta large-12 columns"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" class="blockme" valign="top" style="padding-right: 5px;"><table align="center" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center">{{ copy }}</td></tr><tr><td align="center"><a class="myCTA" href="{{ href }}"><img border="0" width="90%" src="{{ type }}" /></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
 		</div>
+		<!--
 		
 		<div class="large-6 columns">
 			<h1>THREE-COLUMN SECTION</h1>
@@ -204,6 +198,8 @@
 	</div>
 	-->
 	</div>
+	
+	
 	<div class="small-12 medium-6 large-7 columns">
 		<nav id="viewerNav">
 			<button id="design">View Design</button>
