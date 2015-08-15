@@ -211,6 +211,21 @@ $('input[type="text"], textarea, select').change(function(){
 	
 });
 
+$('.source').click(function(event){
+	
+	event.preventDefault();
 
+	if ($(this).hasClass("sourceOpen")) {
+		$('xmp').slideUp();
+		$(this).text("View Source");
+		$(this).removeClass("sourceOpen");
+	}else {
+		$('xmp').slideUp();
+		$('.sourceOpen').text("View Source");
+		$('.sourceOpen').removeClass('sourceOpen');
+		$(this).parent().siblings().slideDown();
+		$(this).text("Hide Source");
+		$(this).addClass("sourceOpen");
+	}
 
-
+});

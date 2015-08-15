@@ -193,14 +193,19 @@ div.controls{
 		border: 1px solid #963232;
 	}
 }
-xmp, pre, code{
-	width: 450px;
-	background: white;
-	overflow-y: visible;
+xmp{
 	word-break: normal;
-	height: 300px !important;
 	word-wrap: break-word;
 	clear: both;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 1px solid rgb(200, 200, 200);
+	display: none;
+	background: white;
+	margin: 0px;
+}
+xmp:focus{
+	outline: none;
 }
 h2{
 	font-size: 1em;
@@ -209,17 +214,19 @@ input{
 	padding-top: 2px;
 	padding-bottom: 2px;
 }
-#viewer{
-	margin: auto;
-	width: auto;
-	float: none;
+textarea{
+	resize: none;
 }
-#viewer table, #viewer div{
-	float: none;
-	margin: auto;
+.build{
+	background: rgb(225, 225, 225);
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
-#viewer>*{
-	margin: 0px;
-	padding: 0px;
-	float: none;
+.build{
+	
+}
+button:focus, input:focus, select:focus, textbox:focus, a:focus{
+	outline: none;
 }

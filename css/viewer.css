@@ -1,0 +1,55 @@
+#viewer html, #viewer body, #viewer div, #viewer span, #viewer applet, #viewer object, #viewer iframe,
+h1, #viewer h2, #viewer h3, #viewer h4, #viewer h5, #viewer h6, #viewer p, #viewer blockquote, #viewer pre,
+a, #viewer abbr, #viewer acronym, #viewer address, #viewer big, #viewer cite, #viewer code,
+del, #viewer dfn, #viewer em, #viewer img, #viewer ins, #viewer kbd, #viewer q, #viewer s, #viewer samp,
+small, #viewer strike, #viewer strong, #viewer sub, #viewer sup, #viewer tt, #viewer var,
+b, #viewer u, #viewer i, #viewer center,
+dl, #viewer dt, #viewer dd, #viewer ol, #viewer ul, #viewer li,
+fieldset, #viewer form, #viewer label, #viewer legend,
+table, #viewer caption, #viewer tbody, #viewer tfoot, #viewer thead, #viewer tr, #viewer th, #viewer td,
+#viewer article, #viewer aside, #viewer canvas, #viewer details, #viewer embed, #viewer 
+figure, #viewer figcaption, #viewer footer, #viewer header, #viewer hgroup, #viewer 
+menu, #viewer nav, #viewer output, #viewer ruby, #viewer section, #viewer summary,
+time, #viewer mark, #viewer audio, #viewer video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	float: none;
+}
+/* HTML5 display-role reset for older browsers */
+#viewer article, #viewer aside, #viewer details, #viewer figcaption, #viewer figure,
+#viewer footer, #viewer header, #viewer hgroup, #viewer menu, #viewer nav, #viewer section {
+	display: block;
+}
+#viewer body {
+	line-height: 1;
+}
+#viewer ol, #viewer ul {
+	list-style: none;
+}
+#viewer blockquote, #viewer q {
+	quotes: none;
+}
+#viewer blockquote:before, #viewer blockquote:after,
+#viewer q:before, #viewer q:after {
+	content: '';
+	content: none;
+}
+#viewer table{
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: auto;
+	float: none;
+}
+#viewer{
+	max-width: 690px;
+	margin: auto;
+	float: none;
+	margin-top: 20px;
+}
+#viewer>table{
+	max-width: 100% !important;
+}
