@@ -5,6 +5,9 @@ app.controller('bannerController', ['$scope', function($scope) {
 }]);	
 app.controller('ctaController', ['$scope', function($scope) {
 		
+}]);
+app.controller('feaController', ['$scope', function($scope) {
+		
 }]);	
 
 

@@ -27,209 +27,261 @@
 	
 	<div class="fixed">
 		<nav class="top-bar" data-topbar role="navigation">
-		  <section class="top-bar-section">
+		 <section class="top-bar-section">
 
-		    <ul class="left">
-		      <li><a href="#">Regenerate</a></li>
-		      <li class="has-dropdown">
-		        <a href="#">Layout</a>
-		        <ul class="dropdown">
-		          <li class="active"><a href="#">Default</a></li>
-		          <li><a href="#">Product Alert</a></li>
-		          <li><a href="#">Product Update</a></li>
-		        </ul>
-		      </li>
-		    </ul>
+		   <ul class="left">
+		     <li><a href="#">Regenerate</a></li>
+		     <li class="has-dropdown">
+		       <a href="#">Layout</a>
+		       <ul class="dropdown">
+		         <li class="active"><a href="#">Default</a></li>
+		         <li><a href="#">Product Alert</a></li>
+		         <li><a href="#">Product Update</a></li>
+		       </ul>
+		     </li>
+		     <li><a href="#" class="collapseAll">Collapse All</a></li>
+		   </ul>
 			
-		    <ul class="right">
+		   <ul class="right">
 		    	<li class="divider"></li>
 		      	<li><a href="#">Show Design</a></li>
 		      	<li><a href="#">Show Code</a></li>
-		    </ul>
+		   </ul>
 		    
-		  </section>
+		 </section>
 		</nav>
 	</div>
 
 	<div id="container">
 	
 		<div class="small-12 medium-6 large-5 columns">
-		
-			<div id="bannerBuild" class="large-12 columns banner build section" ng-controller="bannerController">
 			
-				<div  class="large-12 columns">
-			        <div class="row">
-			            <label>Banner Image Path (690 x 374)
-			            	<input type="text" class="txtinput" id="bannerpath" value="http://placehold.it/690x374" ng-model="src" />
-			            </label>
-			        </div>
+			<div class="banner">
+				<div class="header small-12 columns banner">
+					<div class="left">
+						<h2>Banner</h2>
+					</div>
+					<div class="right">
+						<a class="settings"><i class="fa fa-cog"></i></a>
+						<div class="vis">
+							<a class="collapser"><i class="fa fa-minus"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="large-12 columns banner build section close-top visible" ng-controller="bannerController">
 					<div class="row">
-			            <label>Banner Image Link
-			            	<input type="text" class="txtinput" id="bannerlink" value="http://www." ng-model="href" />
-			            </label>
-			        </div>
-			        <div class="row">
-			            <label>Banner Image Title/Alt
-			            	<input type="text" class="txtinput" id="bannertitle"  placeholder="Evenflo" ng-model="alt" />
-			            </label>
-			        </div>
+						<label>Image URL (690 x 374)
+							<input type="text" class="txtinput" value="http://placehold.it/690x374" ng-model="src" />
+						</label>
+					</div>
+					<div class="row">
+						<label>Link URL
+							<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href" />
+						</label>	
+					</div>
+					<div class="row">
+						<label>Title
+							<input type="text" class="txtinput" placeholder="Evenflo" ng-model="alt" />
+						</label>
+					</div>
+					<div class="options banner">
+						<button class="source">View Source</button>
+						<button class="edit disabled" disabled="true">Edit Source</button>
+					</div>
+				   <!--
+				    	Banner Email HTML
+				    -->
+				   	<xmp class="banner large-12 columns" ><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" valign="middle"><a href="{{ href }}" border="0" target="_blank"><img class="fullwidth" border="0" src="{{ src }}" alt="{{ alt }}"/></a></td></tr></tbody></table></xmp>
+				    
 				</div>
-				<div class="options banner">
-					<button class="source">View Source</button>
-				</div>
-			    <!--
-			    	Banner Email HTML
-			    -->
-			    <xmp class="banner large-12 columns" contenteditable="true"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" valign="middle"><a href="{{ href }}" border="0" target="_blank"><img class="fullwidth" border="0" src="{{ src }}" alt="{{ alt }}"/></a></td></tr></tbody></table></xmp>
-			    
 			</div>
 			<!-- End Banner Build -->
 			
-			<div id="ctaBuild" class="large-12 columns cta build section" ng-controller="ctaController">
-			
-			    <div class="large-12 columns">
-			    
-			        <div class="row">
-			            <label>Intro Copy (HTML)
-			            	<textarea class="txtinput" id="intro" rows="6" value="Evenflo Products are the best!" ng-model="copy"></textarea>
-			            </label>
-			        </div>
-			        
-			        <div class="row">
-			            <label>Call to Action URL
-			            	<input type="text" class="txtinput" id="ctaLink" value="http://www." ng-model="href" />
-			            </label>
-			            
-						<label>Call to Action Type
-				            <select id="ctatype" ng-model="type" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now.png">
-				                <option value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now.png" label="Shop Now"/>Shop Now
-				                <option value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/buy-now.png" label="Buy Now"/>Buy Now
-				                <option value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/learn-more.png" label="Learn More"/>Learn More
-				                <option value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/enter-to-win.png" label="Enter to Win"/>Enter To Win
-				            </select>
-			            </label>
-			        </div>
-			    </div>
-			    <div class="options cta">
-			    	<button class="source">View Source</button>
-			    </div>
-			    <!--
-			    	CTA Email HTML
-			    -->
-			    <xmp class="cta large-12 columns" contenteditable="true"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" class="blockme" valign="top" style="padding-right: 5px;"><table align="center" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" valign="middle" style="text-align: center !important;">{{ copy }}</td></tr><tr><td align="center"><a class="myCTA" href="{{ href }}"><img border="0" src="{{ type }}" /></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
-			    
+			<div class="cta">
+				<div class="header small-12 columns cta">
+					<div class="left">
+						<h2>CTA</h2>
+					</div>
+					<div class="right">
+						<a class="settings"><i class="fa fa-cog"></i></a>
+						<div class="vis">
+							<a class="collapser"><i class="fa fa-minus"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="large-12 columns cta build section close-top" ng-controller="ctaController">
+					<div class="row">
+						<label>Copy (HTML)
+					    	<textarea class="txtinput" rows="6" value='<h1 style="font-size: 25px">Evenflo Products are the best!</h1><p style="font-size: 12px; margin-bottom: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.</p>' ng-model="copy"></textarea>
+						</label>
+					</div>
+					<div class="row">
+						<label>Link URL
+							<input type="text" class="txtinput" value="http://www." ng-model="href" />
+						</label>
+					</div>
+					<label>Button
+					   <div class="small-12 columns no-pad">
+					    	<div class="row collapse">
+					           <div class="small-3 columns">
+					        		<select ng-model="color" class="prefix">
+					        		   <option id="optBlue" value="blue"/>Blue
+					        		   <option id="optGreen" value="green"/>Green
+					        		</select>
+					           </div>
+					           <div class="small-9 columns">
+					        	   <select ng-model="type" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now.png">
+					        	       <option id="opt1" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now-{{color}}.png" label="Shop Now"/>Shop Now
+					        	       <option id="opt2" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/buy-now-{{color}}.png" label="Buy Now"/>Buy Now
+					        	       <option id="opt3" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/learn-more-{{color}}.png" label="Learn More"/>Learn More
+					        	       <option id="opt4" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/enter-to-win-{{color}}.png" label="Enter to Win"/>Enter To Win
+					        	   </select>
+					           </div>
+					       </div>
+					   </div>
+					</label>
+					<div class="options cta">
+						<button class="source">View Source</button>
+						<button class="edit disabled" disabled="true">Edit Source</button>
+					</div>
+				   <!--
+				    	CTA Email HTML
+				    -->
+				   	<xmp class="cta large-12 columns" ><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" class="blockme" valign="top" style="padding-right: 5px;"><table align="center" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" valign="middle">{{ copy }}</td></tr><tr><td align="center"><a class="myCTA" href="{{ href }}"><img border="0" src="{{ type }}" /></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
+				    
+				</div>
 			</div>
 			<!-- end CTA Build -->
 			
-			<!--
-			
-			<div class="large-6 columns">
-				<h1>THREE-COLUMN SECTION</h1>
-			    <div class="large-6 columns">
-			        <div class="row">
-			            <h2>Thumbnail Path <span class="large-6 columns">(180 X 99)</span></h2>
-			            <input type="text" class="txtinput" id="fea1path" value="http://placehold.it/180x99">
-			            
-			            <h2>Caption</h2>
-			            <input type="text" class="txtinput" id="fea1cap" value="">
-			            
-			            <h2>URL</h2>
-			            <input type="text" class="txtinput" id="fea1url" value="">
-			        </div>
-			        <div class="row">
-			            <h2>Thumbnail Path <span class="large-6 columns">(180 X 99)</span></h2>
-			            <input type="text" class="txtinput" id="fea2path" value="http://placehold.it/180x99">
-			            
-			            <h2>Caption</h2>
-			            <input type="text" class="txtinput" id="fea2cap" value="">
-			            
-			            <h2>URL</h2>
-			            <input type="text" class="txtinput" id="fea2url" value="">
-			        </div>
-			        <div class="row">
-			            <h2>Thumbnail  Path <span class="large-6 columns">(180 X 99)</span></h2>
-			            <input type="text" class="txtinput" id="fea3path" value="http://placehold.it/180x99">
-			            
-			            <h2>Caption</h2>
-			            <input type="text" class="txtinput" id="fea3cap" value="">
-			            
-			            <h2>URL</h2>
-			            <input type="text" class="txtinput" id="fea3url" value="">
-			        </div>
-			    </div>
-			    <div class="large-6 columns">
-			    	<div class="row">
-				    	<h2>Features Code:</h2>
-						<textarea rows="45" id="feaCode" value="" class="txtinput"></textarea>
-			    	</div>
-			    </div>
-			    <div class="clear"></div>
+			<div class="fea">
+				<div class="header small-12 columns fea">
+					<div class="left">
+						<h2>Featured (3 Columns)</h2>
+					</div>
+					<div class="right">
+						<a class="settings"><i class="fa fa-cog"></i></a>
+						<div class="vis">
+							<a class="collapser"><i class="fa fa-minus"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="large-12 columns fea build section close-top" ng-controller="feaController">
+					<div class="row">
+						<label>Image URL (180 X 99)
+							<input type="text" class="txtinput" value="http://placehold.it/180x99" ng-model="fea1src">
+						</label>
+						
+						<label>Caption
+							<input type="text" class="txtinput" value="Caption 1" ng-model="fea1cap">
+						</label>
+						
+						<label>URL
+							<input type="text" class="txtinput" value="" ng-model="fea1url">
+						</label>
+					</div>
+					<hr />
+					<div class="row">
+						<label>Thumbnail Path (180 X 99)
+							<input type="text" class="txtinput" value="http://placehold.it/180x99" ng-model="fea1src">
+						</label>
+						
+						<label>Caption
+							<input type="text" class="txtinput" value="Caption 2" ng-model="fea1cap">
+						</label>
+						
+						<label>URL
+							<input type="text" class="txtinput" value="" ng-model="fea1url">
+						</label>
+					</div>
+					<hr />
+					<div class="row">
+						<label>Thumbnail  Path (180 X 99)
+							<input type="text" class="txtinput" value="http://placehold.it/180x99" ng-model="fea3src">
+						</label>
+						
+						<label>Caption
+							<input type="text" class="txtinput" value="Caption 3" ng-model="fea3cap">
+						</label>
+						
+						<label>URL
+							<input type="text" class="txtinput" value="" ng-model="fea3url">
+						</label>
+					</div>
+					<div class="options fea">
+						<button class="source">View Source</button>
+						<button class="edit disabled" disabled="true">Edit Source</button>
+					</div>
+				   <!--
+				    	CTA Email HTML
+				    -->
+				   <xmp class="fea large-12 columns" ><div style="height: 0px; display: none !important;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:13px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; line-height: 20px; display: inline-block; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; padding-top: 10px; font-weight: bold; font-family:\',@Title_Font,\'; font-size:16px; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:11px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650px" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 10px 40px 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="33%" align="center" style="padding-right:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea1url}}" class="f1a" target="_blank"><img class="centerme f1i" src="{{fea1src}}" border="0" alt="{{fea1cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="f1c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea1cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-right: 5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea2url}}" target="_blank" class="f2a"><img class="centerme f2i" src="{{fea2src}}" border="0" alt="{{fea2cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><tr><td class="description_text f2c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea2cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea3url}}" target="_blank" class="f3a"><img class="centerme f3i" src="{{fea3src}}" border="0" alt="{{fea3cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="description_text f3c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea3cap}}</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
 			</div>
-			
+		</div>
+			<!--
 			<div class="large-6 columns">
 				<h1>TWO-COLUMN SECTION</h1>
-			    <div class="large-6 columns">
-			        <div class="row">
-			            <h2>Thumbnail Path <span class="large-6 columns">(620 X 222)</span></h2>
-			            <input type="text" class="txtinput" id="block1path" value="http://placehold.it/620x222">
+			   <div class="large-6 columns">
+			       <div class="row">
+			           <h2>Thumbnail Path<span class="large-6 columns">(620 X 222)</span></h2>
+			           <input type="text" class="txtinput" id="block1path" value="http://placehold.it/620x222">
 			            
-			            <h2>Caption</h2>
-			            <input type="text" class="txtinput" id="block1cap" value="">
+			           <h2>Caption</h2>
+			           <input type="text" class="txtinput" id="block1cap" value="">
 			            
-			            <h2>URL</h2>
-			            <input type="text" class="txtinput" id="block1url" value="">
-			        </div>
-			        <div class="row">
-			            <h2>Thumbnail Path <span class="large-6 columns">(620 X 222)</span></h2>
-			            <input type="text" class="txtinput" id="block2path" value="http://placehold.it/620x222">
+			           <h2>URL</h2>
+			           <input type="text" class="txtinput" id="block1url" value="">
+			       </div>
+			       <div class="row">
+			           <h2>Thumbnail Path<span class="large-6 columns">(620 X 222)</span></h2>
+			           <input type="text" class="txtinput" id="block2path" value="http://placehold.it/620x222">
 			            
-			            <h2>Caption</h2>
-			            <input type="text" class="txtinput" id="block2cap" value="">
+			           <h2>Caption</h2>
+			           <input type="text" class="txtinput" id="block2cap" value="">
 			            
-			            <h2>URL</h2>
-			            <input type="text" class="txtinput" id="block2url" value="">
-			        </div>
-			    </div>
-			    <div class="large-6 columns">
+			           <h2>URL</h2>
+			           <input type="text" class="txtinput" id="block2url" value="">
+			       </div>
+			   </div>
+			   <div class="large-6 columns">
 			    	<div class="row">
 				    	<h2>Code:</h2>
 						<textarea rows="29" id="block1Code" value="" class="txtinput"></textarea>
 			    	</div>
-			    </div>
-			    <div class="clear"></div>
+			   </div>
+			   <div class="clear"></div>
 			</div>
 			
-			<div class="large-6 columns">
+			<div class="large-6 columns"> d
 				<h1>TWO-COLUMN SECTION</h1>
-			    <div class="large-6 columns">
-			        <div class="row">
-			            <h2>Thumbnail Path <span class="large-6 columns">(620 X 222)</span></h2>
-			            <input type="text" class="txtinput" id="block3path" value="http://placehold.it/620x222">
+			   <div class="large-6 columns">
+			       <div class="row">
+			           <h2>Thumbnail Path<span class="large-6 columns">(620 X 222)</span></h2>
+			           <input type="text" class="txtinput" id="block3path" value="http://placehold.it/620x222">
 			            
-			            <h2>Caption</h2>
-			            <input type="text" class="txtinput" id="block3cap" value="">
+			           <h2>Caption</h2>
+			           <input type="text" class="txtinput" id="block3cap" value="">
 			            
-			            <h2>URL</h2>
-			            <input type="text" class="txtinput" id="block3url" value="">
-			        </div>
-			        <div class="row">
-			            <h2>Thumbnail Path <span class="large-6 columns">(620 X 222)</span></h2>
-			            <input type="text" class="txtinput" id="block4path" value="http://placehold.it/620x222">
+			           <h2>URL</h2>
+			           <input type="text" class="txtinput" id="block3url" value="">
+			       </div>
+			       <div class="row">
+			           <h2>Thumbnail Path<span class="large-6 columns">(620 X 222)</span></h2>
+			           <input type="text" class="txtinput" id="block4path" value="http://placehold.it/620x222">
 			            
-			            <h2>Caption</h2>
-			            <input type="text" class="txtinput" id="block4cap" value="">
+			           <h2>Caption</h2>
+			           <input type="text" class="txtinput" id="block4cap" value="">
 			            
-			            <h2>URL</h2>
-			            <input type="text" class="txtinput" id="block4url" value="">
-			        </div>
-			    </div>
-			    <div class="large-6 columns">
+			           <h2>URL</h2>
+			           <input type="text" class="txtinput" id="block4url" value="">
+			       </div>
+			   </div>
+			   <div class="large-6 columns">
 			    	<div class="row">
 				    	<h2>Code:</h2>
 						<textarea rows="29" id="block2Code" value="" class="txtinput"></textarea>
 			    	</div>
-			    </div>
-			    <div class="clear"></div>
+			   </div>
+			   <div class="clear"></div>
 			</div>
 			
 			<div class="large-6 columns controls" style="text-align:center">

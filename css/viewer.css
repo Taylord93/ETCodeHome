@@ -53,3 +53,12 @@ time, #viewer mark, #viewer audio, #viewer video {
 #viewer>table{
 	max-width: 100% !important;
 }
+.viewWrap{
+	position: fixed;
+	right: 0px;
+}
+@media only screen and (max-width: 640px){
+	.viewWrap{
+		position: static;
+	}
+}
