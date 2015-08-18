@@ -184,10 +184,20 @@ $(window).ready(function(){
 	}
 	
 });
+$(window).resize(function(){
+	
+	$('#viewer').css({
+		'max-height':$(window).innerHeight() - 45, 
+		'overflow':'auto', 
+		'margin-top':'-10px'
+	});
+	
+});
 
 $('#viewer').css({
 	'max-height':$(window).innerHeight() - 45, 
-	'overflow':'auto'
+	'overflow':'auto', 
+	'margin-top':'-10px'
 });
 
 $('input, textarea, select').focus(function(){

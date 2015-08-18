@@ -49,6 +49,8 @@ time, #viewer mark, #viewer audio, #viewer video {
 	margin: auto;
 	float: none;
 	margin-top: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 #viewer>table{
 	max-width: 100% !important;

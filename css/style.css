@@ -193,6 +193,9 @@ div.controls{
 		border: 1px solid #963232;
 	}
 }
+table tr.even, table tr.alt, table tr:nth-of-type(even){
+	background: none;
+}
 xmp{
 	word-break: break-all !important;
 	word-wrap: break-word !important;
