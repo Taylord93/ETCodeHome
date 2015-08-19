@@ -261,6 +261,9 @@ label>aside{
 	padding-top: 6px;
 	height: 40px;
 }
+.header:hover{
+	background: rgb(45, 45, 45);
+}
 .header h2{
 	color: rgb(235, 235, 235);
 	font-size: 1em !important;
@@ -302,27 +305,50 @@ button{
 	margin: auto;
 	float: none;
 	margin-top: 20px;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 	padding-top: 10px;
+	display: none;
 }
-#sourceViewer{
-	max-width: 690px;
-	margin: auto;
-	float: none;
-	margin-top: 20px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-}
+
 #viewer>table{
 	max-width: 100% !important;
 }
 .viewWrap{
 	position: fixed;
 	right: 0px;
+	top: 55px;
 }
 #sourceViewer{
-	display: none;
 }
+#hiddenClick{
+	display: none !important;
+}
+#container{
+	overflow: auto;
+	max-height: 100%;
+}
+#sourceViewer{
+	max-width: 100%;
+	margin: auto;
+	float: none;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	padding-top: 10px;
+	padding-left: 20px;
+}
+code{
+	background: none;
+	border: none;
+	color: rgb(235, 235, 235);
+}
+pre{
+	height: 500px !important;
+}
+pre<code{
+	height: 500px !important;
+	font-size: 3em !important;
+}
+
 @media only screen and (max-width: 640px){
 	.viewWrap{
 		position: static;

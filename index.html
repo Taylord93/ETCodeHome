@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="codegen">
 
 <head>
 	<meta charset="UTF-8" />
@@ -19,43 +19,60 @@
 	<script src="js/angular/angular-route.js"></script>
 	<script src="js/angular/angular-sanitize.js"></script>
 	
+	<script src="js/lib/beautify.js"></script>
+	<script src="js/lib/beautify-css.js"></script>
+	<script src="js/lib/beautify-html.js"></script>
+	<script src="js/test/sanitytest.js"></script>
+	<script src="js/test/beautify-javascript-tests.js"></script>
+	<script src="js/test/beautify-css-tests.js"></script>
+	<script src="js/test/beautify-html-tests.js"></script>
+	<script src="js/lib/unpackers/javascriptobfuscator_unpacker.js"></script>
+	<script src="js/lib/unpackers/urlencode_unpacker.js"></script>
+	<script src="js/lib/unpackers/p_a_c_k_e_r_unpacker.js"></script>
+	<script src="js/lib/unpackers/myobfuscate_unpacker.js"></script>
+	
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/highlight.js/8.7/styles/monokai.min.css">
+	<script src="http://cdn.jsdelivr.net/highlight.js/8.7/highlight.min.js"></script>
+	
 	<script src="js/vars.js"></script>
 	
 	<script src="js/angular/app.js"></script>
 	
 </head>
 
-<body ng-app="codegen">
+<body ng-controller="globalController">
 	
 	<div class="fixed">
 		<nav class="top-bar" data-topbar role="navigation">
 		 <section class="top-bar-section">
 
 		   	<ul class="left">
-		   		<li><a href="#">Regenerate</a></li>
+		   		<li><a>Regenerate</a></li>
 		     	<li class="has-dropdown">
-			        <a href="#">Layout</a>
+			        <a>Layout</a>
 			        <ul class="dropdown">
-				        <li class="active"><a href="#">Default</a></li>
-				        <li><a href="#">Product Alert</a></li>
-				        <li><a href="#">Product Update</a></li>
+				        <li class="active"><a>Default</a></li>
+				        <li><a>Product Alert</a></li>
+				        <li><a>Product Update</a></li>
 		       		</ul>
 		     	</li>
-		     	<li><a href="#" class="collapseAll">Collapse All</a></li>
+		     	<li class="divider"></li>
+		     	<li><a class="collapseAll">Collapse All</a></li>
+		     	<li><a class="expandAll">Expand All</a></li>
 		     
 		   	</ul>
 			
 		  	<ul class="right">
-		   		<li><a href="#" class="collapseAll">Disable Images</a></li>
+		   		<li><a id="disableImg" ng-click="breakImg()">Break Images</a></li>
 		    	<li class="divider"></li>
-		      	<li><a href="#">Show Design</a></li>
-		      	<li><a href="#">Show Code</a></li>
+		      	<li class="active"><a id="showDesign">Show Design</a></li>
+		      	<li><a id="showCode">Show Code</a></li>
 		   	</ul>
 		    
 		 </section>
 		</nav>
 	</div>
-
+	<div ng-view></div>
 	<div id="container">
 	
 		<div class="small-12 medium-6 large-5 columns">
@@ -75,7 +92,7 @@
 				<div class="large-12 columns banner build section close-top visible" ng-controller="bannerController">
 					<div class="row">
 						<label>Image URL (690 x 374)
-							<input type="text" class="txtinput" value="http://placehold.it/690x374" ng-model="src" />
+							<input type="text" class="txtinput" value="{{ break }}http://placehold.it/690x374" ng-model="src" />
 						</label>
 					</div>
 					<div class="row">
@@ -95,7 +112,7 @@
 				   <!--
 				    	Banner Email HTML
 				    -->
-				   	<xmp class="banner large-12 columns" ><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" valign="middle"><a href="{{ href }}" border="0" target="_blank"><img class="fullwidth" border="0" src="{{ src }}" alt="{{ alt }}"/></a></td></tr></tbody></table></xmp>
+				   	<xmp class="banner large-12 columns" ><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" valign="middle"><a href="{{ href }}" border="0" target="_blank"><img class="fullwidth" border="0" src="{{break}}{{ src }}" alt="{{ alt }}"/></a></td></tr></tbody></table></xmp>
 				    
 				</div>
 			</div>
@@ -134,11 +151,11 @@
 					        		</select>
 					           </div>
 					           <div class="small-9 columns">
-					        	   <select ng-model="type" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now.png">
-					        	       <option id="opt1" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/shop-now-{{color}}.png" label="Shop Now"/>Shop Now
-					        	       <option id="opt2" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/buy-now-{{color}}.png" label="Buy Now"/>Buy Now
-					        	       <option id="opt3" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/learn-more-{{color}}.png" label="Learn More"/>Learn More
-					        	       <option id="opt4" value="http://image.exct.net/lib/fe5e15707d6c007a7410/m/1/enter-to-win-{{color}}.png" label="Enter to Win"/>Enter To Win
+					        	   <select ng-model="typeSrc" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/shop-now.png">
+					        	       <option id="opt1" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/shop-now-{{color}}.png" label="Shop Now">Shop Now</option>
+					        	       <option id="opt2" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/buy-now-{{color}}.png" label="Buy Now">Buy Now</option>
+					        	       <option id="opt3" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/learn-more-{{color}}.png" label="Learn More">Learn More</option>
+					        	       <option id="opt4" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/enter-to-win-{{color}}.png" label="Enter to Win">Enter To Win</option>
 					        	   </select>
 					           </div>
 					       </div>
@@ -151,7 +168,7 @@
 				   <!--
 				    	CTA Email HTML
 				    -->
-				   	<xmp class="cta large-12 columns" ><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" class="blockme" valign="top" style="padding-right: 5px;"><table align="center" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" valign="middle">{{ copy }}</td></tr><tr><td align="center" style="text-align: center;"><a class="myCTA" href="{{ href }}"><img border="0" src="{{ type }}" /></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
+				   	<xmp class="cta large-12 columns" ><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" class="blockme" valign="top" style="padding-right: 5px;"><table align="center" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" valign="middle">{{ copy }}</td></tr><tr><td align="center" style="text-align: center;"><a class="myCTA" href="{{ href }}"><img border="0" src="{{ break }}{{ typeSrc }}" alt="Learn More"/></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
 				    
 				</div>
 			</div>
@@ -172,7 +189,7 @@
 				<div class="large-12 columns fea build section close-top" ng-controller="feaController">
 					<div class="row">
 						<label>Image URL (180 X 99)
-							<input type="text" class="txtinput" value="http://placehold.it/180x99" ng-model="fea1src">
+							<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea1src">
 						</label>
 						
 						<label>Caption
@@ -186,7 +203,7 @@
 					<hr />
 					<div class="row">
 						<label>Thumbnail Path (180 X 99)
-							<input type="text" class="txtinput" value="http://placehold.it/180x99" ng-model="fea2src">
+							<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea2src">
 						</label>
 						
 						<label>Caption
@@ -200,7 +217,7 @@
 					<hr />
 					<div class="row">
 						<label>Thumbnail  Path (180 X 99)
-							<input type="text" class="txtinput" value="http://placehold.it/180x99" ng-model="fea3src">
+							<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea3src">
 						</label>
 						
 						<label>Caption
@@ -216,11 +233,12 @@
 						<button class="edit disabled" disabled="true">Edit Source</button>
 					</div>
 				   <!--
-				    	CTA Email HTML
+				    	Featured Email HTML
 				    -->
-				   <xmp class="fea large-12 columns" ><div style="height: 0px; display: none !important;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:13px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; line-height: 20px; display: inline-block; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; padding-top: 10px; font-weight: bold; font-family:\',@Title_Font,\'; font-size:16px; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:11px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650px" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 10px 40px 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="33%" align="center" style="padding-right:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea1url}}" class="f1a" target="_blank"><img class="centerme f1i" src="{{fea1src}}" border="0" alt="{{fea1cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="f1c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea1cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-right: 5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea2url}}" target="_blank" class="f2a"><img class="centerme f2i" src="{{fea2src}}" border="0" alt="{{fea2cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><tr><td class="description_text f2c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea2cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea3url}}" target="_blank" class="f3a"><img class="centerme f3i" src="{{fea3src}}" border="0" alt="{{fea3cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="description_text f3c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea3cap}}</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
+				   <xmp class="fea large-12 columns" ><div style="height: 0px; display: none !important;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:13px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; line-height: 20px; display: inline-block; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; padding-top: 10px; font-weight: bold; font-family:\',@Title_Font,\'; font-size:16px; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:11px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650px" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 10px 40px 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="33%" align="center" style="padding-right:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea1url}}" class="f1a" target="_blank"><img class="centerme f1i" src="{{ break }}{{fea1src}}" border="0" alt="{{fea1cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="f1c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea1cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-right: 5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea2url}}" target="_blank" class="f2a"><img class="centerme f2i" src="{{ break }}{{fea2src}}" border="0" alt="{{fea2cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><tr><td class="description_text f2c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea2cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea3url}}" target="_blank" class="f3a"><img class="centerme f3i" src="{{ break }}{{fea3src}}" border="0" alt="{{fea3cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="description_text f3c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea3cap}}</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
 				</div>
 			</div>
+			<!-- End Featured Build -->
 			
 			<div class="tcs">
 				<div class="header small-12 columns tcs">
@@ -236,30 +254,38 @@
 				</div>
 				<div class="large-12 columns tcs build section close-top" ng-controller="tcsController">
 					<div class="row">
-						<label>Thumbnail Path
-						<input type="text" class="txtinput" id="block2path" value="http://placehold.it/620x222" ng-model="tcs1src" />
+						<label>Image URL
+						<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs1src" />
 						</label>
 						
 						<label>Caption
-						<input type="text" class="txtinput" id="block2cap" value="Caption 1" ng-model="tcs1cap" />
+						<input type="text" class="txtinput" value="Caption 1" ng-model="tcs1cap" />
+						</label>
+						
+						<label>Button Text
+						<input type="text" class="txtinput" value="READ MORE" ng-model="tcs1but" />
 						</label>
 						 
 						<label>URL
-						<input type="text" class="txtinput" id="block2url" value="" ng-model="tcs1url" />
+						<input type="text" class="txtinput" value="" ng-model="tcs1url" />
 						</label>
 					</div>
 					<hr />
 					<div class="row">
-						<label>Thumbnail Path
-						<input type="text" class="txtinput" id="block2path" value="http://placehold.it/620x222" ng-model="tcs2src" />
+						<label>Image URL
+						<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs2src" />
 						</label>
 						
 						<label>Caption
-						<input type="text" class="txtinput" id="block2cap" value="Caption 2" ng-model="tcs2cap" />
+						<input type="text" class="txtinput" value="Caption 2" ng-model="tcs2cap" />
+						</label>
+						
+						<label>Button Text
+						<input type="text" class="txtinput" value="READ MORE" ng-model="tcs2but" />
 						</label>
 						 
 						<label>URL
-						<input type="text" class="txtinput" id="block2url" value="" ng-model="tcs2url" />
+						<input type="text" class="txtinput" value="" ng-model="tcs2url" />
 						</label>
 					</div>
 					<div class="options tcs">
@@ -269,10 +295,11 @@
 				   <!--
 				    	TCS Email HTML
 				    -->
-				   <xmp class="tcs large-12 columns" ><div style="display:none !important; height:0px;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:14px; line-height: 20px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; font-family:\',@Title_Font,\'; font-size:20px; font-weight: bold; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:14px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs1url}}" class="block1a"><img class="fullwidth block1i" src="{{tcs1src}}" alt="{{tcs1cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs1cap}}</td></tr><tr><td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs1url}}" class="block1a"><span style="color:#00bfbd;">READ MORE</span></a></td></tr></tbody></table></td></tr></tbody></table> </td><td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs2url}}" class="block2a"><img class="fullwidth block2i" src="{{tcs2src}}" alt="{{tcs2cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs2cap}}</td></tr><tr><td align="left" style="padding-top:10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs2url}}" class="block2a"><span style="color:#00bfbd;">READ MORE</span></a></td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></xmp>
+				   <xmp class="tcs large-12 columns" ><div style="display:none !important; height:0px;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:14px; line-height: 20px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; font-family:\',@Title_Font,\'; font-size:20px; font-weight: bold; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:14px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs1url}}" class="block1a"><img class="fullwidth block1i" src="{{ break }}{{tcs1src}}" alt="{{tcs1cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs1cap}}</td></tr><tr><td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs1url}}" class="block1a"><span style="color:#00bfbd;">{{tcs1but}}</span></a></td></tr></tbody></table></td></tr></tbody></table> </td><td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs2url}}" class="block2a"><img class="fullwidth block2i" src="{{ break }}{{tcs2src}}" alt="{{tcs2cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs2cap}}</td></tr><tr><td align="left" style="padding-top:10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs2url}}" class="block2a"><span style="color:#00bfbd;">{{tcs2but}}</span></a></td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></xmp>
 				   
 				  </div>
 			</div>
+			<!-- End Two Column Section -->
 			
 			<div class="tcs">
 				<div class="header small-12 columns tcs">
@@ -288,30 +315,38 @@
 				</div>
 				<div class="large-12 columns tcs build section close-top" ng-controller="tcsController">
 					<div class="row">
-						<label>Thumbnail Path
-						<input type="text" class="txtinput" id="block2path" value="http://placehold.it/620x222" ng-model="tcs1src">
+						<label>Image URL
+						<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs1src" />
 						</label>
 						
 						<label>Caption
-						<input type="text" class="txtinput" id="block2cap" value="Caption 1" ng-model="tcs1cap">
+						<input type="text" class="txtinput" value="Caption 1" ng-model="tcs1cap" />
+						</label>
+						
+						<label>Button Text
+						<input type="text" class="txtinput" value="READ MORE" ng-model="tcs1but" />
 						</label>
 						 
 						<label>URL
-						<input type="text" class="txtinput" id="block2url" value="" ng-model="tcs1url">
+						<input type="text" class="txtinput" value="" ng-model="tcs1url" />
 						</label>
 					</div>
 					<hr />
 					<div class="row">
-						<label>Thumbnail Path
-						<input type="text" class="txtinput" id="block2path" value="http://placehold.it/620x222" ng-model="tcs2src">
+						<label>Image URL
+						<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222{{break}}" ng-model="tcs2src" />
 						</label>
 						
 						<label>Caption
-						<input type="text" class="txtinput" id="block2cap" value="Caption 2" ng-model="tcs2cap">
+						<input type="text" class="txtinput" value="Caption 2" ng-model="tcs2cap" />
+						</label>
+						
+						<label>Button Text
+						<input type="text" class="txtinput" value="READ MORE" ng-model="tcs2but" />
 						</label>
 						 
 						<label>URL
-						<input type="text" class="txtinput" id="block2url" value="" ng-model="tcs2url">
+						<input type="text" class="txtinput" value="" ng-model="tcs2url" />
 						</label>
 					</div>
 					<div class="options tcs">
@@ -321,18 +356,126 @@
 				   <!--
 				    	TCS Email HTML
 				    -->
-				   <xmp class="tcs large-12 columns" ><div style="display:none !important; height:0px;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:14px; line-height: 20px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; font-family:\',@Title_Font,\'; font-size:20px; font-weight: bold; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:14px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs1url}}" class="block1a"><img class="fullwidth block1i" src="{{tcs1src}}" alt="{{tcs1cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs1cap}}</td></tr><tr><td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs1url}}" class="block1a"><span style="color:#00bfbd;">READ MORE</span></a></td></tr></tbody></table></td></tr></tbody></table> </td><td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs2url}}" class="block2a"><img class="fullwidth block2i" src="{{tcs2src}}" alt="{{tcs2cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs2cap}}</td></tr><tr><td align="left" style="padding-top:10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs2url}}" class="block2a"><span style="color:#00bfbd;">READ MORE</span></a></td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></xmp>
+				   <xmp class="tcs large-12 columns" ><div style="display:none !important; height:0px;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:14px; line-height: 20px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; font-family:\',@Title_Font,\'; font-size:20px; font-weight: bold; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:14px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs1url}}" class="block1a"><img class="fullwidth block1i" src="{{ break }}{{tcs1src}}" alt="{{tcs1cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs1cap}}</td></tr><tr><td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs1url}}" class="block1a"><span style="color:#00bfbd;">{{tcs1but}}</span></a></td></tr></tbody></table></td></tr></tbody></table> </td><td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs2url}}" class="block2a"><img class="fullwidth block2i" src="{{ break }}{{tcs2src}}" alt="{{tcs2cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs2cap}}</td></tr><tr><td align="left" style="padding-top:10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs2url}}" class="block2a"><span style="color:#00bfbd;">{{tcs2but}}</span></a></td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></xmp>
 				</div>
 			</div>
+			<!-- End Two Columns Section -->
+			
+			<div class="header small-12 columns new-section">
+				
+				<div class="left">
+					<h2>New Section</h2>
+				</div>
+				<div class="right">
+					<div class="vis">
+						<a><i class="fa fa-plus"></i></a>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 	
 	</div>
 		<div class="small-12 medium-6 large-7 columns viewWrap">
 			<div id="viewer"></div>
-			<div id="sourceViewer"></div>
+			<!--<div id="sourceViewer"><code class="hljs html"></code></div>
+			-->
+			<code class="hljs js">var $me = $(this).something(); function runAround(event){
+			event.preventDefault();
+			
+			var mynum = 0;
+			
+			Math.random(mynum /8
+			
+			}(function ($) {
+			    $.fn.htmlClean = function (options) {
+			        // iterate and html clean each matched element
+			        return this.each(function () {
+			            if (this.value) {
+			                this.value = $.htmlClean(this.value, options);
+			            } else {
+			                this.innerHTML = $.htmlClean(this.innerHTML, options);
+			            }
+			        });
+			    };
+			
+			    // clean the passed html
+			    $.htmlClean = function (html, options) {
+			        options = $.extend({}, $.htmlClean.defaults, options);
+			        options.allowEmpty = tagAllowEmpty.concat(options.allowEmpty);
+			        var tagMatch;
+			        var root = new Element();
+			        var stack = [root];
+			        var container = root;
+			
+			        if (options.bodyOnly) {
+			            // check for body tag
+			            if (tagMatch = /]*>((\n|.)*)<\/body>/i.exec(html)) {
+			                html = tagMatch[1];
+			            }
+			        }
+			        html = html.concat("&lt;xxx>"); // ensure last element/text is found
+			        var lastIndex;
+			
+			        while (tagMatch = tagsRE.exec(html)) {
+			            var tag = tagMatch[6]
+			                ? new Tag("--", null, tagMatch[6], options)
+			                : new Tag(tagMatch[4], tagMatch[2], tagMatch[5], options);
+			
+			            // add the text
+			            var text = html.substring(lastIndex, tagMatch.index);
+			            if (text.length > 0) {
+			                var child = container.children[container.children.length - 1];
+			                if (container.children.length > 0
+			                        && isText(child = container.children[container.children.length - 1])) {
+			                    // merge text
+			                    container.children[container.children.length - 1] = child.concat(text);
+			                } else {
+			                    container.children.push(text);
+			                }
+			            }
+			            lastIndex = tagsRE.lastIndex;
+			
+			            if (tag.isClosing) {
+			                // find matching container
+			                if (popToTagName(stack, [tag.name])) {
+			                    stack.pop();
+			                    container = stack[stack.length - 1];
+			                }
+			            } else {
+			                // create a new element
+			                var element = new Element(tag);
+			
+			                // add attributes
+			                var attrMatch;
+			                while (attrMatch = attrsRE.exec(tag.rawAttributes)) {
+			
+			                    // check style attribute and do replacements
+			                    if (attrMatch[1].toLowerCase() == "style"
+			                        && options.replaceStyles) {
+			
+			                        var renderParent = !tag.isInline;
+			                        for (var i = 0; i &lt; options.replaceStyles.length; i++) {
+			                            if (options.replaceStyles[i][0].test(attrMatch[2])) {
+			
+			                                if (!renderParent) {
+			                                    tag.render = false;
+			                                    renderParent = true;
+			                                }
+			                                container.children.push(element); // assumes not replaced
+			                                stack.push(element);
+			                                container = element; // assumes replacement is a container
+			                                // create new tag and element
+			                                tag = new Tag(options.replaceStyles[i][1], "", "", options);
+			                                element = new Element(tag);
+			                            }
+			                        }
+			                    }
+			</code>
+			
 		</div>
-	
+		
 	</div>
 	<!--
 	<div class="small-12 medium-6 large-7 columns viewWrap">
@@ -348,6 +491,10 @@
 	
 	<script>
 	$(document).foundation();
+	
+	$('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	});
 	</script>
 	
 	</body>

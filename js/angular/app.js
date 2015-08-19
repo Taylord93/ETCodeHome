@@ -1,17 +1,39 @@
-var app = angular.module('codegen', []);
+var app = angular.module('codegen', ['ngRoute']);
 
-app.controller('bannerController', ['$scope', function($scope) {
+app.config(
+	function($routeProvider) {
+	    $routeProvider.when('/', {
+	        templateUrl : 'file://localhost/Users/DTaylo02/Documents/ETCodeGen/'
+	    }).when('/what', {
+	        templateUrl : 'file://localhost/Users/DTaylo02/Documents/ETCodeGen/partials/blockwrap.html'
+	    }).otherwise({
+	        redirectTo : '/'
+	    });
+});
+
+app.controller('globalController', ['$scope', function($scope) {
+
+	$scope.breakImg = function(){
 		
-}]);	
-app.controller('ctaController', ['$scope', function($scope) {
+		if ($('#disableImg').hasClass('imgBroke')) {
+			$('#disableImg').removeClass('imgBroke').text("Break Images");
+			$scope.break = '';
+		}else {
+			$('#disableImg').addClass('imgBroke').text("Fix Images");
+			$scope.break = ' Oops! I broke your image! ';
+		}
+	
+	}
+	
+}]).controller('bannerController', ['$scope', function($scope) {
+		
+}]).controller('ctaController', ['$scope', function($scope) {
+		
+}]).controller('feaController', ['$scope', function($scope) {
+		
+}]).controller('tcsController', ['$scope', function($scope) {
 		
 }]);
-app.controller('feaController', ['$scope', function($scope) {
-		
-}]);
-app.controller('tcsController', ['$scope', function($scope) {
-		
-}]);	
 
 
 app.filter('rawHtml', ['$sce', function($sce){
@@ -19,6 +41,7 @@ app.filter('rawHtml', ['$sce', function($sce){
     return $sce.trustAsHtml(val);
   };
 }]);
+
 app.directive('input', function ($parse) {
   return {
     restrict: 'E',
@@ -29,8 +52,17 @@ app.directive('input', function ($parse) {
       }
     }
   };
-});
-app.directive('textarea', function ($parse) {
+}).directive('textarea', function ($parse) {
+  return {
+    restrict: 'E',
+    require: '?ngModel',
+    link: function (scope, element, attrs) {
+      if (attrs.ngModel && attrs.value) {
+        $parse(attrs.ngModel).assign(scope, attrs.value);
+      }
+    }
+  };
+}).directive('select', function ($parse) {
   return {
     restrict: 'E',
     require: '?ngModel',
@@ -41,38 +73,9 @@ app.directive('textarea', function ($parse) {
     }
   };
 });
-app.directive('select', function ($parse) {
-  return {
-    restrict: 'E',
-    require: '?ngModel',
-    link: function (scope, element, attrs) {
-      if (attrs.ngModel && attrs.value) {
-        $parse(attrs.ngModel).assign(scope, attrs.value);
-      }
-    }
-  };
-});
-	/*
-	app.config(
-		function($routeProvider) {
-		    $routeProvider.when('/', {
-		        templateUrl : 'http://miatestws4/safetymadeeasier/assets/carseats/partials/all.html'
-		    }).when('/infant', {
-		        templateUrl : 'http://miatestws4/safetymadeeasier/assets/carseats/partials/infant.html'
-		    }).when('/booster', {
-		        templateUrl : 'http://miatestws4/safetymadeeasier/assets/carseats/partials/booster.html'
-		    }).when('/convertible', {
-		        templateUrl : 'http://miatestws4/safetymadeeasier/assets/carseats/partials/convertible.html'
-		    }).when('/all-in-one', {
-		        templateUrl : 'http://miatestws4/safetymadeeasier/assets/carseats/partials/all-in-one.html'
-		    }).otherwise({
-		        redirectTo : '/'
-		    });
-		    //$locationProvider.html5Mode(true);
-		    //$locationProvider.hashPrefix('!');
-	});
-	
 
+	
+/*
 
 	app.controller('MyController', function($scope) {
 	  $scope.person = { name: "Devon" };
