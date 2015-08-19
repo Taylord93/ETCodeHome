@@ -297,3 +297,34 @@ a{
 button{
 	margin-bottom: 5px;
 }
+#viewer{
+	max-width: 690px;
+	margin: auto;
+	float: none;
+	margin-top: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+#sourceViewer{
+	max-width: 690px;
+	margin: auto;
+	float: none;
+	margin-top: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+#viewer>table{
+	max-width: 100% !important;
+}
+.viewWrap{
+	position: fixed;
+	right: 0px;
+}
+#sourceViewer{
+	display: none;
+}
+@media only screen and (max-width: 640px){
+	.viewWrap{
+		position: static;
+	}
+}

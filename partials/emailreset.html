@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<!-- Microsoft Outlook Fixes -->
+	<!--[if mso]>
+		<style>
+		td, table, a, span {
+		  font-family: Helvetica, Arial, sans-serif !important; 
+		}</style>
+	<![endif]-->
+	
+	<!--[if gte mso 9]>
+		<xml>
+		 	<o:OfficeDocumentSettings>
+			<o:AllowPNG/>
+			<o:PixelsPerInch>96</o:PixelsPerInch>
+		 	</o:OfficeDocumentSettings>
+		</xml>
+	<![endif]-->
+	<!--[if gte mso 15]>
+		<style type="text/css">
+		table {font-size:1px; line-height:1; mso-margin-top-alt:1px; }
+		</style>
+	<![endif]-->
+
+	<style type="text/css">
+/*----- Google Font Integration */
+	@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+	/*----- Gmail Overrides --------- */
+	.im {color: #000000 !important;}
+	.ii a[href] {text-decoration: none !important; color: #000001;}
+	a:-webkit-any-link {text-decoration: none !important;}
+
+
+	/*----- Fix Apple Links */
+	.applelinks a{color: #000000 !important;}
+	.applelinks {color: #000000 !important;}
+
+
+	/*----- START Standardization CSS */    
+	a, a:link, a:visited {text-decoration:none !important; color: #00bfbd;}
+	a, a:link, a:visited img {border:none;}
+	a:hover, a:active img {border:none;}
+	.email_link {color: #00bfbd !important;}
+	p {margin: 1em 0;}
+	a img {border:none;} 
+	img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+	.ReadMsgBody { width: 100%;}
+	.ExternalClass {width: 100%;}
+	.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height:100%;}
+	body {width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;} 
+	table {border-spacing:0;}
+	table td {border-collapse: collapse;}
+	table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+	.yshortcuts a {border-bottom: none !important;}
+	#outlook a {padding:0;} 
+	a[href^="tel"], a[href^="sms"] {text-decoration: none;pointer-events: none;cursor: default;}
+	hr {color:#ccc; background-color:#ccc; height: 1px; border: 0;}
+	/*----- END Standardization CSS */  
+
+	/*----- START Mobile Responsive Navigation - Do Not Edit */ 
+	@media screen and (max-width: 620px) {
+	/*----- Template Specific ----- */    
+	td[id="navigation"] {line-height:27px;}
+	td[id="googlefix"] {min-width:0px !important;}
+	table[id="template_container"] .fullwidth {width:100% !important; height:auto !important;}
+	table[id="template_container"] .blockme {display:block !important; width:100% !important; padding-bottom:5px; padding-left:0px !important; padding-right:0px !important;}
+	table[id="template_container"] .block {display:block !important; width:100% !important; padding-bottom:10px; padding-left:0px !important; padding-right:0px !important;}
+	table[id="template_container"] .removeme {display:none !important;}
+	table[id="template_container"] .halfwidth {width:50% !important;}
+	table[id="template_container"] #email_header { padding-left: 10px !important;}
+
+
+	/*--- Images --- */
+	table[id="template_container"] .centerme img {display:inline-block !important;}
+	table[id="template_container"] .img_center {float: none !important; text-align: center !important;}
+	table[id="template_container"] img.fullwidth {width:1 !important; max-width: 100% !important; height:auto !important;}
+	table[id="template_container"] .logo {padding-bottom: 20px !important;}
+
+	/*--- Buttons --- */
+	table[id="template_container"] .button_normal,
+	table[id="template_container"] .button_large {width:100%; float:none !important;}
+	table[id="template_container"] .button_normal a,
+	table[id="template_container"] .button_large a {display:block !important; width:auto !important; text-align:center !important;}
+	table[id="template_container"] .button_small {width: 60% !important;}
+	table[id="template_container"] .button_normal.noresize,
+	table[id="template_container"] .button_large.noresize {width:auto !important;}
+
+	/*--- Padding ---*/
+	table[id="template_container"] .pad_vert {padding-left:30px !important; padding-right:30px !important;}
+	table[id="template_container"] .pad_horiz {padding-top:10px !important; padding-bottom:10px !important;}
+	table[id="template_container"] .padme {padding-left:20px !important; padding-right:20px !important; padding-bottom: 20px !important;}
+	table[id="template_container"] .removepad{padding: 0px !important;}
+	table[id="template_container"] .removepad_bottom{ padding-bottom: 0px !important;}
+	table[id="template_container"] .padbottom{ padding-bottom: 20px !important;}
+	table[id="template_container"] .padbottom2{ padding-bottom: 20px !important; padding-top: 0px !important; padding-left: 0px !important; padding-right: 0px !important;}
+
+
+	/*--- Alignment ---*/
+	table[id="template_container"] .alignleft {float: none !important; text-align: left !important;}
+	table[id="template_container"] .alignright {float: none !important; text-align: right !important;}
+	table[id="template_container"] .aligntop {vertical-align:top !important;} 
+	table[id="template_container"] .alignbottom {vertical-align:bottom !important;} 
+	table[id="template_container"] .centerme { float: none !important; text-align:center !important; margin: 0 auto !important;} 
+
+	/*----- Text Treatment -----*/   
+	table[id="template_container"] .title{ font-size: 24px !important; padding-bottom: 5px !important;}
+	table[id="template_container"] .description{ padding-top: 5px !important;}
+	table[id="template_container"] .subtitle{ font-size: 22px !important;}
+
+	/* -------- Content (Ctrl) Styles Do Not Edit -------- */
+		
+	/* Image Mod */
+	  table[class="cc_wrapper"] .cc_likeContent img {max-height:18px !important;}
+	  table[class="cc_wrapper"] img.fullSize, 
+		table[class="cc_wrapper"] img.cc_inlineImage {max-width:100% !important; width:auto !important;}
+	  table[class="cc_wrapper"] .header_image img {max-width:100% !important; width:auto !important;}
+	  table[class="cc_wrapper"] .cc_main_image_cont {width:auto;}
+
+	/* Resize Main Post Images */
+	  table[class="cc_wrapper"] .sub_item_image_full, 
+		table[class="cc_wrapper"] .sub_item_image_third,
+		table[class="cc_wrapper"] .sub_item_image_half,
+		table[class="cc_wrapper"] .main_image_third,
+		table[class="cc_wrapper"] .main_image_half,
+		table[class="cc_wrapper"] .main_image_full {max-width:100%;width:auto !important;}
+
+	/* Resize Secondary Post Images */
+	  table[class="cc_wrapper"] .cc_twoColContainer .sub_items .cc_blockme {display:block !important; width:100% !important;}
+	  table[class="cc_wrapper"] .cc_twoColContainer .sub_items .sub_item_image_cont {padding-bottom:10px !important;}
+	  table[class="cc_wrapper"] .cc_twoColContainer .sub_items .sub_item_image_cont img {max-width:100% !important;  width:auto !important;}
+				  
+	/* Text Modifications */
+	  table[class="cc_wrapper"] .title_text {font-size:14px !important;}
+	  table[class="cc_wrapper"] .cc_cta_button {font-size:14px !important;}
+	  table[class="cc_wrapper"] .title_text,
+	  table[class="cc_wrapper"] .desc_text,
+	  table[class="cc_wrapper"] .sub_item_text_cont {word-break: break-word;-webkit-hyphens: auto;-moz-hyphens: auto;hyphens: auto;}
+		
+	/* Event Styles */
+	  table[class="cc_wrapper"] .cc_imgLeft .cc_main_image_cont img {max-width:150px !important;}
+
+	@-moz-document url-prefix() {
+	/* Fix Firefox max-width */
+	  table[class="cc_wrapper"] img.fullSize, 
+	  table[class="cc_wrapper"] img.main_image_full, 
+	  table[class="cc_wrapper"] img.sub_item_image_full, 
+	  table[class="cc_wrapper"] .cc_twoColContainer .sub_items .sub_item_image_cont img, 
+		table[class="cc_wrapper"] img.cc_inlineImage {max-width:100% !important; width:100% !important;}
+	} 
+	}
+
+	@media screen and (max-width: 480px) {
+
+		table[id="template_container"] #kirk_nav {font-size:12px !important; line-height:29px !important; padding:10px 0px !important;}
+
+
+	/* -------- Content (Ctrl) Styles -------- */
+	/* Make Columns Stack */  
+	  table[class="cc_wrapper"] .cc_blockme {display:block !important; width:100% !important; padding-left:0px !important; padding-right:0px !important;}   
+
+	/* Fix Columg Width For Image Left Layout */
+	  table[class="cc_wrapper"]  .cc_imgLeft .cc_blockme {display:block; max-width:100% !important; width:auto !important;}
+
+	/* Re-Style Side By Side Layout */
+	  table[class="cc_wrapper"] .cc_avatar img {width:100% !important; max-width:70px;}
+	  table[class="cc_wrapper"] .cc_avatar {width:35px !important; padding-bottom:3px;}
+	  table[class="cc_wrapper"] .cc_contentContainer {display:block; width:auto !important;}
+	  table[class="cc_wrapper"] .cc_twoColContainer_flow .cc_likeName {display:none !important;}
+	  table[class="cc_wrapper"] .cc_twoColContainer_flow .cc_likeAvatar img {width:auto !important; max-width:23px;}
+	  table[class="cc_wrapper"] .cc_twoColContainer_flow .cc_shareName {display:none !important;}
+	  table[class="cc_wrapper"] .cc_twoColContainer_flow .cc_shareAvatar img {width:auto !important; max-width:23px;}
+	  table[class="cc_wrapper"] .cc_twoColContainer_flow .cc_twoColContainer_left {padding:0px !important;display:block; width:100% !important;}
+	  table[class="cc_wrapper"] .cc_twoColContainer_flow .cc_twoColContainer_right {padding:0px !important;display:block; width:100% !important;}
+
+	/* Twitter Styles */
+	  table[class="cc_wrapper"] .cc_twoColContainer_flow .sub_items  {display:block !important; width:100% !important;}
+	  table[class="cc_wrapper"] .cc_twoColContainer_flow .cc_twitter_names {display:block !important; width:100% !important;}
+	  table[class="cc_wrapper"] .cc_twoColContainer_flow .cc_twitter_time {display:block !important; width:100% !important;text-align: left; padding-top:3px;} {display:block !important; width:100% !important;}
+
+	/* Event Styles */
+	table[class="cc_wrapper"] .cc_cta_spacer {display:inline-block !important; margin-bottom:4px; }
+	table[class="cc_wrapper"] .cc_cta_button {display:inline-block !important; margin-bottom:4px; }
+	table[class="cc_wrapper"] .cc_leftalign {text-align:left !important;}
+	table[class="cc_wrapper"] .cc_rightalign {text-align:right !important;}
+	  table[class="cc_wrapper"] .cc_featImage .cc_edetails_main_cont {padding-bottom:5px;}
+	  table[class="cc_wrapper"] .cc_imgLeft .cc_main_image_cont {padding-top:10px;}
+	  table[class="cc_wrapper"] .cc_imgLeft .cc_main_image_cont img {max-width:100% !important;}
+	}
+	/* -------- Content (Ctrl) Styles Do Not Edit -------- */
+
+	/*----- END Mobile Responsive Navigation - Do Not Edit */   
+
+	</style>
+
+	<title></title>
+</head>
+
+<body style="margin:0; padding:0;">
+	<!--Begin Personalization-->
+	
+	<div class="email">
+		<div style="display:none !important; height:0px;">
+			%%[ /* ----------- START: STYLE OPTIONS ------------ */ /* --- Change
+			These Variables --- */ /* Set Font for the title // example: Arial,
+			Helvetica, sans-serif */ SET @Title_Font = "'Open Sans', Helvetica,
+			Arial, sans-serif" /* Color of each title and headline // example:
+			#123456 */ SET @Title_Color = "#000000" /* Set Font for the description
+			// example: Arial, Helvetica, sans-serif */ SET @Description_Font =
+			"'Open Sans', Helvetica, Arial, sans-serif" /* Color of body copy and
+			description text // example: #123456 */ SET @Description_Color =
+			"#000000" /* Chooses whether to display text link or button // Button
+			or Text are only valid options */ SET @Button_Type = "Button" /*
+			Background color of each button // example: #123456 or leave empty to
+			remove. Only relevant if Button_Type is Button, leave blank if Text */
+			SET @Button_Color = "#00bfbd" /* Border style of each button //
+			example: #1px solid #ccccc or leave empty to not have a border */ SET
+			@Button_Border = "" /* Color of the button text // example: #123456 */
+			SET @Button_Text_Color = "#ffffff" /* * * * */ /* ----------- START:
+			WILDCARD STYLES -- ADVANCED USERS ONLY -- THESE ARE OPTIONAL
+			------------ */ /* * The wildcard styles will proceed all the above
+			variables and will overwrite or add to any styles specified above. *
+			These are completely optional and do not need to have a value. Simply
+			add any CSS rule in COMPLETE PROPER SYNTAX. */ /* Set custom CSS for
+			the title // example: "font-size:15px; line-height:18px;" */ SET
+			@Title_CSS = "line-height: 30px;" /* Set custom CSS for the Description
+			// example: "font-size:15px; line-height:18px;" */ SET @Description_CSS
+			= "line-height: 22px;" /* Set custom CSS for the item container //
+			example: "border:1px solid #333333; background-color:#ffffff;
+			padding:10px;" */ SET @Item_Container_CSS = "" /* Set custom CSS for
+			the button // example: "border:1px solid #333333;
+			background-color:#ffffff; padding:10px;" */ SET @Button_CSS =
+			"text-decoration: none !important; line-height: 20px; height: 20px;
+			width: 100%;" /* ----------- END: Wildcard Styles - THESE ARE OPTIONAL!
+			------------ */ /* ----------- END: STYLE OPTIONS ------------ */ /* *
+			* * */ /* ----------- START: PROCESSING - DO NOT MODIFY ------------ */
+			IF Empty(@Button_Color) THEN SET @Button_Color_Render = "" ELSE SET
+			@Button_Color_Render = Concat("bgcolor='",@Button_Color,"'") ENDIF IF
+			Lowercase(@Button_Type) == "button" THEN SET @Button_Padding =
+			"padding:8px 17px 10px 17px;" ELSE SET @Button_Padding = "" ENDIF /*
+			----------- END: PROCESSING - DO NOT MODIFY ------------ */ ]%%
+		</div>
+		<!--End Personalization-->
+		<!--Begin Email-->
+	
+		<div id="iframeViewer"><h1>EMAIL HERE</h1></div>
+		
+		<div id="appender"><h1>Youre the appender! asdfasd fasd fasdf asdf asd fasd fasd fasdf</h1></div>
+		
+		
+		<!-- This row fixes Gmail app scaling issues on iPhone -->
+	
+		<div style=
+		"display:none; white-space:nowrap; font:15px courier; line-height:0;">
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		</div>
+	</div>
+<!-- 
+ to link: 
+ 
+ <div id="PastePreviewPanel" class="mainArea" style="display: block; background-color: rgb(255, 255, 255);">
+	
+	<iframe id="PastePreviewFrame" name="PastePreviewFrame" scrolling="auto" frameborder="0" src="../../blank.html" height="182px" style="display: inline-block; width: 1414px; margin-left: 0px; background-color: rgb(255, 255, 255);"></iframe>
+		
+</div>
+ 
+ 
+ -->
+</body>
+</html>
