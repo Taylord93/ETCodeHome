@@ -10,6 +10,7 @@
 	
 	<link rel="stylesheet" href="css/font-awesome.min.css" />
 	<link rel="stylesheet" href="css/viewer.css" />
+	<link rel="stylesheet" href="css/sweetalert.css" />
 	
 	<script src="js/vendor/jquery.js"></script>
 	<script src="js/vendor/modernizr.js"></script>
@@ -75,7 +76,7 @@
 	<div ng-view></div>
 	<div id="container">
 	
-		<div class="small-12 medium-6 large-5 columns">
+		<div class="small-12 medium-6 large-5 columns make-margin-top">
 			
 			<div class="banner">
 				<div class="header small-12 columns banner">
@@ -85,7 +86,7 @@
 					<div class="right">
 						<a class="settings"><i class="fa fa-cog"></i></a>
 						<div class="vis">
-							<a class="collapser"><i class="fa fa-minus"></i></a>
+							<a class="delete"><i class="fa fa-trash-o"></i></a>
 						</div>
 					</div>
 				</div>
@@ -126,7 +127,7 @@
 					<div class="right">
 						<a class="settings"><i class="fa fa-cog"></i></a>
 						<div class="vis">
-							<a class="collapser"><i class="fa fa-minus"></i></a>
+							<a class="delete"><i class="fa fa-trash-o"></i></a>
 						</div>
 					</div>
 				</div>
@@ -182,7 +183,7 @@
 					<div class="right">
 						<a class="settings"><i class="fa fa-cog"></i></a>
 						<div class="vis">
-							<a class="collapser"><i class="fa fa-minus"></i></a>
+							<a class="delete"><i class="fa fa-trash-o"></i></a>
 						</div>
 					</div>
 				</div>
@@ -248,7 +249,7 @@
 					<div class="right">
 						<a class="settings"><i class="fa fa-cog"></i></a>
 						<div class="vis">
-							<a class="collapser"><i class="fa fa-minus"></i></a>
+							<a class="delete"><i class="fa fa-trash-o"></i></a>
 						</div>
 					</div>
 				</div>
@@ -309,7 +310,7 @@
 					<div class="right">
 						<a class="settings"><i class="fa fa-cog"></i></a>
 						<div class="vis">
-							<a class="collapser"><i class="fa fa-minus"></i></a>
+							<a class="delete"><i class="fa fa-trash-o"></i></a>
 						</div>
 					</div>
 				</div>
@@ -379,100 +380,9 @@
 	</div>
 		<div class="small-12 medium-6 large-7 columns viewWrap">
 			<div id="viewer"></div>
-			<!--<div id="sourceViewer"><code class="hljs html"></code></div>
-			-->
-			<code class="hljs js">var $me = $(this).something(); function runAround(event){
-			event.preventDefault();
+			<div id="sourceViewer"><code class="hljs html"></code></div>
 			
-			var mynum = 0;
-			
-			Math.random(mynum /8
-			
-			}(function ($) {
-			    $.fn.htmlClean = function (options) {
-			        // iterate and html clean each matched element
-			        return this.each(function () {
-			            if (this.value) {
-			                this.value = $.htmlClean(this.value, options);
-			            } else {
-			                this.innerHTML = $.htmlClean(this.innerHTML, options);
-			            }
-			        });
-			    };
-			
-			    // clean the passed html
-			    $.htmlClean = function (html, options) {
-			        options = $.extend({}, $.htmlClean.defaults, options);
-			        options.allowEmpty = tagAllowEmpty.concat(options.allowEmpty);
-			        var tagMatch;
-			        var root = new Element();
-			        var stack = [root];
-			        var container = root;
-			
-			        if (options.bodyOnly) {
-			            // check for body tag
-			            if (tagMatch = /]*>((\n|.)*)<\/body>/i.exec(html)) {
-			                html = tagMatch[1];
-			            }
-			        }
-			        html = html.concat("&lt;xxx>"); // ensure last element/text is found
-			        var lastIndex;
-			
-			        while (tagMatch = tagsRE.exec(html)) {
-			            var tag = tagMatch[6]
-			                ? new Tag("--", null, tagMatch[6], options)
-			                : new Tag(tagMatch[4], tagMatch[2], tagMatch[5], options);
-			
-			            // add the text
-			            var text = html.substring(lastIndex, tagMatch.index);
-			            if (text.length > 0) {
-			                var child = container.children[container.children.length - 1];
-			                if (container.children.length > 0
-			                        && isText(child = container.children[container.children.length - 1])) {
-			                    // merge text
-			                    container.children[container.children.length - 1] = child.concat(text);
-			                } else {
-			                    container.children.push(text);
-			                }
-			            }
-			            lastIndex = tagsRE.lastIndex;
-			
-			            if (tag.isClosing) {
-			                // find matching container
-			                if (popToTagName(stack, [tag.name])) {
-			                    stack.pop();
-			                    container = stack[stack.length - 1];
-			                }
-			            } else {
-			                // create a new element
-			                var element = new Element(tag);
-			
-			                // add attributes
-			                var attrMatch;
-			                while (attrMatch = attrsRE.exec(tag.rawAttributes)) {
-			
-			                    // check style attribute and do replacements
-			                    if (attrMatch[1].toLowerCase() == "style"
-			                        && options.replaceStyles) {
-			
-			                        var renderParent = !tag.isInline;
-			                        for (var i = 0; i &lt; options.replaceStyles.length; i++) {
-			                            if (options.replaceStyles[i][0].test(attrMatch[2])) {
-			
-			                                if (!renderParent) {
-			                                    tag.render = false;
-			                                    renderParent = true;
-			                                }
-			                                container.children.push(element); // assumes not replaced
-			                                stack.push(element);
-			                                container = element; // assumes replacement is a container
-			                                // create new tag and element
-			                                tag = new Tag(options.replaceStyles[i][1], "", "", options);
-			                                element = new Element(tag);
-			                            }
-			                        }
-			                    }
-			</code>
+			<!--<code id="sourceViewer" class="hljs html"></code>-->
 			
 		</div>
 		
@@ -482,7 +392,7 @@
 		<iframe id="emailPreviewFrame" scrolling="auto" frameborder="0" src="partials/emailreset.html" width="100%" height="100%"></iframe>
 	</div>
 	-->
-	
+	<script src="js/sweetalert.min.js"></script>
 	<script src="js/zeroclipboard.min.js"></script>
 	<script src="js/foundation.min.js"></script>
 	<script src="js/foundation/foundation.topbar.js"></script>
