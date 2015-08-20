@@ -146,7 +146,7 @@ $('.delete').click(function(){
 			swal({   
 				title: "Section Deleted",
 				type: "success",  
-				timer: 1500,   
+				timer: 1000,   
 				showConfirmButton: false 
 			}); 
 			
@@ -154,6 +154,16 @@ $('.delete').click(function(){
 			appendToViewer(); 
 		}
 	});
+	
+});
+
+$('.add-section').hover(function(){
+	
+	$(this).parent().css('background', 'RGB(91, 180, 0)');
+	
+}, function(){
+	
+	$(this).parent().css('background', 'none');
 	
 });
 
@@ -213,6 +223,8 @@ $(window).ready(function(){
 	$('.collapser').children().attr('class', 'fa fa-plus');
 	$('.header').css('margin-bottom', '10px');
 	
+	
+	
 });
 
 $(window).resize(function(){
@@ -225,7 +237,9 @@ $(window).resize(function(){
 	
 });
 
+//$('#sections').append($('.banner').clone(true));
 
+//$('.banner').clone(true).appendTo('#sections');
 
 
 //

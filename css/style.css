@@ -343,7 +343,7 @@ code{
 .delete{
 	color: rgb(235, 235, 235);
 }
-.delete:hover{
+.delete:hover, .add-section:hover{
 	color: rgb(235, 235, 235);
 }
 
