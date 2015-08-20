@@ -1,5 +1,6 @@
 var app = angular.module('codegen', ['ngRoute']);
 
+/*
 app.config(
 	function($routeProvider) {
 	    $routeProvider.when('/', {
@@ -10,16 +11,18 @@ app.config(
 	        redirectTo : '/'
 	    });
 });
-
+*/
 app.controller('globalController', ['$scope', function($scope) {
 
 	$scope.breakImg = function(){
 		
-		if ($('#disableImg').hasClass('imgBroke')) {
-			$('#disableImg').removeClass('imgBroke').text("Break Images");
+		if ($('#disableImg').parent().hasClass('imgbroke')) {
+			$('#disableImg').parent().removeClass('imgbroke');
+			$('#disableImg').text("Break Images");
 			$scope.break = '';
 		}else {
-			$('#disableImg').addClass('imgBroke').text("Fix Images");
+			$('#disableImg').parent().addClass('imgbroke');
+			$('#disableImg').text("Fix Images");
 			$scope.break = ' Oops! I broke your image! ';
 		}
 	

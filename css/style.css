@@ -346,6 +346,13 @@ code{
 .delete:hover, .add-section:hover{
 	color: rgb(235, 235, 235);
 }
+#originals{
+	display: none !important;
+}
+.imgbroke{
+	background: red !important;
+}
+
 
 @media only screen and (max-width: 640px){
 	.viewWrap{

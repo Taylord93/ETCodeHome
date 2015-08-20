@@ -17,8 +17,8 @@ body.stop-scrolling {
   z-index: 10000; }
 
 .sweet-alert {
-  background-color: white;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: rgb(35, 35, 35);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   width: 478px;
   padding: 17px;
   border-radius: 5px;
@@ -39,7 +39,7 @@ body.stop-scrolling {
       left: 15px;
       right: 15px; } }
   .sweet-alert h2 {
-    color: #575757;
+    color: white;
     font-size: 30px;
     text-align: center;
     font-weight: 600;
@@ -50,7 +50,7 @@ body.stop-scrolling {
     line-height: 40px;
     display: block; }
   .sweet-alert p {
-    color: #797979;
+    color: rgb(235, 235, 235);
     font-size: 16px;
     text-align: center;
     font-weight: 300;
@@ -159,7 +159,7 @@ body.stop-scrolling {
   .sweet-alert.show-input input {
     display: block; }
   .sweet-alert button {
-    background-color: #AEDEF4;
+    background-color: RGB(74, 165, 164);
     color: white;
     border: none;
     box-shadow: none;
@@ -174,13 +174,17 @@ body.stop-scrolling {
       outline: none;
       box-shadow: 0 0 2px rgba(128, 179, 235, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.05); }
     .sweet-alert button:hover {
-      background-color: #a1d9f2; }
+      background-color: RGB(87, 201, 200); }
     .sweet-alert button:active {
-      background-color: #81ccee; }
+      background-color: RGB(74, 165, 164); }
     .sweet-alert button.cancel {
-      background-color: #D0D0D0; }
+      background-color: #D0D0D0; 
+      color: rgb(35, 35, 35);
+      }
       .sweet-alert button.cancel:hover {
-        background-color: #c8c8c8; }
+        background-color: #c8c8c8; 
+        box-shadow: 0 0 2px rgba(128, 179, 235, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
       .sweet-alert button.cancel:active {
         background-color: #b6b6b6; }
       .sweet-alert button.cancel:focus {
@@ -276,7 +280,6 @@ body.stop-scrolling {
         position: absolute;
         width: 60px;
         height: 120px;
-        background: white;
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg); }
       .sweet-alert .sa-icon.sa-success::before {
@@ -312,7 +315,6 @@ body.stop-scrolling {
       .sweet-alert .sa-icon.sa-success .sa-fix {
         width: 5px;
         height: 90px;
-        background-color: white;
         position: absolute;
         left: 28px;
         top: 8px;
