@@ -32,7 +32,18 @@ app.directive('input', function ($parse) {
   return {
     templateUrl: function(elem, attr){
       return 'partials/'+attr.type+'.html';
-     
     }
   };
 });
+
+
+/*.directive('source', ['$sce', function($sce){
+  return function(val) {
+    templateUrl: function(elem, attr){
+      return $sce.'partials/'+attr.type+'.html';
+    }
+  };
+}]);
+
+console.log($('xmp').html());
+*/

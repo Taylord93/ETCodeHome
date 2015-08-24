@@ -32,10 +32,14 @@
 	<script src="js/lib/unpackers/p_a_c_k_e_r_unpacker.js"></script>
 	<script src="js/lib/unpackers/myobfuscate_unpacker.js"></script>
 	
+	<!--
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/highlight.js/8.7/styles/monokai.min.css">
 	<script src="http://cdn.jsdelivr.net/highlight.js/8.7/highlight.min.js"></script>
-	
+	-->
 	<!--<script src="js/vars.js"></script>-->
+	
+	<link rel="stylesheet" href="css/prism.css">
+	
 	
 	<script src="js/angular/app.js"></script>
 	<script src="js/angular/directives.js"></script>
@@ -113,13 +117,13 @@
 							</label>
 						</div>
 						<div class="options banner">
-							<button class="source" ng-click="viewsource($event)">View Source</button>
+							<button class="source">View Source</button>
 							<button class="edit disabled" disabled="true">Edit Source</button>
 						</div>
 					   <!--
 					    	Banner Email HTML
 					    -->
-					   	<xmp class="banner large-12 columns buildcode" type="banner" codeinject></xmp>
+					   	<xmp class="banner large-12 columns buildcode hljs html" type="banner" codeinject></xmp>
 					    
 					</div>
 				</div>
@@ -169,13 +173,13 @@
 						   </div>
 						</label>
 						<div class="options cta">
-							<button class="source" ng-click="viewsource()">View Source</button>
+							<button class="source">View Source</button>
 							<button class="edit disabled" disabled="true">Edit Source</button>
 						</div>
 					   <!--
 					    	CTA Email HTML
 					    -->
-					   	<xmp class="cta large-12 columns buildcode" type="cta" codeinject></xmp>
+					   	<xmp class="cta large-12 columns buildcode hljs html" type="cta" codeinject></xmp>
 					    
 					</div>
 				</div>
@@ -236,13 +240,13 @@
 							</label>
 						</div>
 						<div class="options fea">
-							<button class="source" ng-click="viewsource()">View Source</button>
+							<button class="source">View Source</button>
 							<button class="edit disabled" disabled="true">Edit Source</button>
 						</div>
 					   <!--
 					    	Featured Email HTML
 					    -->
-					   <xmp class="fea large-12 columns buildcode" type="fea" codeinject></xmp>
+					   <xmp class="fea large-12 columns buildcode hljs html" type="fea" codeinject></xmp>
 					</div>
 				</div>
 				<!-- End Featured Build -->
@@ -296,14 +300,19 @@
 							</label>
 						</div>
 						<div class="options tcs">
-							<button class="source" ng-click="viewsource()">View Source</button>
+							<button class="source">View Source</button>
 							<button class="edit disabled" disabled="true">Edit Source</button>
 						</div>
 					   <!--
 					    	TCS Email HTML
 					    -->
-					   <xmp class="tcs large-12 columns buildcode" type="tcs" codeinject></xmp >
+					    <pre><code class="tcs large-12 columns buildcode hljs html language-html" type="tcs" codeinject>
+					    
+					    <!--
+					   <xmp type="tcs" codeinject></xmp>
+					   -->
 					   
+					   </code></pre>
 					  </div>
 				</div>
 				<!-- End Two Column Section -->
@@ -368,14 +377,26 @@
 	
 	</div>
 		<div class="small-12 medium-6 large-7 columns viewWrap">
-			<div id="viewer" ng-bind-html="getcode() || rawHtml"></div>
-			<div id="sourceViewer"><code>{{getcode()}}</code></div>
+			<div id="viewer" ng-bind-html-unsafe="getcode() || rawHtml"></div>
+			<div id="sourceViewer"><pre><code class="language-html">{{getcode()}}</code></pre></div>
 			
 			<!--<code id="sourceViewer" class="hljs html"></code>-->
 			
 		</div>
 		
 	</div>
+	<pre><code class="language-javascript">$(document).foundation();
+	
+	$('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	});
+	
+	$(window).ready(function(){
+	
+	$('.hljs').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	});
+	})</code></pre>
 	<!--
 	<div class="small-12 medium-6 large-7 columns viewWrap">
 		<iframe id="emailPreviewFrame" scrolling="auto" frameborder="0" src="partials/emailreset.html" width="100%" height="100%"></iframe>
@@ -389,7 +410,7 @@
 	<script src="js/foundation.min.js"></script>
 	<script src="js/foundation/foundation.topbar.js"></script>
 	
-	
+	<script src="js/prism.js"></script>
 	<script src="js/script.js"></script>
 	<!--
 	
@@ -402,6 +423,14 @@
 	$('code').each(function(i, block) {
 	    hljs.highlightBlock(block);
 	});
+	
+	$(window).ready(function(){
+	
+	$('.hljs').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	});
+	})
+	
 	</script>
 	
 	</body>

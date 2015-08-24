@@ -60,11 +60,7 @@ Add Section
 ======================================================================================================
 */
 
-$('.add-section, .add-section .item').hover(function(){
-	$(this).parent().css('background', 'RGB(91, 180, 0)');
-}, function(){
-	$(this).parent().css('background', 'none');
-});
+
 
 $('#mn-banner').click(function(event){
 	event.preventDefault();
@@ -99,11 +95,7 @@ Delete Section
 ======================================================================================================
 */
 
-$('.delete').hover(function(){
-	$(this).parent().css('background', 'rgb(150, 50, 50)');
-}, function(){
-	$(this).parent().css('background', 'none');
-});
+
 
 
 $('.delete').click(function(){

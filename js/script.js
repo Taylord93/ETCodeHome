@@ -27,6 +27,18 @@ function appendToViewer(){
 }
 
 */
+$('.delete').hover(function(){
+	$(this).parent().css('background', 'rgb(150, 50, 50)');
+}, function(){
+	$(this).parent().css('background', 'none');
+});
+
+
+$('.add-section, .add-section .item').hover(function(){
+	$(this).parent().css('background', 'RGB(91, 180, 0)');
+}, function(){
+	$(this).parent().css('background', 'none');
+});
 
 $('.viewWrap').css({
 	'max-height':$(window).innerHeight() - 45, 
@@ -49,7 +61,7 @@ $('input, textarea, select').focus(function(){
 
 
 
-/*
+
 
 
 $('.source').click(function(event){
@@ -146,11 +158,11 @@ $('#showDesign').click(function(event){
 
 $(window).ready(function(){
 	
-	appendToViewer();
+	//appendToViewer();
 	
 	//Appends input (design and source) on each input / focus / click / change onto an input element using function above
-	$('#disableImg').click(function(){appendToViewer();});
-	$('input[type="text"], textarea, select').on('input change click focus', function(){appendToViewer();});
+	//$('#disableImg').click(function(){appendToViewer();});
+	//$('input[type="text"], textarea, select').on('input change click focus', function(){appendToViewer();});
 	
 	$('.build').addClass('collapsed').slideUp(0);
 	$('.collapser').children().attr('class', 'fa fa-plus');
@@ -167,4 +179,4 @@ $(window).resize(function(){
 	});
 	
 });
-*/
+

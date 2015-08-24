@@ -15,13 +15,17 @@ app.controller('globalController', ['$scope', function($scope) {
 	}
 	$scope.getcode = function(){
 	
-		$(this).empty();
+		//$(this).empty();
 		buildArray = [];
 		
 		for (var i = 0; i < $('code.buildcode').length; i++) {
 			buildArray.push($('code.buildcode:eq(' +[i] +')').clone(true).html());
-			
+			console.log($('code.buildcode:eq(' +[i] +')').html());
 		}	
+		
+		console.log($('code.buildcode'));
+		
+		
 		return buildArray;
 		
 	
@@ -29,15 +33,15 @@ app.controller('globalController', ['$scope', function($scope) {
 	$scope.something = function(){
 		return "I am a string!";
 	}
-	
+	/*
 	$scope.viewsource = function($event){
 		
+		var $elem = $event.target;
+		//event.preventDefault();
 		
-		event.preventDefault();
-	
-		if ($event.target.hasClass("sourceOpen")) {
+		if ($elem.hasClass("sourceOpen")) {
 			$('xmp').slideUp();
-			$event.target.text("View Source").removeClass("sourceOpen");
+			$elem.text("View Source").removeClass("sourceOpen");
 			
 			$('.edit').addClass('disabled').text('Edit Source');
 			$('xmp').attr('contenteditable', 'false');
@@ -45,15 +49,16 @@ app.controller('globalController', ['$scope', function($scope) {
 		}else {
 			$('xmp').slideUp();
 			$('.sourceOpen').text("View Source").removeClass('sourceOpen');
-			$event.target.parent().siblings().slideDown();
-			$event.target.text("Hide Source").addClass("sourceOpen");
+			$elem.parent().siblings().slideDown();
+			$elem.text("Hide Source").addClass("sourceOpen");
 			$('.edit').removeClass('disabled').removeAttr('disabled');
 		}
 		
 		console.log($event);
-		console.log($event.target);
-		console.log(target);
+		console.log($elem);
+		console.log($(this));
 	}
+	*/
 	
 }]).controller('bannerController', ['$scope', function($scope) {
 		
