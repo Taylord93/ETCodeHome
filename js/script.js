@@ -5,7 +5,7 @@ function appendToViewer(){
 	buildArray = [];
 
 	$('#viewer').empty();
-	$('#sourceViewer>code').empty();
+	$('#sourceViewer code').empty();
 	//emptying old content
 	
 	for (var i = 0; i < $('xmp').length; i++) {
@@ -15,11 +15,9 @@ function appendToViewer(){
 		
 		buildArray.push($('xmp:eq(' +[i] +')').not($('.original xmp')).clone(true).html());
 		
-		var unes = unescape(orig);
-		var escp = escape(orig)
-		//var html = $.parseHTML(unes);
+		var prismized = Prism.tokenize(buildArray, Prism.languages.markup);
 		
-		$('#sourceViewer>code').append().text(buildArray);
+		$('#sourceViewer code').append().text(buildArray);
 		$('#viewer').append(orig);
 	}
 		
@@ -45,25 +43,19 @@ $('input, textarea, select').focus(function(){
 	}
 });
 
-
-
-
-
-
-
 $('.source').click(function(event){
 	
 	event.preventDefault();
 
 	if ($(this).hasClass("sourceOpen")) {
-		$('xmp').slideUp();
+		$('.xmp').slideUp();
 		$(this).text("View Source").removeClass("sourceOpen");
 		
 		$('.edit').addClass('disabled').text('Edit Source');
-		$('xmp').attr('contenteditable', 'false');
+		$('.xmp, code, xmp').attr('contenteditable', 'false');
 		$('.editing').removeClass('editing').attr('disabled', 'true');
 	}else {
-		$('xmp').slideUp();
+		$('.xmp').slideUp();
 		$('.sourceOpen').text("View Source").removeClass('sourceOpen');
 		$(this).parent().siblings().slideDown();
 		$(this).text("Hide Source").addClass("sourceOpen");

@@ -196,7 +196,7 @@ div.controls{
 table tr.even, table tr.alt, table tr:nth-of-type(even){
 	background: none;
 }
-xmp{
+xmp, .xmp{
 	word-break: break-all !important;
 	word-wrap: break-word !important;
 	clear: both;
@@ -213,7 +213,13 @@ xmp{
 	max-width: 100%;
 	overflow: auto;
 }
-xmp:focus{
+xmp, code, pre{
+	word-break: break-all !important;
+	word-wrap: break-word !important;
+	overflow: auto;
+	max-width: 100%;
+}
+xmp:focus, .xmp:focus{
 	outline: none;
 }
 h2{
@@ -352,7 +358,11 @@ code{
 .imgbroke{
 	background: red !important;
 }
-
+pre{
+	height: 100% !important;
+	white-space: pre-wrap !important;
+	position: absolute;
+}
 
 @media only screen and (max-width: 640px){
 	.viewWrap{
