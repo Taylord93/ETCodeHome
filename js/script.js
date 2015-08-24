@@ -15,10 +15,11 @@ function appendToViewer(){
 		
 		buildArray.push($('xmp:eq(' +[i] +')').not($('.original xmp')).clone(true).html());
 		
-		var prismized = Prism.tokenize(buildArray, Prism.languages.markup);
+		//var prismized = Prism.tokenize(buildArray, Prism.languages.markup);
 		
 		$('#sourceViewer code').append().text(buildArray);
 		$('#viewer').append(orig);
+		console.log($('xmp').length)
 	}
 		
 }
