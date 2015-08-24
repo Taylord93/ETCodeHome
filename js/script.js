@@ -1,3 +1,4 @@
+/*
 var buildArray = [];
 
 function appendToViewer(){
@@ -25,7 +26,7 @@ function appendToViewer(){
 		
 }
 
-
+*/
 
 $('.viewWrap').css({
 	'max-height':$(window).innerHeight() - 45, 
@@ -48,7 +49,7 @@ $('input, textarea, select').focus(function(){
 
 
 
-
+/*
 
 
 $('.source').click(function(event){
@@ -166,4 +167,4 @@ $(window).resize(function(){
 	});
 	
 });
-
+*/

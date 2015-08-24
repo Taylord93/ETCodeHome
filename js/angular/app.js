@@ -1,6 +1,5 @@
 var app = angular.module('codegen', ['ngRoute']);
 
-/*
 app.config(
 	function($routeProvider) {
 	    $routeProvider.when('/', {
@@ -11,71 +10,11 @@ app.config(
 	        redirectTo : '/'
 	    });
 });
-*/
-app.controller('globalController', ['$scope', function($scope) {
-
-	$scope.breakImg = function(){
-		
-		if ($('#disableImg').parent().hasClass('imgbroke')) {
-			$('#disableImg').parent().removeClass('imgbroke');
-			$('#disableImg').text("Break Images");
-			$scope.break = '';
-		}else {
-			$('#disableImg').parent().addClass('imgbroke');
-			$('#disableImg').text("Fix Images");
-			$scope.break = ' Oops! I broke your image! ';
-		}
-	
-	}
-	
-}]).controller('bannerController', ['$scope', function($scope) {
-		
-}]).controller('ctaController', ['$scope', function($scope) {
-		
-}]).controller('feaController', ['$scope', function($scope) {
-		
-}]).controller('tcsController', ['$scope', function($scope) {
-		
-}]);
 
 
-app.filter('rawHtml', ['$sce', function($sce){
-  return function(val) {
-    return $sce.trustAsHtml(val);
-  };
-}]);
 
-app.directive('input', function ($parse) {
-  return {
-    restrict: 'E',
-    require: '?ngModel',
-    link: function (scope, element, attrs) {
-      if (attrs.ngModel && attrs.value) {
-        $parse(attrs.ngModel).assign(scope, attrs.value);
-      }
-    }
-  };
-}).directive('textarea', function ($parse) {
-  return {
-    restrict: 'E',
-    require: '?ngModel',
-    link: function (scope, element, attrs) {
-      if (attrs.ngModel && attrs.value) {
-        $parse(attrs.ngModel).assign(scope, attrs.value);
-      }
-    }
-  };
-}).directive('select', function ($parse) {
-  return {
-    restrict: 'E',
-    require: '?ngModel',
-    link: function (scope, element, attrs) {
-      if (attrs.ngModel && attrs.value) {
-        $parse(attrs.ngModel).assign(scope, attrs.value);
-      }
-    }
-  };
-});
+
+
 
 	
 /*
