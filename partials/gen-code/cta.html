@@ -1,0 +1,55 @@
+<div class="cta original">
+	<div class="header small-12 columns cta">
+		<div class="left">
+			<h2>CTA</h2>
+		</div>
+		<div class="right">
+			<a class="settings"><i class="fa fa-cog"></i></a>
+			<div class="vis">
+				<a class="delete"><i class="fa fa-trash-o"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="large-12 columns cta build section close-top" ng-controller="ctaController">
+		<div class="row">
+			<label>Copy (HTML)
+		    	<textarea class="txtinput" rows="6" value='<h1 style="font-size: 25px">Evenflo Products are the best!</h1><p style="font-size: 12px; margin-bottom: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.</p>' ng-model="copy"></textarea>
+			</label>
+		</div>
+		<div class="row">
+			<label>Link URL
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href" />
+			</label>
+		</div>
+		<label>Button
+		   <div class="small-12 columns no-pad">
+		    	<div class="row collapse">
+		           <div class="small-3 columns">
+		        		<select ng-model="color" class="prefix">
+		        		   <option id="optBlue" value="blue">Blue</option>
+		        		   <option id="optGreen" value="green">Green</option>
+		        		</select>
+		           </div>
+		           <div class="small-9 columns">
+		        	   <select ng-model="typeSrc" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/shop-now.png">
+		        	       <option id="opt1" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/shop-now-{{color}}.png" label="Shop Now">Shop Now</option>
+		        	       <option id="opt2" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/buy-now-{{color}}.png" label="Buy Now">Buy Now</option>
+		        	       <option id="opt3" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/learn-more-{{color}}.png" label="Learn More">Learn More</option>
+		        	       <option id="opt4" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/enter-to-win-{{color}}.png" label="Enter to Win">Enter To Win</option>
+		        	   </select>
+		           </div>
+		       </div>
+		   </div>
+		</label>
+		<div class="options cta">
+			<button class="source">View Source</button>
+			<button class="edit disabled" disabled="true">Edit Source</button>
+		</div>
+	   <!--
+	    	CTA Email HTML
+	    -->
+	   	<xmp class="cta large-12 columns buildcode hljs html" type="cta" codeinject></xmp>
+	    
+	</div>
+</div>
+<!-- end CTA Build -->

@@ -31,11 +31,16 @@ app.directive('input', function ($parse) {
 }).directive('codeinject', function() {
   return {
     templateUrl: function(elem, attr){
-      return 'partials/'+attr.type+'.html';
+      return 'partials/email-code/'+attr.type+'.html';
+    }
+  };
+}).directive('newsection', function() {
+  return {
+    templateUrl: function(elem, attr){
+      return 'partials/gen-code/'+attr.type+'.html';
     }
   };
 });
-
 
 /*.directive('source', ['$sce', function($sce){
   return function(val) {

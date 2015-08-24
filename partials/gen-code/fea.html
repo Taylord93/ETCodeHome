@@ -1,0 +1,65 @@
+<div class="fea original">
+	<div class="header small-12 columns fea">
+		<div class="left">
+			<h2>Featured (3 Columns)</h2>
+		</div>
+		<div class="right">
+			<a class="settings"><i class="fa fa-cog"></i></a>
+			<div class="vis">
+				<a class="delete"><i class="fa fa-trash-o"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="large-12 columns fea build section close-top" ng-controller="feaController">
+		<div class="row">
+			<label>Image URL (180 X 99)
+				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea1src">
+			</label>
+			
+			<label>Caption
+				<input type="text" class="txtinput" value="Caption 1" ng-model="fea1cap">
+			</label>
+			
+			<label>URL
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="fea1url">
+			</label>
+		</div>
+		<hr />
+		<div class="row">
+			<label>Thumbnail Path (180 X 99)
+				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea2src">
+			</label>
+			
+			<label>Caption
+				<input type="text" class="txtinput" value="Caption 2" ng-model="fea2cap">
+			</label>
+			
+			<label>URL
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="fea2url">
+			</label>
+		</div>
+		<hr />
+		<div class="row">
+			<label>Thumbnail  Path (180 X 99)
+				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea3src">
+			</label>
+			
+			<label>Caption
+				<input type="text" class="txtinput" value="Caption 3" ng-model="fea3cap">
+			</label>
+			
+			<label>URL
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="fea3url">
+			</label>
+		</div>
+		<div class="options fea">
+			<button class="source">View Source</button>
+			<button class="edit disabled" disabled="true">Edit Source</button>
+		</div>
+	   <!--
+	    	Featured Email HTML
+	    -->
+	   <xmp class="fea large-12 columns buildcode hljs html" type="fea" codeinject></xmp>
+	</div>
+</div>
+<!-- End Featured Build -->

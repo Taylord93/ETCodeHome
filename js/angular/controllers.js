@@ -1,5 +1,7 @@
 app.controller('globalController', ['$scope', function($scope) {
-
+	
+	$scope.sections = [];
+	
 	$scope.breakImg = function(){
 		
 		if ($('#disableImg').parent().hasClass('imgbroke')) {
@@ -16,16 +18,15 @@ app.controller('globalController', ['$scope', function($scope) {
 	$scope.getcode = function(){
 	
 		//$(this).empty();
-		buildArray = [];
+		$scope.buildArray = [];
 		
 		for (var i = 0; i < $('code.buildcode').length; i++) {
 			buildArray.push($('code.buildcode:eq(' +[i] +')').clone(true).html());
 			console.log($('code.buildcode:eq(' +[i] +')').html());
 		}	
-		
-		console.log($('code.buildcode'));
-		
-		
+
+			
+		console.log(buildArray)
 		return buildArray;
 		
 	
@@ -59,6 +60,12 @@ app.controller('globalController', ['$scope', function($scope) {
 		console.log($(this));
 	}
 	*/
+	
+	$scope.newsection = function(x){
+	
+		$scope.sections.push('<div type="'+x+'" newsection></div>');
+	
+	}
 	
 }]).controller('bannerController', ['$scope', function($scope) {
 		
