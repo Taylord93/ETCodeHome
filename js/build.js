@@ -31,7 +31,7 @@ function newsection(x){
 	}
 	return $retArr;
 }
-$('#sections').append(newsection('banner cta fea tcs tcs'));
+$('#sections').append(newsection('banner cta fea tcs tcs tcs tcs'));
 
 /*
 ======================================================================================================

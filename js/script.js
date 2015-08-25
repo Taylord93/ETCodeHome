@@ -1,30 +1,4 @@
-var buildArray = [];
-
-function appendToViewer(){
-
-	buildArray = [];
-
-	$('#viewer').empty();
-	$('#sourceViewer code').empty();
-	//emptying old content
-	
-	for (var i = 0; i < $('xmp').length; i++) {
-	
-		var orig = $('xmp:eq(' +[i] +')').not($('.original xmp')).clone(true).html();
-		//grab html data from each xmp tag using index
-		
-		buildArray.push($('xmp:eq(' +[i] +')').not($('.original xmp')).clone(true).html());
-		
-		//var prismized = Prism.tokenize(buildArray, Prism.languages.markup);
-		
-		$('#sourceViewer code').append().text(buildArray);
-		$('#viewer').append(orig);
-		console.log($('xmp').length)
-	}
-		
-}
-
-
+$(window).ready(function(){
 
 $('.viewWrap').css({
 	'max-height':$(window).innerHeight() - 45, 
@@ -136,7 +110,7 @@ $('#showDesign').click(function(event){
 
 
 
-$(window).ready(function(){
+
 	
 	appendToViewer();
 	
@@ -160,3 +134,71 @@ $(window).resize(function(){
 	
 });
 
+
+var buildArray = [];
+
+function appendToViewer(){
+
+	buildArray = [];
+
+	$('#viewer').empty();
+	$('#sourceViewer code').empty();
+	//emptying old content
+	
+	for (var i = 0; i < $('xmp').length; i++) {
+	
+		var orig = $('xmp:eq(' +[i] +')').not($('.original xmp')).clone(true).html();
+		//grab html data from each xmp tag using index
+		
+		buildArray.push($('xmp:eq(' +[i] +')').not($('.original xmp')).clone(true).html());
+		
+		//var prismized = Prism.tokenize(buildArray, Prism.languages.markup);
+		var joiner = buildArray.join("");
+		$('#sourceViewer code').append(sanitize(true, joiner));
+		$('#viewer').append(orig);
+		console.log($('xmp').length)
+	}
+		
+}
+
+
+
+function sanitize(x, y) {
+	
+	if (x == true) {
+		
+		var escArr = [];
+		
+		var splitText = y.split('');
+		
+		for (var i = 0; i < splitText.length; i++) {
+		
+			escArr.push(splitText[i].replace(/\</g, '&lt;').replace(/\>/g,'&gt;').replace(/\©/g,'&copy;').replace(/\®/g,'&reg;').replace(/\™/g,'&trade;').replace(/\ /g,'&nbsp;'));
+		
+		}
+		
+		var joinedup = escArr.join("");
+		return joinedup;
+		
+	}else{
+	
+		for (var i = 0; i < $('code.sanitize').length; i++) {
+			
+			var escArr = [];
+			
+			var splitText = $('code.sanitize:eq('+i+')').html().split('');
+			
+			for (var ii = 0; ii < splitText.length; ii++) {
+			
+				escArr.push(splitText[ii].replace(/\</g, '&lt;').replace(/\>/g,'&gt;').replace(/\©/g,'&copy;').replace(/\®/g,'&reg;').replace(/\™/g,'&trade;').replace(/\\s/g,'&nbsp;'));
+				
+			}
+			
+			var joinedup = escArr.join("");
+			
+			$('code.sanitize:eq('+i+')').empty().append(joinedup);
+		}
+		
+	}
+	
+}
