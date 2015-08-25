@@ -32,7 +32,7 @@
 	<script src="js/lib/unpackers/p_a_c_k_e_r_unpacker.js"></script>
 	<script src="js/lib/unpackers/myobfuscate_unpacker.js"></script>
 	
-	<link rel="stylesheet" href="css/prism.css">
+	<!--<link rel="stylesheet" href="css/prism.css">-->
 	
 	
 	<script src="js/vars.js"></script>
@@ -210,8 +210,13 @@
 			</div>
 			<div class="large-12 columns cta build section close-top" ng-controller="ctaController">
 				<div class="row">
+					<label>Heading (NO HTML)
+				    	<input type="text" class="txtinput" value='Evenflo Products are the best!' ng-model="heading"></textarea>
+					</label>
+				</div>
+				<div class="row">
 					<label>Copy (HTML)
-				    	<textarea class="txtinput" rows="6" value='<h1 style="font-size: 25px">Evenflo Products are the best!</h1><p style="font-size: 12px; margin-bottom: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.</p>' ng-model="copy"></textarea>
+				    	<textarea class="txtinput" rows="6" value='<p style="font-size: 12px; margin-bottom: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.</p>' ng-model="copy"></textarea>
 					</label>
 				</div>
 				<div class="row">
@@ -241,6 +246,40 @@
 				       </div>
 				   </div>
 				</label>
+				<div class="row">
+					<label>Two Buttons
+						<input type="checkbox" ng-model="twobuttons" value="twobuttons"/>
+					</label>
+				</div>
+				<div class="ng-hide"  ng-show="twobuttons">
+					<div class="row">
+						<label>Link URL
+							<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href2" />
+						</label>
+					</div>
+					<label>Button
+					   <div class="small-12 columns no-pad">
+					    	<div class="row collapse">
+					           <div class="small-3 columns">
+					        		<select ng-model="color2" class="prefix">
+					        		   <option id="optBlue" value="blue">Blue</option>
+					        		   <option id="optGreen" value="green">Green</option>
+					        		   <option id="optGreen" value="outline">Outline</option>
+					        		</select>
+					           </div>
+					           <div class="small-9 columns">
+					        	   <select ng-model="typeSrc2" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/shop-now-blue.png">
+					        	       <option id="opt1" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/shop-now-{{color}}.png" label="Shop Now">Shop Now</option>
+					        	       <option id="opt2" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/buy-now-{{color}}.png" label="Buy Now">Buy Now</option>
+					        	       <option id="opt3" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/learn-more-{{color}}.png" label="Learn More">Learn More</option>
+					        	       <option id="opt4" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/enter-to-win-{{color}}.png" label="Enter to Win">Enter To Win</option>
+					        	       <option id="opt5" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/find-a-store-{{color}}.png" label="Enter to Win">Find A Store</option>
+					        	   </select>
+					           </div>
+					       </div>
+					   </div>
+					</label>
+				</div>
 				<div class="options cta">
 					<button class="source">View Source</button>
 					<button class="edit disabled" disabled="true">Edit Source</button>
@@ -248,7 +287,7 @@
 			   <!--
 			    	CTA Email HTML
 			    -->
-			   	<xmp class="cta large-12 columns" ><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" class="blockme" valign="top" style="padding-right: 5px;"><table align="center" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" align="center" valign="middle">{{ copy }}</td></tr><tr><td align="center" style="text-align: center;"><a class="myCTA" href="{{ href }}"><img border="0" src="{{ break }}{{ typeSrc }}" alt="Learn More"/></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
+			   	<xmp class="cta large-12 columns" ><table width="580" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px; width: 580px; margin: 0 auto;"> <tr> <td style="padding: 0px 5px 15px 5px;"> <table width="100%" border="0" cellspacing="0" cellpadding="0"> <tr> <td style="padding-bottom: 5px; line-height: 20px; text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 16px;" align="left" class="item_container"> <h1 style="font-size: 25px; line-height: 25px;">{{heading}}</h1> {{copy}} </td> </tr> </table> </td> </tr></table><table width="100%" border="0" cellspacing="0" cellpadding="0" ng-hide="twobuttons"> <tbody> <tr style="padding: 0px 50px;"> <td align="center" bgcolor="#ffffff" style="padding: 0px 40px 10px;" class="item_container" %%=v(@Item_Container_Style)=%%> <table class="fullwidth" align="center" border="0" cellspacing="0" cellpadding="0"></table> <table border="0" cellspacing="0" cellpadding="0"> <tbody> <tr> <td width="100%" align="center" class="blockme" valign="top" style="padding-right: 5px;"> <table align="center" border="0" cellspacing="0" cellpadding="0" width="100%"> <tbody> <tr> <td valign="top" style="text-decoration: none; font-family: "Open Sans", Verdana; font-size: 14px;" align="right" class="centerme"> <a class="myCTA" href="{{ href }}"> <img border="0" src="{{break}}{{typeSrc}}" alt="Learn More"/></a> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </td> </tr> </tbody></table></xmp>
 			    
 			</div>
 		</div>
@@ -315,7 +354,7 @@
 			   <!--
 			    	Featured Email HTML
 			    -->
-			   <xmp class="fea large-12 columns" ><div style="height: 0px; display: none !important;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:13px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; line-height: 20px; display: inline-block; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; padding-top: 10px; font-weight: bold; font-family:\',@Title_Font,\'; font-size:16px; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:11px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650px" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 10px 40px 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="33%" align="center" style="padding-right:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea1url}}" class="f1a" target="_blank"><img class="centerme f1i" src="{{ break }}{{fea1src}}" border="0" alt="{{fea1cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="f1c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea1cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-right: 5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea2url}}" target="_blank" class="f2a"><img class="centerme f2i" src="{{ break }}{{fea2src}}" border="0" alt="{{fea2cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><tr><td class="description_text f2c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea2cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea3url}}" target="_blank" class="f3a"><img class="centerme f3i" src="{{ break }}{{fea3src}}" border="0" alt="{{fea3cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="description_text f3c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea3cap}}</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
+			   <xmp class="fea large-12 columns" ><div style="height: 0px; display: none !important;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,' style="',@Button_Border_Render,@Button_Padding,' font-family:',@Description_Font,'; font-size:13px; font-weight:bold; color:',@Button_Text_Color,';',@Button_CSS,'"')SET @Button_Style = Concat('style="text-decoration:none; line-height: 20px; display: inline-block; color:',@Button_Text_Color,';"')SET @Title_Style = Concat('style="padding-bottom:10px; padding-top: 10px; font-weight: bold; font-family:',@Title_Font,'; font-size:16px; color:',@Title_Color,';',@Title_CSS,'"')SET @Description_Style = Concat('style="padding-bottom:10px;font-family:',@Description_Font,'; font-size:11px; color:',@Description_Color,'; line-height:18px;',@Description_CSS,'"')SET @Image_Style = Concat('style="border:',@Image_Border,'; height:auto !important;"')SET @Item_Container_Style = Concat(@Item_Background_Render,' style="padding:',@Item_Padding,'; border:',@Item_Border,'; ',@Item_Shadow_Render,@Item_Container_CSS,'"')]%%</div><table width="650px" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 10px 40px 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="33%" align="center" style="padding-right:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea1url}}" class="f1a" target="_blank"><img class="centerme f1i" src="{{ break }}{{fea1src}}" border="0" alt="{{fea1cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="f1c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea1cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-right: 5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea2url}}" target="_blank" class="f2a"><img class="centerme f2i" src="{{ break }}{{fea2src}}" border="0" alt="{{fea2cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><tr><td class="description_text f2c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea2cap}}</td></tr></tbody></table></td><td width="33%" align="center" style="padding-left:5px; padding-bottom:10px;" class="blockme padbottom" valign="top"><table width="180px" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td style="padding-bottom:5px;" align="center"><a href="{{fea3url}}" target="_blank" class="f3a"><img class="centerme f3i" src="{{ break }}{{fea3src}}" border="0" alt="{{fea3cap}}" width="180px" %%=v(@Image_Style)=%%></a></td></tr><tr><td class="description_text f3c" style="text-decoration: none; color: #4d6060; font-family: &apos;Open Sans&apos;, Verdana; font-size: 16px;" align="center">{{fea3cap}}</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></xmp>
 			</div>
 		</div>
 		<!-- End Featured Build -->
@@ -375,7 +414,7 @@
 			   <!--
 			    	TCS Email HTML
 			    -->
-			   <xmp class="tcs large-12 columns" ><div style="display:none !important; height:0px;" >%%[SET @Button_Container_Style = Concat(@Button_Color_Render,\' style="\',@Button_Border_Render,@Button_Padding,\' font-family:\',@Description_Font,\'; font-size:14px; line-height: 20px; font-weight:bold; color:\',@Button_Text_Color,\';\',@Button_CSS,\'"\')SET @Button_Style = Concat(\'style="text-decoration:none; color:\',@Button_Text_Color,\';"\')SET @Title_Style = Concat(\'style="padding-bottom:10px; font-family:\',@Title_Font,\'; font-size:20px; font-weight: bold; color:\',@Title_Color,\';\',@Title_CSS,\'"\')SET @Description_Style = Concat(\'style="padding-bottom:10px;font-family:\',@Description_Font,\'; font-size:14px; color:\',@Description_Color,\'; line-height:18px;\',@Description_CSS,\'"\')SET @Image_Style = Concat(\'style="border:\',@Image_Border,\'; height:auto !important;"\')SET @Item_Container_Style = Concat(@Item_Background_Render,\' style="padding:\',@Item_Padding,\'; border:\',@Item_Border,\'; \',@Item_Shadow_Render,@Item_Container_CSS,\'"\')]%%</div><table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs1url}}" class="block1a"><img class="fullwidth block1i" src="{{ break }}{{tcs1src}}" alt="{{tcs1cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs1cap}}</td></tr><tr><td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs1url}}" class="block1a"><span style="color:#00bfbd;">{{tcs1but}}</span></a></td></tr></tbody></table></td></tr></tbody></table> </td><td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs2url}}" class="block2a"><img class="fullwidth block2i" src="{{ break }}{{tcs2src}}" alt="{{tcs2cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="left">{{tcs2cap}}</td></tr><tr><td align="left" style="padding-top:10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: \'Open Sans\', Verdana; font-size: 14px;" align="center"><a href="{{tcs2url}}" class="block2a"><span style="color:#00bfbd;">{{tcs2but}}</span></a></td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></xmp>
+			   <xmp class="tcs large-12 columns" ><div style="display:none !important; height:0px;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,' style="',@Button_Border_Render,@Button_Padding,' font-family:',@Description_Font,'; font-size:14px; line-height: 20px; font-weight:bold; color:',@Button_Text_Color,';',@Button_CSS,'"')SET @Button_Style = Concat('style="text-decoration:none; color:',@Button_Text_Color,';"')SET @Title_Style = Concat('style="padding-bottom:10px; font-family:',@Title_Font,'; font-size:20px; font-weight: bold; color:',@Title_Color,';',@Title_CSS,'"')SET @Description_Style = Concat('style="padding-bottom:10px;font-family:',@Description_Font,'; font-size:14px; color:',@Description_Color,'; line-height:18px;',@Description_CSS,'"')SET @Image_Style = Concat('style="border:',@Image_Border,'; height:auto !important;"')SET @Item_Container_Style = Concat(@Item_Background_Render,' style="padding:',@Item_Padding,'; border:',@Item_Border,'; ',@Item_Shadow_Render,@Item_Container_CSS,'"')]%%</div><table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px; mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;"><tbody><tr><td class="padhoriz" style="padding: 20px 40px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" class="item_container" %%=v(@Item_Container_Style)=%%><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs1url}}" class="block1a"><img class="fullwidth block1i" src="{{ break }}{{tcs1src}}" alt="{{tcs1cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left">{{tcs1cap}}</td></tr><tr><td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"><a href="{{tcs1url}}" class="block1a"><span style="color:#00bfbd;">{{tcs1but}}</span></a></td></tr></tbody></table></td></tr></tbody></table> </td><td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left" valign="top" style="padding-bottom: 10px;"><a href="{{tcs2url}}" class="block2a"><img class="fullwidth block2i" src="{{ break }}{{tcs2src}}" alt="{{tcs2cap}}" border="0" width="260" %%=v(@Image_Style)=%%></a></td></tr><tr><td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left">{{tcs2cap}}</td></tr><tr><td align="left" style="padding-top:10px;" class="pad_bottom" valign="top"><table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"><a href="{{tcs2url}}" class="block2a"><span style="color:#00bfbd;">{{tcs2but}}</span></a></td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></td></tr></tbody></table> </td></tr></tbody></table></xmp>
 			   
 			  </div>
 		</div>
@@ -389,7 +428,7 @@
 	
 	<script src="js/script.js"></script>
 	<script src="js/build.js"></script>
-	<script src="js/prism.js"></script>
+	<!--<script src="js/prism.js"></script>-->
 	
 	<script>
 	$(document).foundation();
@@ -400,9 +439,9 @@
 	});
 	*/
 	
-	var prismized = Prism.tokenize($('xmp.tcs').html(), Prism.languages.markup);
+	//var prismized = Prism.tokenize($('xmp.tcs').html(), Prism.languages.markup);
 	
-	console.log(prismized);
+	//console.log(prismized);
 	
 	
 	

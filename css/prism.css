@@ -118,4 +118,7 @@ pre[class*="language-"] {
 .token.entity {
 	cursor: help;
 }
+span{
+	display: inline-block !important;
+}
 
