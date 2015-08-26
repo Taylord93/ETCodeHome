@@ -14,12 +14,15 @@
 	
 	<script src="js/vendor/jquery.js"></script>
 	<script src="js/vendor/modernizr.js"></script>
-	<script src="js/htmlclean.js"></script>
 	
 	<script src="js/angular/angular.min.js"></script>
 	<script src="js/angular/angular-route.js"></script>
 	<script src="js/angular/angular-sanitize.js"></script>
 	
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/zeroclipboard.min.js"></script>
+	
+	<!--
 	<script src="js/lib/beautify.js"></script>
 	<script src="js/lib/beautify-css.js"></script>
 	<script src="js/lib/beautify-html.js"></script>
@@ -32,14 +35,16 @@
 	<script src="js/lib/unpackers/p_a_c_k_e_r_unpacker.js"></script>
 	<script src="js/lib/unpackers/myobfuscate_unpacker.js"></script>
 	
-	<!--
+	
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/highlight.js/8.7/styles/monokai.min.css">
 	<script src="http://cdn.jsdelivr.net/highlight.js/8.7/highlight.min.js"></script>
 	-->
-	<!--<script src="js/vars.js"></script>-->
 	
+	<!--<script src="js/vars.js"></script>-->
+	<script src="js/prism.js"></script>
 	<link rel="stylesheet" href="css/prism.css">
 	
+	<script src="js/script.js"></script>
 	
 	<script src="js/angular/app.js"></script>
 	<script src="js/angular/directives.js"></script>
@@ -86,7 +91,7 @@
 	
 		<div class="small-12 medium-6 large-5 columns make-margin-top">
 			
-			<div ng-repeat="section in sections"></div>
+			<div id="sections" ng-view></div>
 			<!-- Existing sections -->
 			
 			<div class="new-section-wrap">
@@ -136,12 +141,11 @@
 	</div>
 	
 	</div>
+	
+	<!--
 		<div class="small-12 medium-6 large-7 columns viewWrap">
 			<div id="viewer" ng-bind-html-unsafe="getcode() || rawHtml"></div>
 			<div id="sourceViewer"><pre><code class="language-html">{{getcode()}}</code></pre></div>
-			
-			<!--<code id="sourceViewer" class="hljs html"></code>-->
-			
 		</div>
 		
 	</div>
@@ -165,13 +169,10 @@
 	
 	
 	
-	<script src="js/sweetalert.min.js"></script>
-	<script src="js/zeroclipboard.min.js"></script>
+	
 	<script src="js/foundation.min.js"></script>
 	<script src="js/foundation/foundation.topbar.js"></script>
 	
-	<script src="js/prism.js"></script>
-	<script src="js/script.js"></script>
 	<!--
 	
 	<script src="js/build.js"></script>
