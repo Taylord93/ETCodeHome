@@ -61,7 +61,7 @@
 		 <section class="top-bar-section">
 
 		   	<ul class="left">
-		   		<li><a>Regenerate</a></li>
+		   		<li><a ng-click="$rootScope.updateView()">Regenerate</a></li>
 		     	<li class="has-dropdown">
 			        <a>Layout</a>
 			        <ul class="dropdown">
@@ -126,28 +126,30 @@
 					    <label>Two Column</label>
 					  </a>
 					  <a class="item" id="mn-sbs" ng-click="newsection('sbs')">
-					    <i class="fa fa-th-large"></i>
-					    <label>Side by Side</label>
+					  	<i class="fa fa-th-large"></i>
+					  	<label>Side by Side</label>
 					  </a>
 					  <a class="item" id="mn-tb" ng-click="newsection('tb')">
-					    <i class="fa fa-th"></i>
-					    <label>Top-Bottom</label>
+					  	<i class="fa fa-th"></i>
+					  	<label>Top-Bottom</label>
 					  </a>
 					</div>
 				</div>
 			</div>
 			<!-- Create new section -->
-		</div>
-	</div>
-	
-	</div>
-	
-	<!--
-		<div class="small-12 medium-6 large-7 columns viewWrap">
-			<div id="viewer" ng-bind-html-unsafe="getcode() || rawHtml"></div>
-			<div id="sourceViewer"><pre><code class="language-html">{{getcode()}}</code></pre></div>
+			
 		</div>
 		
+		<div class="small-12 medium-6 large-7 columns viewWrap" ng-controller="codeController">
+			<h1 updates>WHATTT {{ message }}</h1>
+			<div id="viewer"> </div>
+			<div id="sourceViewer"></div>
+		</div>
+	
+	</div>
+	
+	
+	<!--	
 	</div>
 	<pre><code class="language-javascript">$(document).foundation();
 	
@@ -192,6 +194,7 @@
 	});
 	})
 	*/
+	
 	</script>
 	
 	</body>

@@ -1,6 +1,6 @@
-app.controller('globalController', ['$scope', function($scope) {
+app.controller('globalController', ['$scope', '$rootScope', function($rootScope, $scope) {
 	
-	$scope.sections = [];
+	$scope.someString = "HIIII";
 	
 	$scope.breakImg = function(){
 		
@@ -15,66 +15,53 @@ app.controller('globalController', ['$scope', function($scope) {
 		}
 	
 	}
-	$scope.getcode = function(){
 	
-		//$(this).empty();
-		$scope.buildArray = [];
+	$scope.section = function(x){
 		
-		for (var i = 0; i < $('code.buildcode').length; i++) {
-			buildArray.push($('code.buildcode:eq(' +[i] +')').clone(true).html());
-			console.log($('code.buildcode:eq(' +[i] +')').html());
-		}	
-
+		var splitter = x.split(" ");
+		
+		var somearray = [];
+		
+		for (var i = 0; i < splitter.length; i++) {
 			
-		console.log(buildArray)
-		return buildArray;
-		
-	
-	}
-	$scope.something = function(){
-		return "I am a string!";
-	}
-	/*
-	$scope.viewsource = function($event){
-		
-		var $elem = $event.target;
-		//event.preventDefault();
-		
-		if ($elem.hasClass("sourceOpen")) {
-			$('xmp').slideUp();
-			$elem.text("View Source").removeClass("sourceOpen");
+			somearray.push('partials/gen-code/'+splitter[i]+'.html');
 			
-			$('.edit').addClass('disabled').text('Edit Source');
-			$('xmp').attr('contenteditable', 'false');
-			$('.editing').removeClass('editing').attr('disabled', 'true');
-		}else {
-			$('xmp').slideUp();
-			$('.sourceOpen').text("View Source").removeClass('sourceOpen');
-			$elem.parent().siblings().slideDown();
-			$elem.text("Hide Source").addClass("sourceOpen");
-			$('.edit').removeClass('disabled').removeAttr('disabled');
 		}
 		
-		console.log($event);
-		console.log($elem);
-		console.log($(this));
+		return somearray;
+		
 	}
-	*/
-	
-	$scope.newsection = function(x){
-	
-		$scope.sections.push('<div type="'+x+'" newsection></div>');
-	
+	$scope.tester = function(elem, attr, scope){
+		
+		console.log(elem);
+		console.log(attr);
+		console.log(scope);
+		
 	}
 	
-}]).controller('bannerController', ['$scope', function($scope) {
+	$scope.banner = 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/gen-code/banner.html';
+	$scope.cta = 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/gen-code/banner.html';
+	$scope.fea = 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/gen-code/banner.html';
+	$scope.tcs = 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/gen-code/banner.html';
+	
+	$scope.asdf = function(){
 		
-}]).controller('ctaController', ['$scope', function($scope) {
+		return angular.copy($scope.idk);
 		
-}]).controller('feaController', ['$scope', function($scope) {
+	}
+	
+}]).controller('bannerController', ['$scope', '$rootScope', function($rootScope, $scope) {
+		console.log($scope.something)
+}]).controller('ctaController', ['$scope', '$rootScope', function($rootScope, $scope) {
 		
-}]).controller('tcsController', ['$scope', function($scope) {
+}]).controller('feaController', ['$scope', '$rootScope', function($rootScope, $scope) {
 		
+}]).controller('tcsController', ['$scope', '$rootScope', function($rootScope, $scope) {
+		
+}]).controller('codeController', ['$scope', '$rootScope', '$sce', function($rootScope, $scope) {
+	
+	console.log($rootScope.someString);
+	
 }]);
 
 

@@ -23,7 +23,7 @@
 		</div>
 		<div class="row">
 			<label>Title
-				<input type="text" class="txtinput" value="Evenflo" ng-model="alt" />
+				<input type="text" class="txtinput" value="Evenflo" ng-model="alt" ng-click="tester()"/>
 			</label>
 		</div>
 		<div class="options banner">
@@ -33,8 +33,20 @@
 	   <!--
 	    	Banner Email HTML
 	    -->
-	   	<xmp class="banner large-12 columns buildcode hljs html" type="banner" codeinject></xmp>
+	   	<xmp class="banner large-12 columns hljs html" type="banner" codeinject contenteditable ng-model="something"></xmp>
 	    
 	</div>
 </div>
 <!-- End Banner Build -->
+
+<script>
+
+	var num = 0;
+	
+	$('xmp.banner').on('click focus', function(){
+		var $cloned = $(this).clone().html();
+		$(this).removeAttr('codeinject type').removeClass('ng-binding').attr('ng-non-bindable').text($cloned);
+		
+	});
+	
+</script>

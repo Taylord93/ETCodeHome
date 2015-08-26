@@ -180,3 +180,42 @@ $(window).resize(function(){
 	
 });
 
+function sanitize(x, y) {
+	
+	if (x == true) {
+		
+		var escArr = [];
+		
+		var splitText = y.split('');
+		
+		for (var i = 0; i < splitText.length; i++) {
+		
+			escArr.push(splitText[i].replace(/\</g, '&lt;').replace(/\>/g,'&gt;').replace(/\©/g,'&copy;').replace(/\®/g,'&reg;').replace(/\™/g,'&trade;').replace(/\ /g,'&nbsp;'));
+		
+		}
+		
+		var joinedup = escArr.join("");
+		return joinedup;
+		
+	}else{
+	
+		for (var i = 0; i < $('code.sanitize').length; i++) {
+			
+			var escArr = [];
+			
+			var splitText = $('code.sanitize:eq('+i+')').html().split('');
+			
+			for (var ii = 0; ii < splitText.length; ii++) {
+			
+				escArr.push(splitText[ii].replace(/\</g, '&lt;').replace(/\>/g,'&gt;').replace(/\©/g,'&copy;').replace(/\®/g,'&reg;').replace(/\™/g,'&trade;').replace(/\\s/g,'&nbsp;'));
+				
+			}
+			
+			var joinedup = escArr.join("");
+			
+			$('code.sanitize:eq('+i+')').empty().append(joinedup);
+		}
+		
+	}
+	
+}
