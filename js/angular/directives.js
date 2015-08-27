@@ -1,3 +1,4 @@
+var num = 0;
 app.directive('input', function ($parse) {
   return {
     restrict: 'E',
@@ -40,7 +41,49 @@ app.directive('input', function ($parse) {
       return 'partials/gen-code/'+attr.type+'.html';
     }
   };
+}).directive('watchme', function(mySharedService) {
+	return {
+	
+	controller: function($scope, $element, $attrs, mySharedService) {
+        $scope.$on('slidup', function($element) {
+        	
+        	mySharedService.sections += $element;
+        	
+        });
+        
+        
+        $scope.$watch(
+        	
+        	
+//        DONT DELETE THESE
+//        mySharedService.builds += $element,
+//        console.log(mySharedService.builds),
+
+		    function (newValue, oldValue) {
+		      if (newValue !== oldValue) {
+		        console.log("It changed!");
+		      }
+		    }
+	  	);
+	  	num ++;
+	  	console.log(num)
+    }
+	}
+}).directive('showcode', function(mySharedService) {
+	return {
+		controller: function($rootScope, $scope, $element, $attrs, mySharedService) {
+	        $scope.$on('slidup', function() {
+	        	
+	             $scope.pleasework = mySharedService.message;
+	             
+	        });
+        
+    	}
+    	
+	}
 });
+
+
 
 
 

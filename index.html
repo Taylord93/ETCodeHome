@@ -65,9 +65,9 @@
 		     	<li class="has-dropdown">
 			        <a>Layout</a>
 			        <ul class="dropdown">
-				        <li class="active"><a>Default</a></li>
-				        <li><a>Product Alert</a></li>
-				        <li><a>Product Update</a></li>
+				        <li class="active"><a href="file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/index.html#/">Default</a></li>
+				        <li><a href="file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/index.html#/product-alert">Product Alert</a></li>
+				        <li><a href="file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/index.html#/product-update">Product Update</a></li>
 		       		</ul>
 		     	</li>
 		     	<li class="divider"></li>
@@ -94,6 +94,8 @@
 			<div id="sections" ng-view></div>
 			<!-- Existing sections -->
 			
+			<div id="newsections"></div>
+			
 			<div class="new-section-wrap">
 				<div class="header small-12 columns new-section">
 					
@@ -108,28 +110,28 @@
 				</div>
 				<div class="build section close-top">
 					
-					<div class="icon-bar three-up" ng-click="newsection('banner')">
-					  <a class="item" id="mn-banner">
+					<div class="icon-bar three-up" >
+					  <a class="item" id="banner" type="banner" ng-click="newSection($event, element, attr)">
 					    <i class="fa fa-th"></i>
 					    <label>Banner</label>
 					  </a>
-					  <a class="item" id="mn-cta" ng-click="newsection('cta')">
+					  <a class="item" id="cta" ng-click="newSection($event, element)">
 					    <i class="fa fa-th-large" ></i>
 					    <label>CTA</label>
 					  </a>
-					  <a class="item" id="mn-fea" ng-click="newsection('fea')">
+					  <a class="item" id="fea" ng-click="newSection($event, element)">
 					    <i class="fa fa-th-list"></i>
 					    <label>Featured</label>
 					  </a>
-					  <a class="item" id="mn-tcs" ng-click="newsection('tcs')">
+					  <a class="item" id="tcs" ng-click="newSection($event, element)">
 					    <i class="fa fa-th-list"></i>
 					    <label>Two Column</label>
 					  </a>
-					  <a class="item" id="mn-sbs" ng-click="newsection('sbs')">
+					  <a class="item" id="sbs" ng-click="newSection($event, element)">
 					  	<i class="fa fa-th-large"></i>
 					  	<label>Side by Side</label>
 					  </a>
-					  <a class="item" id="mn-tb" ng-click="newsection('tb')">
+					  <a class="item" id="tb" ng-click="newSection($event, element)">
 					  	<i class="fa fa-th"></i>
 					  	<label>Top-Bottom</label>
 					  </a>
@@ -141,9 +143,9 @@
 		</div>
 		
 		<div class="small-12 medium-6 large-7 columns viewWrap" ng-controller="codeController">
-			<h1 updates>WHATTT {{ message }}</h1>
-			<div id="viewer"> </div>
-			<div id="sourceViewer"></div>
+			<h1>HEYYYY</h1>
+			<div id="viewer" showdesign>{{ pleasework }}</div>
+			<div id="sourceViewer" showcode></div>
 		</div>
 	
 	</div>
@@ -174,6 +176,8 @@
 	
 	<script src="js/foundation.min.js"></script>
 	<script src="js/foundation/foundation.topbar.js"></script>
+	
+	<script src="js/ui.js"></script>
 	
 	<!--
 	

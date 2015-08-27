@@ -13,44 +13,21 @@ app.config(
 	    });
 });
 
-
-
-
-
-
-	
-/*
-
-	app.controller('MyController', function($scope) {
-	  $scope.person = { name: "Devon" };
-	  var updateClock = function() {
-	    $scope.clock = new Date();
-	  };
-	  var timer = setInterval(function() {
-	    $scope.$apply(updateClock);
-	  }, 10);
-	  updateClock();
-	});
-	
-	
-	app.filter('rawHtml', ['$sce', function($sce){
-	  return function(val) {
-	    return $sce.trustAsHtml(val);
-	  };
-	}]);
-	
-	
-	app.directive('emitLastRepeaterElement', function() {
-		return function(scope) {
-			if (scope.$last){
-				scope.$emit('LastRepeaterElement');
-			}
-		};
-	});
-	
-	
-	
-*/
+app.factory('mySharedService', function($rootScope) {
+    var builds = {};
+    builds.message = "init message";
+    builds.sections = '';
+    builds.reset = function(){
+    	
+    	builds.sections = '';
+    	console.log("Reset");
+    	console.log(builds.sections);
+    }
+    //sharedService.message = 'This is from the service';
+    //$rootScope.$broadcast('');
+    console.log('accessed')
+    return builds;
+});
 
 
 

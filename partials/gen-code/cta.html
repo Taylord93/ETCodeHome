@@ -1,5 +1,5 @@
 <div class="cta original">
-	<div class="header small-12 columns cta">
+	<div class="header small-12 columns cta" ng-click="slide($event)">
 		<div class="left">
 			<h2>CTA</h2>
 		</div>
@@ -10,7 +10,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="large-12 columns cta build section close-top" ng-controller="ctaController">
+	<div class="large-12 columns cta build section close-top collapsed" ng-controller="ctaController">
 		<div class="row">
 			<label>Copy (HTML)
 		    	<textarea class="txtinput" rows="6" value='<h1 style="font-size: 25px">Evenflo Products are the best!</h1><p style="font-size: 12px; margin-bottom: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.</p>' ng-model="copy"></textarea>
@@ -48,7 +48,7 @@
 	   <!--
 	    	CTA Email HTML
 	    -->
-	   	<xmp class="cta large-12 columns hljs html" type="banner" codeinject contenteditable></xmp>
+	   	<xmp class="cta large-12 columns hljs html" type="banner" codeinject watchme contenteditable></xmp>
 	    
 	</div>
 </div>

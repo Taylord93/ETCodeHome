@@ -1,5 +1,5 @@
 <div class="tcs original">
-	<div class="header small-12 columns tcs">
+	<div class="header small-12 columns tcs" ng-click="slide($event)">
 		<div class="left">
 			<h2>Two Column Section</h2>
 		</div>
@@ -10,7 +10,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="large-12 columns tcs build section close-top" ng-controller="tcsController">
+	<div class="large-12 columns tcs build section close-top collapsed" ng-controller="tcsController">
 		<div class="row">
 			<label>Image URL
 			<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs1src" />
@@ -53,7 +53,7 @@
 	   <!--
 	    	TCS Email HTML
 	    -->
-	    <xmp class="tcs large-12 columns buildcode hljs html language-html sanitize" type="tcs" codeinject></xmp>
+	    <xmp class="tcs large-12 columns buildcode hljs html language-html sanitize" type="tcs" watchme codeinject></xmp>
 	  </div>
 </div>
 <!-- End Two Column Section -->

@@ -1,16 +1,16 @@
 <div class="banner original">
-	<div class="header small-12 columns banner">
+	<div class="header small-12 columns banner" ng-click="slide($event)">
 		<div class="left">
 			<h2>Banner</h2>
 		</div>
 		<div class="right">
 			<a class="settings"><i class="fa fa-cog"></i></a>
 			<div class="vis">
-				<a class="delete"><i class="fa fa-trash-o"></i></a>
+				<a class="delete" ng-click="deleteSection($event)"><i class="fa fa-trash-o" ng-mouseover="changeBackground($event)" ng-mouseout="changeBack($event)"></i></a>
 			</div>
 		</div>
 	</div>
-	<div class="large-12 columns banner build section close-top visible" ng-controller="bannerController">
+	<div class="large-12 columns banner build section close-top visible collapsed" ng-controller="bannerController">
 		<div class="row">
 			<label>Image URL (690 x 374)
 				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/690x374" ng-model="src" />
@@ -23,7 +23,7 @@
 		</div>
 		<div class="row">
 			<label>Title
-				<input type="text" class="txtinput" value="Evenflo" ng-model="alt" ng-click="tester()"/>
+				<input type="text" class="txtinput" value="Evenflo" ng-model="alt"/>
 			</label>
 		</div>
 		<div class="options banner">
@@ -33,20 +33,8 @@
 	   <!--
 	    	Banner Email HTML
 	    -->
-	   	<xmp class="banner large-12 columns hljs html" type="banner" codeinject contenteditable ng-model="something"></xmp>
+	   	<xmp class="banner large-12 columns hljs html" type="banner" codeinject contenteditable watchme ng-model="something"></xmp>
 	    
 	</div>
 </div>
 <!-- End Banner Build -->
-
-<script>
-
-	var num = 0;
-	
-	$('xmp.banner').on('click focus', function(){
-		var $cloned = $(this).clone().html();
-		$(this).removeAttr('codeinject type').removeClass('ng-binding').attr('ng-non-bindable').text($cloned);
-		
-	});
-	
-</script>

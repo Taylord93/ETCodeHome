@@ -1,5 +1,5 @@
 <div class="fea original">
-	<div class="header small-12 columns fea">
+	<div class="header small-12 columns fea" ng-click="slide($event)">
 		<div class="left">
 			<h2>Featured (3 Columns)</h2>
 		</div>
@@ -10,7 +10,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="large-12 columns fea build section close-top" ng-controller="feaController">
+	<div class="large-12 columns fea build section close-top collapsed" ng-controller="feaController">
 		<div class="row">
 			<label>Image URL (180 X 99)
 				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea1src">
@@ -59,7 +59,7 @@
 	   <!--
 	    	Featured Email HTML
 	    -->
-	   <xmp class="fea large-12 columns buildcode hljs html" type="fea" ng-click="tester" codeinject></xmp>
+	   <xmp class="fea large-12 columns buildcode hljs html" type="fea" ng-click="tester" watchme codeinject></xmp>
 	</div>
 </div>
 <!-- End Featured Build -->

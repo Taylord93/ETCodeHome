@@ -1,6 +1,8 @@
 app.controller('globalController', ['$scope', '$rootScope', function($rootScope, $scope) {
 	
-	$scope.someString = "HIIII";
+	$rootScope.allTags = 'My Var';
+	console.log($rootScope.myVar);
+	console.log($rootScope.allTags);
 	
 	$scope.breakImg = function(){
 		
@@ -31,22 +33,65 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		return somearray;
 		
 	}
-	$scope.tester = function(elem, attr, scope){
+	
+	$scope.newSection = function(evt, elem, attr){
 		
-		console.log(elem);
-		console.log(attr);
-		console.log(scope);
+		var $elasd = '<div type="cta" newsection></div>'
+		$rootScope.$compile($elasd)($scope);
+		$('#newsections').append($elasd);
 		
 	}
 	
-	$scope.banner = 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/gen-code/banner.html';
-	$scope.cta = 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/gen-code/banner.html';
-	$scope.fea = 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/gen-code/banner.html';
-	$scope.tcs = 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/gen-code/banner.html';
+	$scope.changeBackground = function(evt){
+		$(evt.target.parentNode.parentNode).addClass('chbg red');
+	}
 	
-	$scope.asdf = function(){
+	$scope.changeBack = function(evt){
+		$(evt.target.parentNode.parentNode).removeClass('chbg');
+	}
+	
+	$scope.deleteSection = function(evt){
 		
-		return angular.copy($scope.idk);
+		var $section = $(evt.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode);
+		
+		swal({   
+			title: "Are you sure?",   
+			text: "Your changes will be lost",   
+			type: "warning",   
+			showCancelButton: true,   
+			confirmButtonColor: "rgb(150, 50, 50)",   
+			confirmButtonText: "CONFIRM",   
+			cancelButtonText: "CANCEL",   
+			closeOnConfirm: false,   
+			closeOnCancel: true
+		}, function(isConfirm){   
+			if (isConfirm) {     
+				swal({   
+					title: "Section Deleted",
+					type: "success",  
+					timer: 1000,   
+					showConfirmButton: false 
+				}); 
+				
+				$section.remove();
+			}
+		});
+		
+	}
+	
+	$scope.slide = function(evt){
+		
+		var $elem = $(evt.target.nextSibling.nextSibling);
+		var $targ = $(evt.target);
+		
+		if ($elem.hasClass('collapsed')) {
+			$elem.removeClass('collapsed').slideDown();
+			$targ.css('margin-bottom', '0px');
+		}else {
+			$elem.addClass('collapsed').slideUp();
+			$targ.css('margin-bottom', '10px');
+		}
+		$rootScope.$broadcast('slidup');
 		
 	}
 	
@@ -58,14 +103,19 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		
 }]).controller('tcsController', ['$scope', '$rootScope', function($rootScope, $scope) {
 		
-}]).controller('codeController', ['$scope', '$rootScope', '$sce', function($rootScope, $scope) {
+}]).controller('codeController', ['$scope', '$rootScope', '$sce', 'mySharedService', function($rootScope, $scope, mySharedService) {
 	
-	console.log($rootScope.someString);
+	//$scope.design = $rootScope.allTags;
+//	console.log($scope.design)
+//	console.log($rootScope.allTags)
+//	
+//	$rootScope.design = mySharedService.message;
+//	console.log("Builds: " + $rootScope.design);
 	
 }]);
+//codeController.$inject = ['$scope', 'share'];
 
-
-
+/*
 	buildArray = [];
 
 	$('#viewer').empty();
@@ -86,3 +136,4 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		$('#sourceViewer>code').append().text(buildArray);
 		$('#viewer').append(orig);
 	}
+	*/

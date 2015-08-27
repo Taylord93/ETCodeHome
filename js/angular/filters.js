@@ -19,4 +19,5 @@ app.filter('rawHtml', ['$sce', function($sce){
 		return $sce.trustAsHtml(joinedup);
 		
 	};
-}]);
+}])
+

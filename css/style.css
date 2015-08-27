@@ -231,9 +231,7 @@ textarea{
 	margin-bottom: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-}
-.build{
-	
+	display: none;
 }
 button:focus, input:focus, select:focus, textbox:focus, a:focus{
 	outline: none;
@@ -256,7 +254,7 @@ label>aside{
 .header{
 	background: rgb(35, 35, 35);
 	width: 100% !important;
-	margin-bottom: 0px;
+	margin-bottom: 10px;
 	padding-top: 6px;
 	height: 40px;
 }
@@ -351,7 +349,9 @@ code{
 .imgbroke{
 	background: red !important;
 }
-
+.chbg.red{
+	background: rgb(150, 50, 50);
+}
 
 @media only screen and (max-width: 640px){
 	.viewWrap{
