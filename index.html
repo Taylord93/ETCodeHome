@@ -62,9 +62,9 @@
 		     	<li class="has-dropdown">
 			        <a>Layout</a>
 			        <ul class="dropdown">
-				        <li class="active"><a href="file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/index.html#/">Default</a></li>
-				        <li><a href="file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/index.html#/product-alert">Product Alert</a></li>
-				        <li><a href="file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/index.html#/product-update">Product Update</a></li>
+				        <li class="active"><a href="#/" ng-click="makeActive($event)">Default</a></li>
+				        <li><a href="#/product-alert" ng-click="makeActive($event)">Product Alert</a></li>
+				        <li><a href="#/product-update" ng-click="makeActive($event)">Product Update</a></li>
 		       		</ul>
 		     	</li>
 		     	<li class="divider"></li>
@@ -88,14 +88,11 @@
 	
 		<div class="small-12 medium-6 large-5 columns make-margin-top">
 			
-			<div id="sections" ng-view></div>
-			<!-- Existing sections -->
-			
-			<div id="newsections" createsection></div>
+			<div id="sections" createsection ng-view></div>
+			<!-- Sections -->
 			
 			<div class="new-section-wrap">
-				<div class="header small-12 columns new-section" ng-click="slide($event)">
-					
+				<div class="header small-12 columns new-section keep-pad-left" ng-click="slide($event)">
 					<div class="left">
 						<h2>New Section</h2>
 					</div>
@@ -105,9 +102,7 @@
 						</div>
 					</div>
 				</div>
-				
-				
-				<div class="build section close-top">
+				<div class="large-12 columns build section close-top collapsed chbg black">
 					
 					<div class="icon-bar three-up" >
 					  <a class="item" id="banner" type="banner" ng-click="newSection($event, element, attr)">
@@ -138,12 +133,11 @@
 				</div>
 			</div>
 			<!-- Create new section -->
-			
 		</div>
 		
 		<div class="small-12 medium-6 large-7 columns viewWrap" ng-controller="codeController">
 			<h1>HEYYYY</h1>
-			<div id="viewer" showdesign>{{ pleasework }}</div>
+			<div id="viewer" showdesign>{{testme}}</div>
 			<div id="sourceViewer" showcode></div>
 		</div>
 	

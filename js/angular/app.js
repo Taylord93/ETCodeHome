@@ -17,6 +17,7 @@ app.factory('mySharedService', function($rootScope) {
     var builds = {};
     //sharedService.message = 'This is from the service';
     //$rootScope.$broadcast('');
+    builds.message = 'from service!';
     console.log('accessed MSS')
     return builds;
 }).factory('create', function($rootScope) {

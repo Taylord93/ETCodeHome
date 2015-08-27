@@ -1,9 +1,5 @@
 app.controller('globalController', ['$scope', '$rootScope', function($rootScope, $scope) {
 	
-	$rootScope.allTags = 'My Var';
-	console.log($rootScope.myVar);
-	console.log($rootScope.allTags);
-	
 	$scope.breakImg = function(){
 		
 		if ($('#disableImg').parent().hasClass('imgbroke')) {
@@ -101,54 +97,47 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		
 		if ($elem.hasClass('collapsed')) {
 			$elem.removeClass('collapsed').slideDown();
-			$targ.css('margin-bottom', '0px');
 		}else {
 			$elem.addClass('collapsed').slideUp();
-			$targ.css('margin-bottom', '10px');
 		}
 		$rootScope.$broadcast('slidup');
 		
 	}
 	
+	$scope.collapseAll = function(){
+	
+		$('.build').addClass('collapsed').slideUp();
+	
+	}
+	
+	$scope.expandAll = function(){
+	
+		$('.build').removeClass('collapsed').slideDown();
+	
+	}
+	
+	$scope.makeActive = function(evt){
+		
+		var $elem = $(evt.target).parent();
+		var $targ = $(evt.target)
+		
+		if ($elem.hasClass('active')) {
+		
+		}else {
+			$elem.parent().find($('.active')).removeClass('active');
+			$elem.addClass('active');
+		}
+	
+	}
+	
 }]).controller('bannerController', ['$scope', '$rootScope', function($rootScope, $scope) {
-		console.log($scope.something)
+	
 }]).controller('ctaController', ['$scope', '$rootScope', function($rootScope, $scope) {
 		
 }]).controller('feaController', ['$scope', '$rootScope', function($rootScope, $scope) {
 		
 }]).controller('tcsController', ['$scope', '$rootScope', function($rootScope, $scope) {
-		
+	
 }]).controller('codeController', ['$scope', '$rootScope', '$sce', 'mySharedService', function($rootScope, $scope, mySharedService) {
 	
-	//$scope.design = $rootScope.allTags;
-//	console.log($scope.design)
-//	console.log($rootScope.allTags)
-//	
-//	console.log( mySharedService.message );
-//	console.log("Builds: " + $rootScope.design);
-	
 }]);
-//codeController.$inject = ['$scope', 'share'];
-
-/*
-	buildArray = [];
-
-	$('#viewer').empty();
-	$('#sourceViewer>code').empty();
-	//emptying old content
-	
-	for (var i = 0; i < $('xmp').length; i++) {
-	
-		var orig = $('xmp:eq(' +[i] +')').not($('.original xmp')).clone(true).html();
-		//grab html data from each xmp tag using index
-		
-		buildArray.push($('xmp:eq(' +[i] +')').not($('.original xmp')).clone(true).html());
-		
-		var unes = unescape(orig);
-		var escp = escape(orig)
-		//var html = $.parseHTML(unes);
-		
-		$('#sourceViewer>code').append().text(buildArray);
-		$('#viewer').append(orig);
-	}
-	*/

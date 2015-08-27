@@ -227,8 +227,6 @@ textarea{
 }
 .build{
 	background: rgb(225, 225, 225);
-	margin-top: 10px;
-	margin-bottom: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	display: none;
@@ -254,9 +252,13 @@ label>aside{
 .header{
 	background: rgb(35, 35, 35);
 	width: 100% !important;
-	margin-bottom: 10px;
 	padding-top: 6px;
 	height: 40px;
+	margin-top: 10px;
+	
+}
+.header:not(.keep-pad-left){
+	padding-left: 0px;
 }
 .header:hover{
 	background: rgb(45, 45, 45);
@@ -267,6 +269,12 @@ label>aside{
 }
 .header a{
 	font-size: 1.2em !important;
+}
+.header .tools{
+	margin-right: 5px;
+}
+.header .tools:last-of-type{
+	margin-right: 10px;
 }
 .close-top{
 	margin-top: 0px !important;
@@ -351,8 +359,12 @@ code{
 }
 .chbg.red{
 	background: rgb(150, 50, 50);
-}.chbg.green{
+}
+.chbg.green{
 	background: RGB(126, 196, 71);
+}
+.chbg.black{
+	background: rgb(35, 35, 35);
 }
 a:hover{
 	color: #38a4a5;
@@ -365,6 +377,18 @@ button:hover, .top-bar-section li.active:not(.has-form):hover a:not(.button):hov
 }
 .top-bar li{
 	background: #38a4a5 !important;
+}
+.section-id{
+	padding-left: 5px;
+}
+.handle, .handle i{
+	color: rgb(100, 100, 100);
+	margin: 0px;
+	padding: 0px;
+}
+.handle{
+	padding-left: 10px;
+	padding-right: 5px;
 }
 
 @media only screen and (max-width: 640px){

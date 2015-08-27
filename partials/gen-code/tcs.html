@@ -1,10 +1,14 @@
 <div class="build-section">
 	<div class="header small-12 columns" ng-click="slide($event)">
+		<a class="left handle"><i class="fa fa-ellipsis-v"></i></a>
 		<div class="left">
-			<h2>Two Column Section</h2>
+			<div class="section-id left">
+				<h2>Two Columns</h2>
+			</div>
 		</div>
 		<div class="right">
-			<a class="settings"><i class="fa fa-cog"></i></a>
+			<a class="tools" ng-click="clone()"><i class="fa fa-clone"></i></a>
+			<a class="tools" ng-click="settings()"><i class="fa fa-cog"></i></a>
 			<div class="vis">
 				<a class="delete" ng-click="deleteSection($event)"><i class="fa fa-trash-o" ng-mouseover="changeBackground($event, 'red')" ng-mouseout="changeBack($event)"></i></a>
 			</div>
