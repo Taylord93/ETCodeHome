@@ -1,39 +1,39 @@
-<div class="banner original">
-	<div class="header small-12 columns banner" ng-click="slide($event)">
+<div class="build-section">
+	<div class="header small-12 columns" ng-click="slide($event)">
 		<div class="left">
 			<h2>Banner</h2>
 		</div>
 		<div class="right">
 			<a class="settings"><i class="fa fa-cog"></i></a>
 			<div class="vis">
-				<a class="delete" ng-click="deleteSection($event)"><i class="fa fa-trash-o" ng-mouseover="changeBackground($event)" ng-mouseout="changeBack($event)"></i></a>
+				<a class="delete" ng-click="deleteSection($event)"><i class="fa fa-trash-o" ng-mouseover="changeBackground($event, 'red')" ng-mouseout="changeBack($event)"></i></a>
 			</div>
 		</div>
 	</div>
-	<div class="large-12 columns banner build section close-top visible collapsed" ng-controller="bannerController">
+	<div class="large-12 columns build section close-top collapsed" ng-controller="bannerController">
 		<div class="row">
 			<label>Image URL (690 x 374)
-				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/690x374" ng-model="src" />
+				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/690x374" ng-model="src" ng-focus="inputFocus($event)"/>
 			</label>
 		</div>
 		<div class="row">
 			<label>Link URL
-				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href" />
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href" ng-focus="inputFocus($event)"/>
 			</label>	
 		</div>
 		<div class="row">
 			<label>Title
-				<input type="text" class="txtinput" value="Evenflo" ng-model="alt"/>
+				<input type="text" class="txtinput" value="Evenflo" ng-model="alt" ng-focus="inputFocus($event)"/>
 			</label>
 		</div>
-		<div class="options banner">
+		<div class="options">
 			<button class="source">View Source</button>
 			<button class="edit disabled" disabled="true">Edit Source</button>
 		</div>
 	   <!--
 	    	Banner Email HTML
 	    -->
-	   	<xmp class="banner large-12 columns hljs html" type="banner" codeinject contenteditable watchme ng-model="something"></xmp>
+	   	<xmp class="large-12 columns" type="banner" codeinject contenteditable watchme></xmp>
 	    
 	</div>
 </div>

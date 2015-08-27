@@ -34,20 +34,35 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		
 	}
 	
-	$scope.newSection = function(evt, elem, attr){
+	$scope.newSection = function(evt, el, attr, create){
 		
-		var $elasd = '<div type="cta" newsection></div>'
-		$rootScope.$compile($elasd)($scope);
-		$('#newsections').append($elasd);
+		if ($(evt.target).hasClass('item')) {
+			var elemType = $(evt.target).attr('id');
+		}else {
+			var elemType = $(evt.target).parent().attr('id');
+		}
+		
+		$rootScope.$broadcast('sectionCreated', { type : elemType });
 		
 	}
 	
-	$scope.changeBackground = function(evt){
-		$(evt.target.parentNode.parentNode).addClass('chbg red');
+	$scope.changeBackground = function(evt, color){
+		$(evt.target.parentNode.parentNode).addClass('chbg '+color);
 	}
 	
 	$scope.changeBack = function(evt){
 		$(evt.target.parentNode.parentNode).removeClass('chbg');
+	}
+	
+	$scope.inputFocus = function(evt){
+		
+		$elem = $(evt.target);
+		
+		if ($elem.hasClass("dirty") == false) {
+			$elem.attr('placeholder', $elem.val()).val("");
+			$elem.addClass("dirty");
+		}
+		
 	}
 	
 	$scope.deleteSection = function(evt){
@@ -109,7 +124,7 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 //	console.log($scope.design)
 //	console.log($rootScope.allTags)
 //	
-//	$rootScope.design = mySharedService.message;
+//	console.log( mySharedService.message );
 //	console.log("Builds: " + $rootScope.design);
 	
 }]);

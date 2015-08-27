@@ -351,6 +351,20 @@ code{
 }
 .chbg.red{
 	background: rgb(150, 50, 50);
+}.chbg.green{
+	background: RGB(126, 196, 71);
+}
+a:hover{
+	color: #38a4a5;
+}
+button, button.disabled, button.disabled:hover, .top-bar-section li.active:not(.has-form) a:not(.button), .icon-bar>a:hover{
+	background: #38a4a5;
+}
+button:hover, .top-bar-section li.active:not(.has-form):hover a:not(.button):hover{
+	background: #3fc8c9;
+}
+.top-bar li{
+	background: #38a4a5 !important;
 }
 
 @media only screen and (max-width: 640px){

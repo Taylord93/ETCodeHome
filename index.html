@@ -40,11 +40,8 @@
 	<script src="http://cdn.jsdelivr.net/highlight.js/8.7/highlight.min.js"></script>
 	-->
 	
-	<!--<script src="js/vars.js"></script>-->
 	<script src="js/prism.js"></script>
 	<link rel="stylesheet" href="css/prism.css">
-	
-	<script src="js/script.js"></script>
 	
 	<script src="js/angular/app.js"></script>
 	<script src="js/angular/directives.js"></script>
@@ -94,20 +91,22 @@
 			<div id="sections" ng-view></div>
 			<!-- Existing sections -->
 			
-			<div id="newsections"></div>
+			<div id="newsections" createsection></div>
 			
 			<div class="new-section-wrap">
-				<div class="header small-12 columns new-section">
+				<div class="header small-12 columns new-section" ng-click="slide($event)">
 					
 					<div class="left">
 						<h2>New Section</h2>
 					</div>
 					<div class="right">
 						<div class="vis">
-							<a class="add-section"><i class="fa fa-plus"></i></a>
+							<a class="add-section"><i class="fa fa-plus" ng-mouseover="changeBackground($event, 'green')" ng-mouseout="changeBack($event)"></i></a>
 						</div>
 					</div>
 				</div>
+				
+				
 				<div class="build section close-top">
 					
 					<div class="icon-bar three-up" >
@@ -150,39 +149,8 @@
 	
 	</div>
 	
-	
-	<!--	
-	</div>
-	<pre><code class="language-javascript">$(document).foundation();
-	
-	$('code').each(function(i, block) {
-	    hljs.highlightBlock(block);
-	});
-	
-	$(window).ready(function(){
-	
-	$('.hljs').each(function(i, block) {
-	    hljs.highlightBlock(block);
-	});
-	})</code></pre>
-	<!--
-	<div class="small-12 medium-6 large-7 columns viewWrap">
-		<iframe id="emailPreviewFrame" scrolling="auto" frameborder="0" src="partials/emailreset.html" width="100%" height="100%"></iframe>
-	</div>
-	-->
-	
-	
-	
-	
 	<script src="js/foundation.min.js"></script>
 	<script src="js/foundation/foundation.topbar.js"></script>
-	
-	<script src="js/ui.js"></script>
-	
-	<!--
-	
-	<script src="js/build.js"></script>
-	-->
 	
 	<script>
 	$(document).foundation();

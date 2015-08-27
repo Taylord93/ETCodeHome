@@ -1,59 +1,59 @@
-<div class="tcs original">
-	<div class="header small-12 columns tcs" ng-click="slide($event)">
+<div class="build-section">
+	<div class="header small-12 columns" ng-click="slide($event)">
 		<div class="left">
 			<h2>Two Column Section</h2>
 		</div>
 		<div class="right">
 			<a class="settings"><i class="fa fa-cog"></i></a>
 			<div class="vis">
-				<a class="delete"><i class="fa fa-trash-o"></i></a>
+				<a class="delete" ng-click="deleteSection($event)"><i class="fa fa-trash-o" ng-mouseover="changeBackground($event, 'red')" ng-mouseout="changeBack($event)"></i></a>
 			</div>
 		</div>
 	</div>
-	<div class="large-12 columns tcs build section close-top collapsed" ng-controller="tcsController">
+	<div class="large-12 columns build section close-top collapsed" ng-controller="tcsController">
 		<div class="row">
 			<label>Image URL
-			<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs1src" />
+			<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs1src" ng-focus="inputFocus($event)" />
 			</label>
 			
 			<label>Caption
-			<input type="text" class="txtinput" value="Caption 1" ng-model="tcs1cap" />
+			<input type="text" class="txtinput" value="Caption 1" ng-model="tcs1cap" ng-focus="inputFocus($event)" />
 			</label>
 			
 			<label>Button Text
-			<input type="text" class="txtinput" value="READ MORE" ng-model="tcs1but" />
+			<input type="text" class="txtinput" value="READ MORE" ng-model="tcs1but" ng-focus="inputFocus($event)"/>
 			</label>
 			 
 			<label>URL
-			<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="tcs1url" />
+			<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="tcs1url" ng-focus="inputFocus($event)"/>
 			</label>
 		</div>
 		<hr />
 		<div class="row">
 			<label>Image URL
-			<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs2src" />
+			<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs2src" ng-focus="inputFocus($event)"/>
 			</label>
 			
 			<label>Caption
-			<input type="text" class="txtinput" value="Caption 2" ng-model="tcs2cap" />
+			<input type="text" class="txtinput" value="Caption 2" ng-model="tcs2cap" ng-focus="inputFocus($event)"/>
 			</label>
 			
 			<label>Button Text
-			<input type="text" class="txtinput" value="READ MORE" ng-model="tcs2but" />
+			<input type="text" class="txtinput" value="READ MORE" ng-model="tcs2but" ng-focus="inputFocus($event)"/>
 			</label>
 			 
 			<label>URL
-			<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="tcs2url" />
+			<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="tcs2url" ng-focus="inputFocus($event)" />
 			</label>
 		</div>
-		<div class="options tcs">
+		<div class="options">
 			<button class="source">View Source</button>
 			<button class="edit disabled" disabled="true">Edit Source</button>
 		</div>
 	   <!--
 	    	TCS Email HTML
 	    -->
-	    <xmp class="tcs large-12 columns buildcode hljs html language-html sanitize" type="tcs" watchme codeinject></xmp>
+	    <xmp class="large-12 columns" type="tcs" watchme codeinject contenteditable></xmp>
 	  </div>
 </div>
 <!-- End Two Column Section -->

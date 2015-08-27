@@ -1,65 +1,65 @@
-<div class="fea original">
-	<div class="header small-12 columns fea" ng-click="slide($event)">
+<div class="build-section">
+	<div class="header small-12 columns" ng-click="slide($event)">
 		<div class="left">
 			<h2>Featured (3 Columns)</h2>
 		</div>
 		<div class="right">
 			<a class="settings"><i class="fa fa-cog"></i></a>
 			<div class="vis">
-				<a class="delete"><i class="fa fa-trash-o"></i></a>
+				<a class="delete" ng-click="deleteSection($event)"><i class="fa fa-trash-o" ng-mouseover="changeBackground($event, 'red')" ng-mouseout="changeBack($event)"></i></a>
 			</div>
 		</div>
 	</div>
-	<div class="large-12 columns fea build section close-top collapsed" ng-controller="feaController">
+	<div class="large-12 columns build section close-top collapsed" ng-controller="feaController">
 		<div class="row">
 			<label>Image URL (180 X 99)
-				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea1src">
+				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea1src" ng-focus="inputFocus($event)">
 			</label>
 			
 			<label>Caption
-				<input type="text" class="txtinput" value="Caption 1" ng-model="fea1cap">
+				<input type="text" class="txtinput" value="Caption 1" ng-model="fea1cap" ng-focus="inputFocus($event)">
 			</label>
 			
 			<label>URL
-				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="fea1url">
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="fea1url" ng-focus="inputFocus($event)">
 			</label>
 		</div>
 		<hr />
 		<div class="row">
 			<label>Thumbnail Path (180 X 99)
-				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea2src">
+				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea2src" ng-focus="inputFocus($event)">
 			</label>
 			
 			<label>Caption
-				<input type="text" class="txtinput" value="Caption 2" ng-model="fea2cap">
+				<input type="text" class="txtinput" value="Caption 2" ng-model="fea2cap" ng-focus="inputFocus($event)">
 			</label>
 			
 			<label>URL
-				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="fea2url">
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="fea2url" ng-focus="inputFocus($event)">
 			</label>
 		</div>
 		<hr />
 		<div class="row">
 			<label>Thumbnail  Path (180 X 99)
-				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea3src">
+				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/180x99" ng-model="fea3src" ng-focus="inputFocus($event)">
 			</label>
 			
 			<label>Caption
-				<input type="text" class="txtinput" value="Caption 3" ng-model="fea3cap">
+				<input type="text" class="txtinput" value="Caption 3" ng-model="fea3cap" ng-focus="inputFocus($event)">
 			</label>
 			
 			<label>URL
-				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="fea3url">
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="fea3url" ng-focus="inputFocus($event)">
 			</label>
 		</div>
-		<div class="options fea">
+		<div class="options">
 			<button class="source">View Source</button>
 			<button class="edit disabled" disabled="true">Edit Source</button>
 		</div>
 	   <!--
 	    	Featured Email HTML
 	    -->
-	   <xmp class="fea large-12 columns buildcode hljs html" type="fea" ng-click="tester" watchme codeinject></xmp>
+	   <xmp class="large-12 columns" type="fea" watchme codeinject contenteditable></xmp>
 	</div>
 </div>
 <!-- End Featured Build -->
