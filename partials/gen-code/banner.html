@@ -17,17 +17,17 @@
 	<div class="large-12 columns build section close-top collapsed" ng-controller="bannerController">
 		<div class="row">
 			<label>Image URL (690 x 374)
-				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/690x374" ng-model="src" ng-focus="inputFocus($event)"/>
+				<input type="text" class="txtinput" value="{{ break }}http://placehold.it/690x374" ng-model="src" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 		</div>
 		<div class="row">
 			<label>Link URL
-				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href" ng-focus="inputFocus($event)"/>
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>	
 		</div>
 		<div class="row">
 			<label>Title
-				<input type="text" class="txtinput" value="Evenflo" ng-model="alt" ng-focus="inputFocus($event)"/>
+				<input type="text" class="txtinput" value="Evenflo" ng-model="alt" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 		</div>
 		<div class="options">

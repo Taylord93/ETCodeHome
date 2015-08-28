@@ -17,37 +17,37 @@
 	<div class="large-12 columns build section close-top collapsed" ng-controller="tcsController">
 		<div class="row">
 			<label>Image URL
-			<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs1src" ng-focus="inputFocus($event)" />
+			<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs1src" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 			
 			<label>Caption
-			<input type="text" class="txtinput" value="Caption 1" ng-model="tcs1cap" ng-focus="inputFocus($event)" />
+			<input type="text" class="txtinput" value="Caption 1" ng-model="tcs1cap" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 			
 			<label>Button Text
-			<input type="text" class="txtinput" value="READ MORE" ng-model="tcs1but" ng-focus="inputFocus($event)"/>
+			<input type="text" class="txtinput" value="READ MORE" ng-model="tcs1but" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 			 
 			<label>URL
-			<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="tcs1url" ng-focus="inputFocus($event)"/>
+			<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="tcs1url" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 		</div>
 		<hr />
 		<div class="row">
 			<label>Image URL
-			<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs2src" ng-focus="inputFocus($event)"/>
+			<input type="text" class="txtinput" value="{{ break }}http://placehold.it/620x222" ng-model="tcs2src" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 			
 			<label>Caption
-			<input type="text" class="txtinput" value="Caption 2" ng-model="tcs2cap" ng-focus="inputFocus($event)"/>
+			<input type="text" class="txtinput" value="Caption 2" ng-model="tcs2cap" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 			
 			<label>Button Text
-			<input type="text" class="txtinput" value="READ MORE" ng-model="tcs2but" ng-focus="inputFocus($event)"/>
+			<input type="text" class="txtinput" value="READ MORE" ng-model="tcs2but" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 			 
 			<label>URL
-			<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="tcs2url" ng-focus="inputFocus($event)" />
+			<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="tcs2url" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 		</div>
 		<div class="options">

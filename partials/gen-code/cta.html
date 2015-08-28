@@ -17,12 +17,12 @@
 	<div class="large-12 columns build section close-top collapsed" ng-controller="ctaController">
 		<div class="row">
 			<label>Copy (HTML)
-		    	<textarea class="txtinput" rows="6" value='<h1 style="font-size: 25px">Evenflo Products are the best!</h1><p style="font-size: 12px; margin-bottom: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.</p>' ng-model="copy" ng-focus="inputFocus($event)"></textarea>
+		    	<textarea class="txtinput" rows="6" value='<h1 style="font-size: 25px">Evenflo Products are the best!</h1><p style="font-size: 12px; margin-bottom: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.</p>' ng-model="copy" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"></textarea>
 			</label>
 		</div>
 		<div class="row">
 			<label>Link URL
-				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href" ng-focus="inputFocus($event)" />
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 		</div>
 		<label>Button

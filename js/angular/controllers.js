@@ -21,9 +21,7 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		var somearray = [];
 		
 		for (var i = 0; i < splitter.length; i++) {
-			
 			somearray.push('partials/gen-code/'+splitter[i]+'.html');
-			
 		}
 		
 		return somearray;
@@ -57,6 +55,16 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		if ($elem.hasClass("dirty") == false) {
 			$elem.attr('placeholder', $elem.val()).val("");
 			$elem.addClass("dirty");
+		}
+		
+	}
+	
+	$scope.inputOffFocus = function(evt){
+		
+		$elem = $(evt.target);
+		if ($elem.val() == "" || $elem.val() == null || $elem.val() == " ") {
+			$elem.val($elem.attr('placeholder'));
+			$elem.removeClass("dirty");
 		}
 		
 	}

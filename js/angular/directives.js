@@ -110,12 +110,25 @@ app.directive('showdesign', function(mySharedService) {
 	        			output += mySharedService.design[i];
 	        		}
 	        	}
+	        	
 	        	return $sce.trustAsHtml(output);
+	        	
 	        }
+	        
 	        $scope.$on('codeChange', function($scope, args) {
-	        	mySharedService.design.push(args.element, args.changed);
-	        	var index = mySharedService.design.indexOf(args.element) + 1;
-	        	mySharedService.design[index] = args.changed;
+	        	
+	        	if (mySharedService.design.indexOf(args.element) == -1) {
+	        		
+	        		mySharedService.design.push(args.element, args.changed);
+	        		var index = mySharedService.design.indexOf(args.element) + 1;
+	        		mySharedService.design[index] = args.changed;
+	        		
+	        	}else {
+	        		
+	        		var index = mySharedService.design.indexOf(args.element) + 1;
+	        		mySharedService.design[index] = args.changed;
+	        		
+	        	}
 	        	
 	        });
     	}
@@ -142,10 +155,18 @@ app.directive('showdesign', function(mySharedService) {
 	        	return $sce.trustAsHtml(output);
 	        }
 	        $scope.$on('codeChange', function($scope, args) {
-	        	mySharedService.code.push(args.element, args.changed);
-	        	var index = mySharedService.code.indexOf(args.element) + 1;
-	        	mySharedService.code[index] = args.changed;
-	        	//console.log(mySharedService.code[index]);
+	        	if (mySharedService.code.indexOf(args.element) == -1) {
+	        		
+	        		mySharedService.code.push(args.element, args.changed);
+	        		var index = mySharedService.code.indexOf(args.element) + 1;
+	        		mySharedService.code[index] = args.changed;
+	        		
+	        	}else {
+	        		
+	        		var index = mySharedService.code.indexOf(args.element) + 1;
+	        		mySharedService.code[index] = args.changed;
+	        		
+	        	}
 	        	
 	        });
     	}
