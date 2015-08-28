@@ -173,20 +173,3 @@ app.directive('showdesign', function(mySharedService) {
     	
 	}
 });
-
-
-
-
-
-
-
-/*.directive('source', ['$sce', function($sce){
-  return function(val) {
-    templateUrl: function(elem, attr){
-      return $sce.'partials/'+attr.type+'.html';
-    }
-  };
-}]);
-
-console.log($('xmp').html());
-*/

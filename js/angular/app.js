@@ -11,9 +11,7 @@ app.config(
 	    }).otherwise({
 	        redirectTo : '/'
 	    });
-});
-
-app.factory('mySharedService', function($rootScope) {
+}).factory('mySharedService', function($rootScope) {
     var builds = {};
     builds.design = [];
     builds.code = [];
