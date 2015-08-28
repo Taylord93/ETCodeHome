@@ -52,9 +52,8 @@ app.directive('codeinject', function() {
 		    	},
 			    function (newValue, oldValue) {
 					if (newValue !== oldValue) {
-						$rootScope.$broadcast('codeChange', { element: $element, changed: $element.text() });
+						$rootScope.$broadcast('codeChange', { element: $element, changed: $element.html() });
 						//Sends "codechange" when the text content of an xmp tag is changed.
-						console.log("Code Change Broadcasted")
 					}
 			    }
 		  	);
@@ -76,7 +75,7 @@ app.directive('codeinject', function() {
 }).directive('createsection', function(create) {
 	return {
 		restrict: 'A',
-		controller: function($rootScope, $scope, $element, $compile) {
+		controller: function($rootScope, $scope, $element, $compile, mySharedService) {
 		    $scope.$on('sectionCreated', function(event, args) {
 		    //Listens for sectioncreated broadcast and accepts arguments (elemType or $evt.target.id)	
 		    	$element.append($compile('<div type="'+args.type+'" newsection></div>')($scope));
@@ -95,37 +94,31 @@ app.directive('codeinject', function() {
 app.directive('showdesign', function(mySharedService) {
 	return {
 		controller: function($rootScope, $scope, $element, $attrs, mySharedService) {
-			$scope.testme = 'IM AM WORKING!';
+			$scope.testme = mySharedService.sections;
+	        
+	        $scope.rawcode = function(){
+	        	
+	        	var output = '';
+	        	for (var i = 0; i < mySharedService.sections.length; i++) {
+	        		
+	        		if (i % 2 == 1) {
+	        			output += mySharedService.sections[i];
+	        		}else {
+	        			//console.log("it was an element!");
+	        		}
+	        		
+	        	}
+	        	return output;
+	        }
+	        
+	        console.log($scope.testme)
 	        $scope.$on('codeChange', function($scope, args) {
-	        	//USE THIS
-	        	//console.log(args.changed)
-	        	console.log(args.element);
-        		var ar = {};
-        		
-        		for (var i = 0; i < $('xmp').length; i++) {
-        			var $xmp = $('xmp:eq('+i+')').clone(true);
-        		
-        			ar.element0 = args.element.text();
-        		}
-        		//$scope.chan = args.changed;
-        	     $scope.chan = ar;
-        	     //console.log(ar + "AR")
-        	     console.log(mySharedService.message)
-        	     $scope.testme = "Yep, still wurkin";
-        	     mySharedService.message += ' this is inside of the $On';
-        	     console.log(mySharedService.message)
-        	     
-        	     //return $scope.testme;
-		    	
+	        	mySharedService.sections.push(args.element, args.changed);
+	        	var index = mySharedService.sections.indexOf(args.element) + 1;
+	        	mySharedService.sections[index] = args.changed;
+	        	
 	        });
-	        
-	        $scope.testme = mySharedService.message;
-	        mySharedService.message += ' this is outside of the $On';
-	        console.log(mySharedService.message)
-	        
-	        
-	        
-	        console.log($scope.chan);
+	        console.log($scope.testme)
     	}
     	
 	}

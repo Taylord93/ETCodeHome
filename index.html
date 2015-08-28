@@ -68,16 +68,16 @@
 		       		</ul>
 		     	</li>
 		     	<li class="divider"></li>
-		     	<li><a class="collapseAll">Collapse All</a></li>
-		     	<li><a class="expandAll">Expand All</a></li>
+		     	<li><a ng-click="collapseAll()">Collapse All</a></li>
+		     	<li><a ng-click="expandAll()">Expand All</a></li>
 		     
 		   	</ul>
 			
 		  	<ul class="right">
 		   		<li><a id="disableImg" ng-click="breakImg()">Break Images</a></li>
 		    	<li class="divider"></li>
-		      	<li class="active"><a id="showDesign">Show Design</a></li>
-		      	<li><a id="showCode">Show Code</a></li>
+		      	<li class="active"><a >Show Design</a></li>
+		      	<li><a >Show Code</a></li>
 		   	</ul>
 		    
 		 </section>
@@ -136,9 +136,8 @@
 		</div>
 		
 		<div class="small-12 medium-6 large-7 columns viewWrap" ng-controller="codeController">
-			<h1>HEYYYY</h1>
-			<div id="viewer" showdesign>{{testme}}</div>
-			<div id="sourceViewer" showcode></div>
+			<div id="viewer" showdesign><div ng-bind-html-unsafe="rawcode()"></div>{{ rawcode() }}</div>
+			<div id="sourceViewer" showcode>{{ rawcode() }}</div>
 		</div>
 	
 	</div>

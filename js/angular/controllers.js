@@ -140,4 +140,6 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 	
 }]).controller('codeController', ['$scope', '$rootScope', '$sce', 'mySharedService', function($rootScope, $scope, mySharedService) {
 	
+	$scope.testme = mySharedService.sections;
+	
 }]);
