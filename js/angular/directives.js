@@ -72,7 +72,7 @@ app.directive('codeinject', function() {
 		  //Returns template for code generating section to 'newsection' marked divs
 		}
 	};
-}).directive('createsection', function(create) {
+}).directive('createsection', function() {
 	return {
 		restrict: 'A',
 		controller: function($rootScope, $scope, $element, $compile, mySharedService) {
@@ -93,32 +93,61 @@ app.directive('codeinject', function() {
 
 app.directive('showdesign', function(mySharedService) {
 	return {
-		controller: function($rootScope, $scope, $element, $attrs, mySharedService) {
-			$scope.testme = mySharedService.sections;
+		templateUrl: function(){
+		  return 'partials/design.html';
+		  //Returns template for code generating section to 'newsection' marked divs
+		}
+	}
+}).directive('getdesign', function(mySharedService) {
+	return {
+		controller: function($rootScope, $scope, $element, $attrs, $sce, mySharedService) {
 	        
 	        $scope.rawcode = function(){
 	        	
 	        	var output = '';
-	        	for (var i = 0; i < mySharedService.sections.length; i++) {
-	        		
+	        	for (var i = 0; i < mySharedService.design.length; i++) {
 	        		if (i % 2 == 1) {
-	        			output += mySharedService.sections[i];
-	        		}else {
-	        			//console.log("it was an element!");
+	        			output += mySharedService.design[i];
 	        		}
-	        		
 	        	}
-	        	return output;
+	        	return $sce.trustAsHtml(output);
 	        }
-	        
-	        console.log($scope.testme)
 	        $scope.$on('codeChange', function($scope, args) {
-	        	mySharedService.sections.push(args.element, args.changed);
-	        	var index = mySharedService.sections.indexOf(args.element) + 1;
-	        	mySharedService.sections[index] = args.changed;
+	        	mySharedService.design.push(args.element, args.changed);
+	        	var index = mySharedService.design.indexOf(args.element) + 1;
+	        	mySharedService.design[index] = args.changed;
 	        	
 	        });
-	        console.log($scope.testme)
+    	}
+    	
+	}
+}).directive('showcode', function(mySharedService) {
+	return {
+		templateUrl: function(){
+		  return 'partials/code.html';
+		  //Returns template for code generating section to 'newsection' marked divs
+		}
+	}
+}).directive('getcode', function(mySharedService) {
+	return {
+		controller: function($rootScope, $scope, $element, $attrs, $sce,  mySharedService) {
+	        $scope.rawcode = function(){
+	        	
+	        	var output = '';
+	        	for (var i = 0; i < mySharedService.code.length; i++) {
+	        		if (i % 2 == 1) {
+	        			output += mySharedService.code[i];
+	        		}
+	        	}
+	        	return $sce.trustAsHtml(output);
+	        }
+	        $scope.$on('codeChange', function($scope, args) {
+	        	mySharedService.code.push(args.element, args.changed);
+	        	var index = mySharedService.code.indexOf(args.element) + 1;
+	        	mySharedService.code[index] = args.changed;
+	        	//console.log(mySharedService.code[index]);
+	        	
+	        });
     	}
     	
 	}

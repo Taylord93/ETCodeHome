@@ -15,19 +15,8 @@ app.config(
 
 app.factory('mySharedService', function($rootScope) {
     var builds = {};
-    //sharedService.message = 'This is from the service';
-    //$rootScope.$broadcast('');
-    builds.sections = [];
-    builds.message = 'from service!';
-    console.log('accessed MSS')
-    return builds;
-}).factory('create', function($rootScope) {
-    var builds = {};
-    
-    builds.made = 'You made this!';
-    //sharedService.message = 'This is from the service';
-    //$rootScope.$broadcast('');
-    console.log('accessed Create')
+    builds.design = [];
+    builds.code = [];
     return builds;
 });
 

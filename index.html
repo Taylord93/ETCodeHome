@@ -76,8 +76,8 @@
 		  	<ul class="right">
 		   		<li><a id="disableImg" ng-click="breakImg()">Break Images</a></li>
 		    	<li class="divider"></li>
-		      	<li class="active"><a >Show Design</a></li>
-		      	<li><a >Show Code</a></li>
+		      	<li class="active"><a ng-click="showDesignView($event)">Show Design</a></li>
+		      	<li><a ng-click="showCodeView($event)">Show Code</a></li>
 		   	</ul>
 		    
 		 </section>
@@ -136,8 +136,8 @@
 		</div>
 		
 		<div class="small-12 medium-6 large-7 columns viewWrap" ng-controller="codeController">
-			<div id="viewer" showdesign><div ng-bind-html-unsafe="rawcode()"></div>{{ rawcode() }}</div>
-			<div id="sourceViewer" showcode>{{ rawcode() }}</div>
+			<div id="viewer" showdesign></div>
+			<div id="sourceViewer" showcode></div>
 		</div>
 	
 	</div>

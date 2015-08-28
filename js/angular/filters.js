@@ -2,7 +2,7 @@ app.filter('rawHtml', ['$sce', function($sce){
 	return function(val) {
 		return $sce.trustAsHtml(val);
 	};
-}]).filter('sanitize', ['$sce', function($sce){
+}]).filter('sanitizer', ['$sce', function($sce){
 	return function(val) {
 		
 		var escArr = [];
@@ -16,7 +16,7 @@ app.filter('rawHtml', ['$sce', function($sce){
 		}
 		
 		var joinedup = escArr.join("");
-		return $sce.trustAsHtml(joinedup);
+		return joinedup;
 		
 	};
 }])

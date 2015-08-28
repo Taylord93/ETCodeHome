@@ -30,7 +30,7 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		
 	}
 	
-	$scope.newSection = function(evt, el, attr, create){
+	$scope.newSection = function(evt, el, attr){
 		
 		if ($(evt.target).hasClass('item')) {
 			var elemType = $(evt.target).attr('id');
@@ -121,13 +121,37 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		var $elem = $(evt.target).parent();
 		var $targ = $(evt.target)
 		
-		if ($elem.hasClass('active')) {
-		
-		}else {
+		if ($elem.hasClass('active') == false) {
 			$elem.parent().find($('.active')).removeClass('active');
 			$elem.addClass('active');
 		}
 	
+	}
+	
+	$scope.showCodeView = function(evt){
+		
+		var $elem = $(evt.target).parent();
+		
+		if ($elem.hasClass('active') == false) {
+			$elem.parent().find($('.active')).removeClass('active');
+			$elem.addClass('active');
+			$('#viewer').css('display', 'none');
+			$('#sourceViewer').fadeIn();
+		}
+		
+	}
+	
+	$scope.showDesignView = function(evt){
+		
+		var $elem = $(evt.target).parent();
+		
+		if ($elem.hasClass('active') == false) {
+			$elem.parent().find($('.active')).removeClass('active');
+			$elem.addClass('active');
+			$('#sourceViewer').css('display', 'none');
+			$('#viewer').fadeIn();
+		}
+		
 	}
 	
 }]).controller('bannerController', ['$scope', '$rootScope', function($rootScope, $scope) {
@@ -139,7 +163,5 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 }]).controller('tcsController', ['$scope', '$rootScope', function($rootScope, $scope) {
 	
 }]).controller('codeController', ['$scope', '$rootScope', '$sce', 'mySharedService', function($rootScope, $scope, mySharedService) {
-	
-	$scope.testme = mySharedService.sections;
 	
 }]);
