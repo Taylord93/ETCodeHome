@@ -1,9 +1,10 @@
+*:focus{
+	outline: none;
+}
 table tr.even, table tr.alt, table tr:nth-of-type(even){
 	background: none;
 }
 xmp{
-	word-break: break-all !important;
-	word-wrap: break-word !important;
 	clear: both;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -16,6 +17,7 @@ xmp{
 	min-height: 100px;
 	max-width: 100%;
 	overflow: auto;
+	display: none;
 }
 xmp:focus{
 	outline: none;
@@ -168,6 +170,12 @@ code{
 .chbg.red{
 	background: rgb(150, 50, 50);
 }
+.chbg.red.alert{
+	background: rgb(150, 50, 50);
+	-webkit-animation: pulse-red 2s ease-in-out infinite;
+	-moz-animation: pulse-red 2s ease-in-out infinite;
+	animation: pulse-red 2s infinite;
+}
 .chbg.green{
 	background: RGB(126, 196, 71);
 }
@@ -197,6 +205,85 @@ button:hover, .top-bar-section li.active:not(.has-form):hover a:not(.button):hov
 .handle{
 	padding-left: 10px;
 	padding-right: 5px;
+}
+
+@keyframes pulse-red {
+	0%{
+		background: rgb(150, 50, 50);
+	}
+	10%{
+		background: rgb(150, 50, 50);
+	}
+	20%{
+		background: rgb(210, 43, 43);
+	}
+	30%{
+		background: rgb(150, 50, 50);
+	}
+	60%{
+		background: rgb(150, 50, 50);
+	}
+	70%{
+		background: rgb(210, 43, 43);
+	}
+	80%{
+		background: rgb(150, 50, 50);
+	}
+	100%{
+		background: rgb(150, 50, 50);
+	}
+}
+@-webkit-keyframes pulse-red {
+	0%{
+		background: rgb(150, 50, 50);
+	}
+	10%{
+		background: rgb(150, 50, 50);
+	}
+	20%{
+		background: rgb(210, 43, 43);
+	}
+	30%{
+		background: rgb(150, 50, 50);
+	}
+	60%{
+		background: rgb(150, 50, 50);
+	}
+	70%{
+		background: rgb(210, 43, 43);
+	}
+	80%{
+		background: rgb(150, 50, 50);
+	}
+	100%{
+		background: rgb(150, 50, 50);
+	}
+}
+@-moz-keyframes pulse-red {
+	0%{
+		background: rgb(150, 50, 50);
+	}
+	10%{
+		background: rgb(150, 50, 50);
+	}
+	20%{
+		background: rgb(210, 43, 43);
+	}
+	30%{
+		background: rgb(150, 50, 50);
+	}
+	60%{
+		background: rgb(150, 50, 50);
+	}
+	70%{
+		background: rgb(210, 43, 43);
+	}
+	80%{
+		background: rgb(150, 50, 50);
+	}
+	100%{
+		background: rgb(150, 50, 50);
+	}
 }
 
 @media only screen and (max-width: 640px){

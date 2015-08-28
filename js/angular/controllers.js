@@ -1,14 +1,17 @@
 app.controller('globalController', ['$scope', '$rootScope', function($rootScope, $scope) {
 	
-	$scope.breakImg = function(){
+	$scope.breakImg = function(evt){
 		
-		if ($('#disableImg').parent().hasClass('imgbroke')) {
-			$('#disableImg').parent().removeClass('imgbroke');
-			$('#disableImg').text("Break Images");
+		var $elem = $(evt.target).parent();
+		var $targ = $(evt.target);
+		
+		if ($elem.hasClass('imgbroke')) {
+			$elem.removeClass('imgbroke');
+			$targ.text("Break Images").removeClass('chbg red alert');
 			$scope.break = '';
 		}else {
-			$('#disableImg').parent().addClass('imgbroke');
-			$('#disableImg').text("Fix Images");
+			$elem.addClass('imgbroke');
+			$targ.text("Fix Images").addClass('chbg red alert');
 			$scope.break = ' Oops! I broke your image! ';
 		}
 	
@@ -158,6 +161,20 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 			$elem.addClass('active');
 			$('#sourceViewer').css('display', 'none');
 			$('#viewer').fadeIn();
+		}
+		
+	}
+	
+	$scope.viewSource = function (evt){
+		
+		var $elem = $(evt.target);
+		
+		if ($elem.hasClass('code-visible')) {
+			$elem.removeClass('code-visible').text('View Source');
+			$elem.parent().next().slideUp();
+		}else {
+			$elem.addClass('code-visible').text('Hide Source');
+			$elem.parent().next().slideDown();
 		}
 		
 	}
