@@ -8,6 +8,8 @@ app.config(
 	        templateUrl : 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/layouts/product-alert.html'
 	    }).when('/product-update', {
 	        templateUrl : 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/layouts/product-update.html'
+	    }).when('/blank', {
+	        templateUrl : 'file:///Users/DevonTaylor/Documents/Web%20Dev/ETCodeHome/partials/layouts/blank.html'
 	    }).otherwise({
 	        redirectTo : '/'
 	    });
@@ -15,6 +17,7 @@ app.config(
     var builds = {};
     builds.design = [];
     builds.code = [];
+    builds.codeobj = {};
     return builds;
 });
 

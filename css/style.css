@@ -134,26 +134,24 @@ button{
 }
 #sourceViewer{
 	display: none;
-}
-#hiddenClick{
-	display: none !important;
-}
-#container{
-	overflow: auto;
-	max-height: 100%;
-}
-#sourceViewer{
 	max-width: 100%;
 	margin: auto;
 	float: none;
 	margin-top: 20px;
 	padding-bottom: 20px;
 	padding-top: 10px;
-	padding-left: 20px;
+}
+#container{
+	overflow: auto;
+	max-height: 100%;
 }
 code{
 	background: none;
 	border: none;
+}
+code, pre{
+	padding-left: 20px !important;
+	padding-top: -20px;
 }
 .delete{
 	color: rgb(235, 235, 235);

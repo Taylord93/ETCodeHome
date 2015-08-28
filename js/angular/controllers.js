@@ -96,6 +96,8 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 				}); 
 				
 				$section.remove();
+				//$section.$destroy();
+				$rootScope.$broadcast('elementsDestroyed');
 			}
 		});
 		
@@ -130,13 +132,13 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 	$scope.makeActive = function(evt){
 		
 		var $elem = $(evt.target).parent();
-		var $targ = $(evt.target)
+		var $targ = $(evt.target);
 		
 		if ($elem.hasClass('active') == false) {
 			$elem.parent().find($('.active')).removeClass('active');
 			$elem.addClass('active');
 		}
-	
+		$rootScope.$broadcast('elementsDestroyed');
 	}
 	
 	$scope.showCodeView = function(evt){

@@ -131,6 +131,9 @@ app.directive('showdesign', function(mySharedService) {
 	        	}
 	        	
 	        });
+	        $scope.$on('elementsDestroyed', function() {
+	        	mySharedService.design = [];
+	        });
     	}
     	
 	}
@@ -149,7 +152,7 @@ app.directive('showdesign', function(mySharedService) {
 	        	var output = '';
 	        	for (var i = 0; i < mySharedService.code.length; i++) {
 	        		if (i % 2 == 1) {
-	        			output += mySharedService.code[i];
+	        			output += ('\n' + mySharedService.code[i]);
 	        		}
 	        	}
 	        	return $sce.trustAsHtml(output);
@@ -168,6 +171,9 @@ app.directive('showdesign', function(mySharedService) {
 	        		
 	        	}
 	        	
+	        });
+	        $scope.$on('elementsDestroyed', function() {
+	        	mySharedService.code = [];
 	        });
     	}
     	

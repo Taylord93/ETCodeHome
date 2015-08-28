@@ -1,1 +1,14 @@
+
+<pre><code class="html">
 <div getcode>{{rawcode()}}</div>
+</code></pre>
+
+<script>
+hljs.initHighlightingOnLoad();
+
+$(document).ready(function() {
+  $('xmp').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+</script>
