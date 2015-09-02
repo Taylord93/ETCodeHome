@@ -183,7 +183,24 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 	
 }]).controller('bannerController', ['$scope', '$rootScope', function($rootScope, $scope) {
 	
-}]).controller('ctaController', ['$scope', '$rootScope', function($rootScope, $scope) {
+}]).controller('ctaController', ['$scope', '$rootScope', function($rootScope, $scope, $compile) {
+	
+	$scope.changebuttons = function(evt){
+	
+		$elem = $(evt.target);
+		$elemtarg = $elem.parent().find($('xmp'));
+		
+		if ($elem.hasClass('two-buttons')) {
+			$elem.removeClass('two-buttons');
+			$elem.parent().find($('xmp')).attr('type', 'cta');
+			$rootScope.$broadcast('codeChange', { element: $elemtarg, changed: $elemtarg.html() });
+		}else {
+			$elem.addClass('two-buttons');
+			$elem.parent().find($('xmp')).attr('type', 'cta-twobuttons');
+			$rootScope.$broadcast('codeChange', { element: $elemtarg, changed: $elemtarg.html() });
+		}
+	
+	}
 		
 }]).controller('feaController', ['$scope', '$rootScope', function($rootScope, $scope) {
 		

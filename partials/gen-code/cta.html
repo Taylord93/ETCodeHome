@@ -46,24 +46,24 @@
 			   </div>
 			</label>
 		</div>
-		<input type="checkbox" value="false" ng-model="twobut" name="twobuttons"/>
+		<input type="checkbox" value="false" ng-model="twobut" name="twobuttons" ng-click="changebuttons($event)"/>
 		<label class="inline" for="twobutton">Two Buttons</label>
 		<div class="row" ng-show="twobut" class="ng-hide">
 			<label>Link URL
-				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
+				<input type="text" class="txtinput" value="http://www.evenflo.com" ng-model="href2" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 			<label>Button
 			   <div class="small-12 columns no-pad">
 			    	<div class="row collapse">
 			           <div class="small-3 columns">
-			        		<select ng-model="color" class="prefix" value="blue.png">
+			        		<select ng-model="color2" class="prefix" value="green.png">
 			        		   <option value="blue.png" selected>Blue</option>
 			        		   <option value="green.png">Green</option>
 			        		   <option value="outline.png">Outline</option>
 			        		</select>
 			           </div>
 			           <div class="small-9 columns">
-			        	   <select ng-model="typeSrc" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/shop-now-">
+			        	   <select ng-model="typeSrc2" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/learn-more-">
 			        	       <option id="opt1" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/shop-now-" label="Shop Now" selected>Shop Now</option>
 			        	       <option id="opt2" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/buy-now-" label="Buy Now">Buy Now</option>
 			        	       <option id="opt3" value="http://image.exct.net/{{ break }}lib/fe5e15707d6c007a7410/m/1/learn-more-" label="Learn More">Learn More</option>
@@ -81,7 +81,7 @@
 	   <!--
 	    	CTA Email HTML
 	    -->
-	   	<xmp class="large-12 columns html" type="cta" changer="{{twobut}}" codeinject watchme contenteditable></xmp>
+	   	<xmp class="large-12 columns html" type="cta" codeinject watchme contenteditable></xmp>
 	    
 	</div>
 </div>

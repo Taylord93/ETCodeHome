@@ -57,6 +57,26 @@ app.directive('codeinject', function() {
 					}
 			    }
 		  	);
+		  	
+/*
+====================================================================================================================================
+	LOOOOOOOOKKKKKKK
+====================================================================================================================================
+*/
+
+		  	$scope.$watch(
+		  		function () { 
+		  			return $element.attr('type');
+		  			//watching for changes in element.text() 
+		  		},
+		  	    function (newValue, oldValue) {
+		  			if (newValue !== oldValue) {
+		  				$element.parent().append($element.clone());
+		  				$element.remove();
+		  				//Sends "codechange" when the text content of an xmp tag is changed.
+		  			}
+		  	    }
+		  	);
 		},
 		templateUrl: function(elem, attr){
 			return 'partials/email-code/'+attr.type+'.html';
@@ -179,3 +199,13 @@ app.directive('showdesign', function(mySharedService) {
     	
 	}
 });
+
+
+app.directive('changer', function() {
+	return {
+		controller: function($rootScope, $scope, $element, $attrs, $sce) {
+		    
+		    
+		}
+	}
+})
