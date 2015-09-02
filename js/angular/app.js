@@ -3,13 +3,13 @@ var app = angular.module('codegen', ['ngRoute']);
 app.config(
 	function($routeProvider) {
 	    $routeProvider.when('/', {
-	        templateUrl : '/partials/layouts/default.html'
+	        templateUrl : 'file:///Users/DTaylo02/Documents/ETCodeHome/partials/layouts/default.html'
 	    }).when('/product-alert', {
-	        templateUrl : '/partials/layouts/product-alert.html'
+	        templateUrl : 'file:///Users/DTaylo02/Documents/ETCodeHome/partials/layouts/product-alert.html'
 	    }).when('/product-update', {
-	        templateUrl : '/partials/layouts/product-update.html'
+	        templateUrl : 'file:///Users/DTaylo02/Documents/ETCodeHome/partials/layouts/product-update.html'
 	    }).when('/blank', {
-	        templateUrl : '/partials/layouts/blank.html'
+	        templateUrl : 'file:///Users/DTaylo02/Documents/ETCodeHome/partials/layouts/blank.html'
 	    }).otherwise({
 	        redirectTo : '/'
 	    });
