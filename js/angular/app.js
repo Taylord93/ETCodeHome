@@ -13,9 +13,12 @@ app.config(
 	    }).otherwise({
 	        redirectTo : '/'
 	    });
-}).factory('mySharedService', function($rootScope) {
+}).factory('buildService', function($rootScope) {
     var builds = {};
     builds.design = [];
     builds.code = [];
+    builds.comb = {};
+    builds.passme = false;
+    builds.passargs = '';
     return builds;
 });

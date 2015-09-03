@@ -40,6 +40,7 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		}
 		
 		$rootScope.$broadcast('sectionCreated', { type : elemType });
+		//$rootScope.$broadcast('objectCreated');
 		
 	}
 	
@@ -98,6 +99,7 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 				$section.remove();
 				//$section.$destroy();
 				$rootScope.$broadcast('elementsDestroyed');
+				$rootScope.$broadcast('objectDeleted');
 			}
 		});
 		
@@ -129,7 +131,7 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 	
 	}
 	
-	$scope.makeActive = function(evt){
+	$scope.changeLayout = function(evt){
 		
 		var $elem = $(evt.target).parent();
 		var $targ = $(evt.target);
@@ -138,7 +140,7 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 			$elem.parent().find($('.active')).removeClass('active');
 			$elem.addClass('active');
 		}
-		$rootScope.$broadcast('elementsDestroyed');
+		$rootScope.$broadcast('layoutChange');
 	}
 	
 	$scope.showCodeView = function(evt){
@@ -192,12 +194,12 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		
 		if ($elem.hasClass('two-buttons')) {
 			$elem.removeClass('two-buttons');
-			$elem.parent().find($('xmp')).attr('type', 'cta');
-			$rootScope.$broadcast('codeChange', { element: $elemtarg, changed: $elemtarg.html() });
+			$elem.parent().find($('xmp')).remove();
+			$elem.parent().append($compile('<xmp class="large-12 columns html" type="cta" codeinject watchme contenteditable></xmp>')($scope))
 		}else {
 			$elem.addClass('two-buttons');
-			$elem.parent().find($('xmp')).attr('type', 'cta-twobuttons');
-			$rootScope.$broadcast('codeChange', { element: $elemtarg, changed: $elemtarg.html() });
+			$elem.parent().find($('xmp')).remove();
+			$elem.parent().append($compile('<xmp class="large-12 columns html" type="cta" codeinject watchme contenteditable></xmp>')($scope))
 		}
 	
 	}
@@ -206,6 +208,6 @@ app.controller('globalController', ['$scope', '$rootScope', function($rootScope,
 		
 }]).controller('tcsController', ['$scope', '$rootScope', function($rootScope, $scope) {
 	
-}]).controller('codeController', ['$scope', '$rootScope', '$sce', 'mySharedService', function($rootScope, $scope, mySharedService) {
+}]).controller('codeController', ['$scope', '$rootScope', '$sce', 'buildService', function($rootScope, $scope, buildService) {
 	
 }]);

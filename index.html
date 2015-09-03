@@ -63,10 +63,10 @@
 		     	<li class="has-dropdown">
 			        <a>Layout</a>
 			        <ul class="dropdown">
-				        <li class="active"><a href="#/" ng-click="makeActive($event)">Default</a></li>
-				        <li><a href="#/product-alert" ng-click="makeActive($event)">Product Alert</a></li>
-				        <li><a href="#/product-update" ng-click="makeActive($event)">Product Update</a></li>
-				        <li><a href="#/blank" ng-click="makeActive($event)">Blank</a></li>
+				        <li class="active"><a href="#/" ng-click="changeLayout($event)">Default</a></li>
+				        <li><a href="#/product-alert" ng-click="changeLayout($event)">Product Alert</a></li>
+				        <li><a href="#/product-update" ng-click="changeLayout($event)">Product Update</a></li>
+				        <li><a href="#/blank" ng-click="changeLayout($event)">Blank</a></li>
 		       		</ul>
 		     	</li>
 		     	<li class="divider"></li>
@@ -138,8 +138,8 @@
 		</div>
 		
 		<div class="small-12 medium-6 large-7 columns viewWrap" ng-controller="codeController">
-			<div id="viewer" showdesign></div>
-			<div id="sourceViewer" showcode></div>
+			<div id="viewer" showprog type="design"></div>
+			<div id="sourceViewer" showprog type="code"></div>
 		</div>
 	
 	</div>

@@ -234,7 +234,11 @@
 		<!--End Personalization-->
 		<!--Begin Email-->
 		
-		<div getdesign ng-bind-html="rawcode()"></div>
+		<div getprog>
+		
+			<div class="repeater" ng-repeat="i in prog track by $index" ng-bind-html="prog['section'+$index] | rawHtml"></div>
+		
+		</div>
 		
 		<!-- This row fixes Gmail app scaling issues on iPhone -->
 	
@@ -251,9 +255,20 @@
  <div id="PastePreviewPanel" class="mainArea" style="display: block; background-color: rgb(255, #viewer 255, #viewer 255);">
 	
 	<iframe id="PastePreviewFrame" name="PastePreviewFrame" scrolling="auto" frameborder="0" src="../../blank.html" height="182px" style="display: inline-block; width: 1414px; margin-left: 0px; background-color: rgb(255, #viewer 255, #viewer 255);"></iframe>
+	
+	
+USE THIS TO BIND 
+
+
 		
 </div>
  
  
  -->
 
+<script>
+
+	$('.repeater').contents().unwrap();
+
+
+</script>

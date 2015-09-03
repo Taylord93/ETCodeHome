@@ -44,7 +44,15 @@ app.directive('input', function ($parse) {
 app.directive('codeinject', function() {
 // codeinject are the XMP tags, generating the email code
 	return {
-		controller: function($rootScope, $scope, $element) {
+		controller: function($rootScope, $scope, $element, buildService) {
+		    
+		    $scope.$on('layoutChange', function(event) {
+		    	buildService.comb = {};
+		    });
+		    
+		    var objKey = $element.parent().parent().attr("id");
+		    buildService.comb[objKey] = $element.html();
+		    
 		    $scope.$watch(
 		    	function () { 
 		    		return $element.text();
@@ -52,31 +60,35 @@ app.directive('codeinject', function() {
 		    	},
 			    function (newValue, oldValue) {
 					if (newValue !== oldValue) {
-						$rootScope.$broadcast('codeChange', { element: $element, changed: $element.html() });
+					
+						buildService.comb[objKey] = $element.html();
+						
+						$rootScope.$broadcast('codeChange', { useKey : objKey });
 						//Sends "codechange" when the text content of an xmp tag is changed.
 					}
 			    }
 		  	);
 		  	
+		  	
 /*
 ====================================================================================================================================
-	LOOOOOOOOKKKKKKK
+	/ /\ \/ / /\/\ \ \ / /\ \/ / /\/\ \ \ / /    LOOOOOOOOKKKKKKK    / /\ \/ / /\/\ \ \ / /\ \/ / /\/\ \ \ / /
 ====================================================================================================================================
 */
 
-		  	$scope.$watch(
-		  		function () { 
-		  			return $element.attr('type');
-		  			//watching for changes in element.text() 
-		  		},
-		  	    function (newValue, oldValue) {
-		  			if (newValue !== oldValue) {
-		  				$element.parent().append($element.clone());
-		  				$element.remove();
-		  				//Sends "codechange" when the text content of an xmp tag is changed.
-		  			}
-		  	    }
-		  	);
+//		  	$scope.$watch(
+//		  		function () { 
+//		  			return $element.attr('type');
+//		  			//watching for changes in element.text() 
+//		  		},
+//		  	    function (newValue, oldValue) {
+//		  			if (newValue !== oldValue) {
+//		  				$element.parent().append($element.clone());
+//		  				$element.remove();
+//		  				//Sends "codechange" when the text content of an xmp tag is changed.
+//		  			}
+//		  	    }
+//		  	);
 		},
 		templateUrl: function(elem, attr){
 			return 'partials/email-code/'+attr.type+'.html';
@@ -85,21 +97,35 @@ app.directive('codeinject', function() {
 	};
 	
 }).directive('newsection', function() {
-// Newsection are the code-gen divs
+	// Newsection sections are the code-gen divs (layouts, not "create new section")
 	return {
+		controller: function($rootScope, $scope, $element, $compile, $attrs, buildService) {
+		
+			$('.build-section').attr('id', function(i) {
+			   return 'section'+(i+1);
+			});
+			//Assign Unique ID to section
+			
+		},
 		templateUrl: function(elem, attr){
 		  return 'partials/gen-code/'+attr.type+'.html';
 		  //Returns template for code generating section to 'newsection' marked divs
 		}
 	};
 }).directive('createsection', function() {
+	//This is for sections created outside of the layout
 	return {
 		restrict: 'A',
-		controller: function($rootScope, $scope, $element, $compile, mySharedService) {
+		controller: function($rootScope, $scope, $element, $compile, buildService) {
+		
+			var objKey = $element.parent().parent().attr("id");
+			buildService.comb[objKey] = $element.html();
+			
 		    $scope.$on('sectionCreated', function(event, args) {
 		    //Listens for sectioncreated broadcast and accepts arguments (elemType or $evt.target.id)	
 		    	$element.append($compile('<div type="'+args.type+'" newsection></div>')($scope));
 		    	//Appends compiled elements to #sections
+		    	buildService.comb[objKey] = $element.html();
 		    });
 		}
 	};
@@ -111,90 +137,20 @@ app.directive('codeinject', function() {
 ====================================================================================================================================
 */
 
-app.directive('showdesign', function(mySharedService) {
+app.directive('showprog', function(buildService) {
 	return {
-		templateUrl: function(){
-		  return 'partials/design.html';
+		templateUrl: function(elem, attr){
+		  return 'partials/'+attr.type+'.html';
 		  //Returns template for code generating section to 'newsection' marked divs
 		}
 	}
-}).directive('getdesign', function(mySharedService) {
+}).directive('getprog', function(buildService) {
 	return {
-		controller: function($rootScope, $scope, $element, $attrs, $sce, mySharedService) {
+	
+		controller: function($rootScope, $scope, $element, $attrs, $sce, buildService) {
+			
+			$scope.prog = buildService.comb;
 	        
-	        $scope.rawcode = function(){
-	        	
-	        	var output = '';
-	        	for (var i = 0; i < mySharedService.design.length; i++) {
-	        		if (i % 2 == 1) {
-	        			output += mySharedService.design[i];
-	        		}
-	        	}
-	        	
-	        	return $sce.trustAsHtml(output);
-	        	
-	        }
-	        
-	        $scope.$on('codeChange', function($scope, args) {
-	        	
-	        	if (mySharedService.design.indexOf(args.element) == -1) {
-	        		
-	        		mySharedService.design.push(args.element, args.changed);
-	        		var index = mySharedService.design.indexOf(args.element) + 1;
-	        		mySharedService.design[index] = args.changed;
-	        		
-	        	}else {
-	        		
-	        		var index = mySharedService.design.indexOf(args.element) + 1;
-	        		mySharedService.design[index] = args.changed;
-	        		
-	        	}
-	        	
-	        });
-	        $scope.$on('elementsDestroyed', function() {
-	        	mySharedService.design = [];
-	        });
-    	}
-    	
-	}
-}).directive('showcode', function(mySharedService) {
-	return {
-		templateUrl: function(){
-		  return 'partials/code.html';
-		  //Returns template for code generating section to 'newsection' marked divs
-		}
-	}
-}).directive('getcode', function(mySharedService) {
-	return {
-		controller: function($rootScope, $scope, $element, $attrs, $sce,  mySharedService) {
-	        $scope.rawcode = function(){
-	        	
-	        	var output = '';
-	        	for (var i = 0; i < mySharedService.code.length; i++) {
-	        		if (i % 2 == 1) {
-	        			output += ('\n' + mySharedService.code[i]);
-	        		}
-	        	}
-	        	return $sce.trustAsHtml(output);
-	        }
-	        $scope.$on('codeChange', function($scope, args) {
-	        	if (mySharedService.code.indexOf(args.element) == -1) {
-	        		
-	        		mySharedService.code.push(args.element, args.changed);
-	        		var index = mySharedService.code.indexOf(args.element) + 1;
-	        		mySharedService.code[index] = args.changed;
-	        		
-	        	}else {
-	        		
-	        		var index = mySharedService.code.indexOf(args.element) + 1;
-	        		mySharedService.code[index] = args.changed;
-	        		
-	        	}
-	        	
-	        });
-	        $scope.$on('elementsDestroyed', function() {
-	        	mySharedService.code = [];
-	        });
     	}
     	
 	}
@@ -209,3 +165,16 @@ app.directive('changer', function() {
 		}
 	}
 })
+
+
+
+
+
+/*
+$('#pages li').attr('id', function(i) {
+   return 'page'+(i+1);
+});
+
+Create unique ID on elements
+
+*/
