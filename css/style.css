@@ -145,13 +145,17 @@ button{
 	overflow: auto;
 	max-height: 100%;
 }
+pre{
+	margin-top: 0px !important;	
+}
 code{
 	background: none;
 	border: none;
-}
-code, pre{
 	padding-left: 20px !important;
-	padding-top: -20px;
+	margin-top: -30px;
+}
+code>div{
+	margin-top: -70px;
 }
 .delete{
 	color: rgb(235, 235, 235);

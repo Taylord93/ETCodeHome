@@ -21,22 +21,7 @@
 	<script src="js/angular/angular-sanitize.min.js"></script>
 	
 	<script src="js/sweetalert.min.js"></script>
-	<script src="js/zeroclipboard.min.js"></script>
 	
-	<!--
-	<script src="js/lib/beautify.js"></script>
-	<script src="js/lib/beautify-css.js"></script>
-	<script src="js/lib/beautify-html.js"></script>
-	<script src="js/test/sanitytest.js"></script>
-	<script src="js/test/beautify-javascript-tests.js"></script>
-	<script src="js/test/beautify-css-tests.js"></script>
-	<script src="js/test/beautify-html-tests.js"></script>
-	<script src="js/lib/unpackers/javascriptobfuscator_unpacker.js"></script>
-	<script src="js/lib/unpackers/urlencode_unpacker.js"></script>
-	<script src="js/lib/unpackers/p_a_c_k_e_r_unpacker.js"></script>
-	<script src="js/lib/unpackers/myobfuscate_unpacker.js"></script>
-	
-	-->
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/highlight.js/8.7/styles/monokai.min.css">
 	<script src="http://cdn.jsdelivr.net/highlight.js/8.7/highlight.min.js"></script>
 	
@@ -52,7 +37,7 @@
 		 <section class="top-bar-section">
 
 		   	<ul class="left">
-		   		<li><a ng-click="$rootScope.updateView()">Regenerate</a></li>
+		   		<li><a id="reload">Fix Bugs</a></li>
 		     	<li class="has-dropdown">
 			        <a>Layout</a>
 			        <ul class="dropdown">
@@ -101,28 +86,28 @@
 					
 					<div class="icon-bar three-up" >
 					  <a class="item" id="banner" type="banner" ng-click="newSection($event, element, attr)">
-					    <i class="fa fa-th"></i>
+					    <i class="fa fa-picture-o"></i>
 					    <label>Banner</label>
 					  </a>
 					  <a class="item" id="cta" ng-click="newSection($event, element)">
-					    <i class="fa fa-th-large" ></i>
+					    <i class="fa fa-newspaper-o" ></i>
 					    <label>CTA</label>
 					  </a>
+					  <a class="item" id="cta-twobuttons" ng-click="newSection($event, element)">
+					  	<i class="fa fa-list-alt"></i>
+					  	<label>CTA - Two Buttons</label>
+					  </a>
 					  <a class="item" id="fea" ng-click="newSection($event, element)">
-					    <i class="fa fa-th-list"></i>
+					    <i class="fa fa-sitemap"></i>
 					    <label>Featured</label>
 					  </a>
 					  <a class="item" id="tcs" ng-click="newSection($event, element)">
-					    <i class="fa fa-th-list"></i>
-					    <label>Two Column</label>
+					    <i class="fa fa-th-large"></i>
+					    <label>Two Columns</label>
 					  </a>
-					  <a class="item" id="sbs" ng-click="newSection($event, element)">
-					  	<i class="fa fa-th-large"></i>
-					  	<label>Side by Side</label>
-					  </a>
-					  <a class="item" id="tb" ng-click="newSection($event, element)">
-					  	<i class="fa fa-th"></i>
-					  	<label>Top-Bottom</label>
+					  <a class="item" id="text-block" ng-click="newSection($event, element)">
+					  	<i class="fa fa-toggle-on"></i>
+					  	<label>Terms &amp; Conditions</label>
 					  </a>
 					</div>
 				</div>
@@ -142,21 +127,31 @@
 	
 	<script>
 	$(document).foundation();
-	/*
-	$('code').each(function(i, block) {
-	    hljs.highlightBlock(block);
-	});
 	
-	$(window).ready(function(){
-	
-	$('.hljs').each(function(i, block) {
-	    hljs.highlightBlock(block);
-	});
-	})
-	*/
+	jQuery.fn.selectText = function(){
+	    this.find('input').each(function() {
+	        if($(this).prev().length == 0 || !$(this).prev().hasClass('p_copy')) { 
+	            $('<p class="p_copy" style="position: absolute; z-index: -1;"></p>').insertBefore($(this));
+	        }
+	        $(this).prev().html($(this).val());
+	    });
+	    var doc = document;
+	    var element = this[0];
+	    console.log(this, element);
+	    if (doc.body.createTextRange) {
+	        var range = document.body.createTextRange();
+	        range.moveToElementText(element);
+	        range.select();
+	    } else if (window.getSelection) {
+	        var selection = window.getSelection();        
+	        var range = document.createRange();
+	        range.selectNodeContents(element);
+	        selection.removeAllRanges();
+	        selection.addRange(range);
+	    }
+	};
 	
 	</script>
 	
 	</body>
 </html>
-

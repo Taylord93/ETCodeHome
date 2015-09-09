@@ -268,7 +268,9 @@ app.controller('globalController', function($rootScope, $scope) {
 	
 }]).controller('codeController', ['$scope', '$rootScope', '$sce', 'buildService', function($rootScope, $scope, buildService) {
 	
-}]);
+}]).controller('textController', function($scope) {
+	
+});
 
 
 

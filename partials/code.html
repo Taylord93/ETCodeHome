@@ -1,14 +1,67 @@
+<style>.breakers{display:none;} .breakers a{color:rgb(200, 70, 70) !important;}</style>
+<div>
+	<nav class="top-bar" data-topbar role="navigation">
+	 <section class="top-bar-section">
 
-<pre><code class="html">
-<div getprog><div class="repeater" ng-repeat="i in prog track by $index">{{prog[$index]}}</div></div>
-</code></pre>
+	   	<ul class="left">
+	     	<li><a id="copycode">Select All</a></li>
+	     	<li><a id="highlight-syntax">Edit Code</a></li>
+	     	<li class="breakers"><a>Breaks DOM Links</a></li>
+	     
+	   	</ul>
+	    
+	 </section>
+	</nav>
+
+	<pre>
+		<code class="html">
+			<div getprog id="focusonme">
+				<div class="repeater" ng-repeat="i in prog track by $index" ng-bind="prog['section'+$index]"></div>
+			</div>
+		</code>
+	</pre>
+</div>
+
 
 <script>
-hljs.initHighlightingOnLoad();
 
-$(document).ready(function() {
-  $('xmp').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
+
+function SelectText(element) {
+    var doc = document, 
+    	text = doc.getElementById(element), 
+    	range, 
+    	selection;    
+    if (doc.body.createTextRange) {
+        range = document.body.createTextRange();
+        range.moveToElementText(text);
+        range.select();
+    } else if (window.getSelection) {
+        selection = window.getSelection();        
+        range = document.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+}
+
+$('#copycode').click(function(e){
+	SelectText('focusonme');
 });
+
+$('#highlight-syntax').click(function(){
+	
+	$('code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	});
+	
+	$('#focusonme, .repeater, code, pre').attr('contenteditable', 'true');
+
+});
+$('#highlight-syntax').hover(function(){	
+	$('.breakers').fadeIn();
+}, function(){
+	$('.breakers').fadeOut();
+});
+
 </script>
+

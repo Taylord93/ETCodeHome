@@ -1,0 +1,34 @@
+<div class="build-section">
+	<div class="header small-12 columns" ng-click="slide($event)">
+		<a class="left handle"><i class="fa fa-ellipsis-v"></i></a>
+		<div class="left">
+			<div class="section-id left">
+				<h2>Terms &amp; Conditions</h2>
+			</div>
+		</div>
+		<div class="right">
+			<a class="tools" ng-click="clone()"><i class="fa fa-clone"></i></a>
+			<a class="tools" ng-click="settings()"><i class="fa fa-cog"></i></a>
+			<div class="vis">
+				<a class="delete" ng-click="deleteSection($event)"><i class="fa fa-trash-o" ng-mouseover="changeBackground($event, 'red')" ng-mouseout="changeBack($event)"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="large-12 columns build section close-top collapsed" ng-controller="textController">
+		<div class="row">
+			<label>Text Content
+		    	<textarea class="txtinput" rows="6" value='Offer available in store only. Must be regular-priced item. Trade-Up coupon provided in store on day of trade-up. One coupon per trade-up. Cannot be combined with any other &ldquo;R&rdquo;Us offer.' ng-model="text" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"></textarea>
+			</label>
+		</div>
+		<div class="options">
+			<button ng-click="viewSource($event)">View Source</button>
+			<button class="edit disabled" disabled="true">Edit Source</button>
+		</div>
+	   <!--
+	    	CTA Email HTML
+	    -->
+	   	<xmp class="large-12 columns html" type="text-block" codeinject watchme contenteditable></xmp>
+	    
+	</div>
+</div>
+<!-- end CTA Build -->
