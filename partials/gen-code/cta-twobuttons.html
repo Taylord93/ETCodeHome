@@ -16,11 +16,16 @@
 	</div>
 	<div class="large-12 columns build section close-top collapsed" ng-controller="ctaController">
 		<div class="row">
-			<label>Copy (HTML)
-		    	<textarea class="txtinput" rows="6" value='<h1 style="font-size: 25px">Evenflo Products are the best!</h1><p style="font-size: 12px; margin-bottom: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.</p>' ng-model="copy" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"></textarea>
+			<label>Heading
+				<input type="text" class="txtinput" value="Evenflo Products are the best!" ng-model="heading" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"/>
 			</label>
 		</div>
-		<h3>Button One</h3>
+		<div class="row">
+			<label>Copy (HTML)
+		    	<textarea class="txtinput" rows="6" value='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.' ng-model="copy" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"></textarea>
+			</label>
+		</div>
+		<label class="right">Button One</label>
 		<hr />
 		<div class="row">
 			<label>Link URL
@@ -48,7 +53,7 @@
 			   </div>
 			</label>
 		</div>
-		<h3>Button Two</h3>
+		<label class="right">Button Two</label>
 		<hr />
 		<div class="row" class="ng-hide">
 			<label>Link URL
