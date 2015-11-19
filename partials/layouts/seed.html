@@ -1,0 +1,57 @@
+<div class="section-wrapper" type="seed" newsection></div>
+
+<div class="build-section">
+	<div class="header small-12 columns" ng-click="slide($event)">
+		<a class="left handle"><i class="fa fa-ellipsis-v"></i></a>
+		<div class="left">
+			<div class="section-id left">
+				<h2>Send Email</h2>
+			</div>
+		</div>
+		<div class="right">
+			<a class="tools" ng-click="clone()"><i class="fa fa-clone"></i></a>
+			<a class="tools" ng-click="settings()"><i class="fa fa-cog"></i></a>
+			<div class="vis">
+				<a class="delete" ng-click="deleteSection($event)"><i class="fa fa-trash-o" ng-mouseover="changeBackground($event, 'red')" ng-mouseout="changeBack($event)"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="large-12 columns build section close-top collapsed" ng-controller="seedFormController">
+		<form method="POST" id="buildSeedingEmail">		
+			<div class="row">
+				<label>Subject
+					<input type="text" class="txtinput" name="subject" placeholder="Subject Line">
+				</label>
+			</div>
+			<label class="right">Recipients</label>
+			<hr />
+			<div class="row">
+				<label>Link Text
+					<input type="text" class="txtinput" value="Learn More" ng-model="linktxt" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)" />			
+				</label>
+				<label>Link URL
+					<input type="text" class="txtinput" value="http://placehold.it/180x99" ng-model="linkurl" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)" />			
+				</label>
+			</div>
+			
+			<input name="emailCode" id="output" class="hidden" type="hidden" />
+			<input type="hidden" name="to" id="to" value="undefined devon <taylor>">
+			<div class="options">
+				<button ng-click="sendSeed($event)" class="small-12 columns">Send</button>
+			</div>
+		    
+		  </div>
+	</form>
+</div>
+<!-- End Two Column Section -->
+<script>
+	
+	$('#output').val($('#focusonme').text());
+
+	$('input, textarea').on('input, focus, change, focusout', function(){
+	
+		$('#output').val($('#focusonme').text());
+	
+	});
+
+</script>

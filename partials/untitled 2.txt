@@ -1,0 +1,6 @@
+<form id="buildSeedingEmail" action="simple-send.php">
+    <input type="text" name="subject" placeholder="Subject Line">
+	<textarea name="emailCode" rows="10" id="output" placeholder="&lt;img src="http://evenflo.com/uploadedImages/Pages/Products/Evenflo/SensorSafe/how(1).png" /&gt;"></textarea>
+	<input type="hidden" name="to" id="to" value="undefined devon <taylor>">
+	<input id="submit" type="submit">
+</form>

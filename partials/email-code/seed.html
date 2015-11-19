@@ -1,0 +1,334 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <tbody>
+      <tr>
+         <td align="center" valign="middle">
+         	<h1  style="font-size: 25px; line-height: 30px;">{{productname}}</h1>
+         </td>
+      </tr>
+   </tbody>
+</table>
+<div style="display:none !important; height:0px;">%%[SET @Button_Container_Style = Concat(@Button_Color_Render,' style="',@Button_Border_Render,@Button_Padding,' font-family:',@Description_Font,'; font-size:14px; line-height: 20px; font-weight:bold; color:',@Button_Text_Color,';',@Button_CSS,'"')SET @Button_Style = Concat('style="text-decoration:none; color:',@Button_Text_Color,';"')SET @Title_Style = Concat('style="padding-bottom:10px; font-family:',@Title_Font,'; font-size:20px; font-weight: bold; color:',@Title_Color,';',@Title_CSS,'"')SET @Description_Style = Concat('style="padding-bottom:10px;font-family:',@Description_Font,'; font-size:14px; color:',@Description_Color,'; line-height:18px;',@Description_CSS,'"')SET @Image_Style = Concat('style="border:',@Image_Border,'; height:auto !important;"')SET @Item_Container_Style = Concat(@Item_Background_Render,' style="padding:',@Item_Padding,'; border:',@Item_Border,'; ',@Item_Shadow_Render,@Item_Container_CSS,'"')]%%
+</div>
+<table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px;">
+	<tbody>
+		<tr>
+			<td class="padhoriz" style="padding: 20px 40px;">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td valign="top" class="item_container">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tbody>
+												<tr>
+												   <td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px; text-align: left;" align="left">{{copy}}</td>
+												</tr>
+												<tr>
+												   <td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top">
+												      <table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0">
+												         <tbody>
+												            <tr>
+												               <td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px; text-align: left;" align="left"><a href="{{linkurl}}" class="block1a"><span style="color:#00bfbd;">{{linktxt}}</span></a></td>
+												            </tr>
+												         </tbody>
+												      </table>
+												   </td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tbody>
+												<tr>
+												   <td align="left" valign="top" style="padding-bottom: 10px;"><a href="http://www.evenflo.com{{ producturl }}" class="block2a"><img class="fullwidth block2i" src="http://evenflo.com{{break}}{{productimage}}" alt="{{productname}}" border="0" width="500" %%=v(@Image_Style)=%%></a></td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px;">
+	<tbody>
+		<tr>
+			<td class="padhoriz" style="padding: 20px 40px;">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td valign="top" class="item_container">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+											   <td align="left" valign="top" style="padding-bottom: 10px;"><img class="fullwidth block1i" src="http://evenflo.com{{ break }}{{feat1src}}" alt="{{feat1title}}" border="0" width="260" %%=v(@Image_Style)=%%></td>
+											</tr>
+											<tr>
+											   <td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left"></td>
+											</tr>
+											<tr>
+											   <td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top">
+											      <table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0">
+											         <tbody>
+											            <tr>
+											               <td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"></td>
+											            </tr>
+											         </tbody>
+											      </table>
+											   </td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+											   <td align="left" valign="top" style="padding-bottom: 10px;">{{feat1title}}</td>
+											</tr>
+											<tr>
+											   <td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left">{{feat1desc}}</td>
+											</tr>
+											<tr>
+											   <td align="left" style="padding-top:10px;" class="pad_bottom" valign="top">
+											      <table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0">
+											         <tbody>
+											            <tr>
+											               <td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"></td>
+											            </tr>
+											         </tbody>
+											      </table>
+											   </td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px;">
+	<tbody>
+		<tr>
+			<td class="padhoriz" style="padding: 20px 40px;">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td valign="top" class="item_container">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+											   <td align="left" valign="top" style="padding-bottom: 10px;">{{feat2title}}</td>
+											</tr>
+											<tr>
+											   <td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left">{{feat2desc}}</td>
+											</tr>
+											<tr>
+											   <td align="left" style="padding-top:10px;" class="pad_bottom" valign="top">
+											      <table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0">
+											         <tbody>
+											            <tr>
+											               <td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"></td>
+											            </tr>
+											         </tbody>
+											      </table>
+											   </td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+											   <td align="left" valign="top" style="padding-bottom: 10px;"><img class="fullwidth block1i" src="http://evenflo.com{{ break }}{{feat2src}}" alt="{{feat2title}}" border="0" width="260" %%=v(@Image_Style)=%%></td>
+											</tr>
+											<tr>
+											   <td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left"></td>
+											</tr>
+											<tr>
+											   <td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top">
+											      <table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0">
+											         <tbody>
+											            <tr>
+											               <td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"></td>
+											            </tr>
+											         </tbody>
+											      </table>
+											   </td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px;">
+	<tbody>
+		<tr>
+			<td class="padhoriz" style="padding: 20px 40px;">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td valign="top" class="item_container">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+											   <td align="left" valign="top" style="padding-bottom: 10px;"><img class="fullwidth block1i" src="http://evenflo.com{{ break }}{{feat3src}}" alt="{{feat3title}}" border="0" width="260" %%=v(@Image_Style)=%%></td>
+											</tr>
+											<tr>
+											   <td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left"></td>
+											</tr>
+											<tr>
+											   <td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top">
+											      <table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0">
+											         <tbody>
+											            <tr>
+											               <td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"></td>
+											            </tr>
+											         </tbody>
+											      </table>
+											   </td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+											   <td align="left" valign="top" style="padding-bottom: 10px;">{{feat3title}}</td>
+											</tr>
+											<tr>
+											   <td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left">{{feat3desc}}</td>
+											</tr>
+											<tr>
+											   <td align="left" style="padding-top:10px;" class="pad_bottom" valign="top">
+											      <table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0">
+											         <tbody>
+											            <tr>
+											               <td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"></td>
+											            </tr>
+											         </tbody>
+											      </table>
+											   </td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table width="650" border="0" cellspacing="0" cellpadding="0" class="fullwidth" align="center" style="width: 650px;">
+	<tbody>
+		<tr>
+			<td class="padhoriz" style="padding: 20px 40px;">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td valign="top" class="item_container">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-left: 20px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+											   <td align="left" valign="top" style="padding-bottom: 10px;">{{feat4title}}</td>
+											</tr>
+											<tr>
+											   <td valign="top" class="description_text block2c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left">{{feat4desc}}</td>
+											</tr>
+											<tr>
+											   <td align="left" style="padding-top:10px;" class="pad_bottom" valign="top">
+											      <table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0">
+											         <tbody>
+											            <tr>
+											               <td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"></td>
+											            </tr>
+											         </tbody>
+											      </table>
+											   </td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+									<td align="center" class="blockme padbottom" valign="top" style="padding-right: 20px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+											   <td align="left" valign="top" style="padding-bottom: 10px;"><img class="fullwidth block1i" src="http://evenflo.com{{ break }}{{feat4src}}" alt="{{feat4title}}" border="0" width="260" %%=v(@Image_Style)=%%></td>
+											</tr>
+											<tr>
+											   <td valign="top" class="description_text block1c" style="text-decoration: none; color: #4d6060; font-family: 'Open Sans', Verdana; font-size: 14px;" align="left"></td>
+											</tr>
+											<tr>
+											   <td align="left" style="padding-top: 10px;" class="pad_bottom" valign="top">
+											      <table class="button_normal.noresize" align="left" border="0" cellspacing="0" cellpadding="0">
+											         <tbody>
+											            <tr>
+											               <td valign="top" style="text-decoration: none; font-family: 'Open Sans', Verdana; font-size: 14px;" align="center"></td>
+											            </tr>
+											         </tbody>
+											      </table>
+											   </td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>

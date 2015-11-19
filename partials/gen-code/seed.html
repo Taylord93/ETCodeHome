@@ -1,0 +1,60 @@
+<div class="build-section">
+	<div class="header small-12 columns" ng-click="slide($event)">
+		<a class="left handle"><i class="fa fa-ellipsis-v"></i></a>
+		<div class="left">
+			<div class="section-id left">
+				<h2>Choose Product</h2>
+			</div>
+		</div>
+		<div class="right">
+			<a class="tools" ng-click="clone()"><i class="fa fa-clone"></i></a>
+			<a class="tools" ng-click="settings()"><i class="fa fa-cog"></i></a>
+			<div class="vis">
+				<a class="delete" ng-click="deleteSection($event)"><i class="fa fa-trash-o" ng-mouseover="changeBackground($event, 'red')" ng-mouseout="changeBack($event)"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="large-12 columns build section close-top collapsed" ng-controller="seedController">
+		<div class="row">
+			<label>Product
+				<input type="text" class="txtinput" ng-model="searchProduct" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)" placeholder="Evolve"/>
+			</label>
+			<div class="small-12 columns" id="product-results" productresults>
+				
+				<div class="product" ng-repeat="product in feed.results | filter:searchProduct" ng-click="popemail($event, product.url, product.imagepath, product.name)">
+					<div class="small-12 medium-4 large-3 columns left product-image">
+						<img ng-src="http://www.evenflo.com{{product.imagepath}}" />
+					</div>
+					<div class="small-12 medium-8 large-9 columns right product-name">
+						<h5>{{product.name}}</h5>
+					</div>
+					<div class="hidden url">{{product.url}}</div>
+				</div>
+				
+			</div>
+			<div class="hidden data"></div>
+		</div>
+		<hr />
+		<div class="row">
+			<label>Copy
+				<textarea class="txtinput" rows="6" value='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla dictum arcu, nec feugiat odio semper ac. Curabitur quam metus, pulvinar vel mauris finibus, fermentum tempor quam.' ng-model="copy" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)"></textarea>
+			</label>
+			<label>Link Text
+				<input type="text" class="txtinput" value="Learn More" ng-model="linktxt" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)" />			
+			</label>
+			<label>Link URL
+				<input type="text" class="txtinput" value="http://placehold.it/180x99" ng-model="linkurl" ng-focus="inputFocus($event)" ng-blur="inputOffFocus($event)" />			
+			</label>
+		</div>
+		<div class="options">
+			<button ng-click="viewSource($event)">View Source</button>
+			<button class="edit disabled" disabled="true">Edit Source</button>
+		</div>
+	   <!--
+	    	TCS Email HTML
+	    -->
+	    <xmp class="large-12 columns html" type="seed" watchme codeinject contenteditable></xmp>
+	    
+	  </div>
+</div>
+<!-- End Two Column Section -->

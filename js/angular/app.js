@@ -3,13 +3,15 @@ var app = angular.module('codegen', ['ngRoute']);
 app.config(
 	function($routeProvider) {
 	    $routeProvider.when('/', {
-	        templateUrl : 'file:///Users/DTaylo02/Documents/ETCodeHome/partials/layouts/default.html'
+	        templateUrl : '/partials/layouts/default.html'
 	    }).when('/product-alert', {
-	        templateUrl : 'file:///Users/DTaylo02/Documents/ETCodeHome/partials/layouts/product-alert.html'
+	        templateUrl : '/partials/layouts/product-alert.html'
 	    }).when('/product-update', {
-	        templateUrl : 'file:///Users/DTaylo02/Documents/ETCodeHome/partials/layouts/product-update.html'
+	        templateUrl : '/partials/layouts/product-update.html'
 	    }).when('/blank', {
-	        templateUrl : 'file:///Users/DTaylo02/Documents/ETCodeHome/partials/layouts/blank.html'
+	        templateUrl : '/partials/layouts/blank.html'
+	    }).when('/seed', {
+	        templateUrl : '/partials/layouts/seed.html'
 	    }).otherwise({
 	        redirectTo : '/'
 	    });
@@ -270,6 +272,120 @@ app.controller('globalController', function($rootScope, $scope) {
 	
 }]).controller('textController', function($scope) {
 	
+}).controller('seedController', function($scope) {
+	
+	$scope.feed = function () { 
+	
+		$.ajax({
+			url: "http://evenflo.com/components/handlers/gettrimsummaries.ashx?taxonomyId=93",
+			dataType: "json",
+			success: function(data) {
+			
+				$scope.feed = data;
+				
+			}, 
+			error: function(data){
+			
+			}
+		});
+	}
+	
+	
+	// taonomy ids
+	// Car seats = 93
+	// Travel Systems = 94
+	// Strollers = 95
+	// High Chairs = 96
+	// Play Yards = 97
+	$scope.feed();
+	
+	$scope.popemail = function (evt, prod, imgpa, name) {
+	
+		if ($(evt.target).hasClass('product')) {
+			var $cont = $(evt.target);
+		}else if ($(evt.target).parent().hasClass('product')) {
+			var $cont = $(evt.target).parent();
+		}else if ($(evt.target).parent().parent().hasClass('product')) {
+			var $cont = $(evt.target).parent().parent();
+		}
+		
+		$scope.productname = name;
+		$scope.productimage = imgpa;
+		$scope.producturl = prod;
+//		console.log($scope.productimage);
+		
+		
+		$('.product.selected').removeClass('selected');
+		$cont.addClass('selected');
+		
+		$.ajax({
+			url:'http://evenflo.com'+prod,
+			type: 'GET',
+			success: function(data){
+
+				var link = 'http://evenflo.com'+$(data).find('.css-tabs a:eq(0)').attr('href');
+				$.get(link, 'html', function(data){
+					var htmlcont = $(data);
+					var chil = $(htmlcont[4]).children();
+					var span = $(chil[2]).find('.span11');
+					console.log($(span));
+					
+					console.log($(span).find('#section-features>.item:eq(0) h4'));
+					console.log($(span).find('#section-features>.item:eq(0) h2').text());
+					console.log($(span).find('#section-features>.item:eq(0) img').attr('src'));
+					
+					$scope.prodname = $(span).find('#section-overview h3').text();
+					
+					$scope.feat1desc = $(span).find('#section-features>.item:eq(0) h4').text();
+					$scope.feat1title = $(span).find('#section-features>.item:eq(0) h2').text();
+					$scope.feat1src = $(span).find('#section-features>.item:eq(0) img').attr('src');
+					
+					$scope.feat2desc = $(span).find('#section-features>.item:eq(1) h4').text();
+					$scope.feat2title = $(span).find('#section-features>.item:eq(1) h2').text();
+					$scope.feat2src = $(span).find('#section-features>.item:eq(1) img').attr('src');
+					
+					$scope.feat3desc = $(span).find('#section-features>.item:eq(2) h4').text();
+					$scope.feat3title = $(span).find('#section-features>.item:eq(2) h2').text();
+					$scope.feat3src = $(span).find('#section-features>.item:eq(2) img').attr('src');
+					
+					$scope.feat4desc = $(span).find('#section-features>.item:eq(3) h4').text();
+					$scope.feat4title = $(span).find('#section-features>.item:eq(3) h2').text();
+					$scope.feat4src = $(span).find('#section-features>.item:eq(3) img').attr('src');
+					
+					
+					
+//					feat1desc
+//					feat1title
+//					feat1src
+				
+				});
+				
+			
+			}, 
+			error: function(){
+			
+				
+			
+			}
+		
+		});
+	
+	}
+	
+}).controller('seedFormController',function($scope) {
+	
+	$scope.sendSeed = function(evt){
+	
+		evt.preventDefault();
+		
+		$.post('http://ndellaposta.com/seeding/simple-send.php', $('#buildSeedingEmail').serialize(), function(data){
+		
+			console.log(data);
+		
+		});
+//	
+	}
+	
 });
 
 
@@ -467,6 +583,17 @@ app.directive('changer', function() {
 		}
 	}
 })
+
+//======================================= SEEDING =======================================
+
+//app.directive('productresults', function() {
+//	return {
+//		controller: function($rootScope, $scope, $element, $attrs, $sce) {
+//		    
+//		    
+//		}
+//	}
+//})
 
 
 

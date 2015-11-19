@@ -6,11 +6,12 @@
 	<meta name="language" content="english" />
 	<title>ET Code Home</title>
 	
+	<meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />
+	
 	<link rel="apple-touch-icon" href="chalkboard.png">
 	<link rel="apple-touch-startup-image" href="chalkboard.png">
 	
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />
 	<meta name="apple-mobile-web-app-title" content="ETCH">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<!-- Metas for Apple Web App Functionality remember to use -precomposed.png in the end of touch-icon.png 
@@ -52,16 +53,23 @@
 	
 	<div class="fixed">
 		<nav class="top-bar" data-topbar role="navigation">
+		 
+		 <ul class="title-area">
+		     <li class="name"> </li>
+		     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+		     <li class="toggle-topbar menu-icon"><a href=""><span>Menu</span></a></li>
+		   </ul>
+		 
 		 <section class="top-bar-section">
-
 		   	<ul class="left">
 		   		<li><a id="reload">Fix Bugs</a></li>
 		     	<li class="has-dropdown">
 			        <a>Layout</a>
 			        <ul class="dropdown">
-				        <li class="active"><a href="#/" ng-click="changeLayout($event)">Default</a></li>
+				        <li><a class="active" href="#/" ng-click="changeLayout($event)">Default</a></li>
 				        <li><a href="#/product-alert" ng-click="changeLayout($event)">Product Alert</a></li>
 				        <li><a href="#/product-update" ng-click="changeLayout($event)">Product Update</a></li>
+				        <li><a href="#/seed" ng-click="changeLayout($event)">Seeding Email</a></li>
 				        <li><a href="#/blank" ng-click="changeLayout($event)">Blank</a></li>
 		       		</ul>
 		     	</li>
@@ -70,11 +78,10 @@
 		     	<li><a ng-click="expandAll()">Expand All</a></li>
 		     
 		   	</ul>
-			
 		  	<ul class="right">
 		   		<li><a ng-click="breakImg($event)">Break Images</a></li>
 		    	<li class="divider"></li>
-		      	<li class="active"><a ng-click="showDesignView($event)">Show Design</a></li>
+		      	<li><a class="active" ng-click="showDesignView($event)">Show Design</a></li>
 		      	<li><a ng-click="showCodeView($event)">Show Code</a></li>
 		   	</ul>
 		    
@@ -178,6 +185,19 @@
 //	    alert("STANDALONEEEEEE")
 //	}
 //	Detects standalone mode
+
+	$.ajax({
+		url: "http://evenflo.com/components/handlers/gettrimsummaries.ashx?taxonomyId=93",
+		dataType: "json",
+		success: function(data) {
+		
+			console.log(data)
+		
+			}, 
+		error: function(data){
+		
+		}
+	});
 	
 	</script>
 	

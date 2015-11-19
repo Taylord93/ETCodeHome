@@ -1,4 +1,5 @@
-	<!-- Microsoft Outlook Fixes -->
+<div id="intoiframe">
+<!-- Microsoft Outlook Fixes -->
 	<!--[if mso]>
 		<style>
 		#viewer td, #viewer table, #viewer a, #viewer span {
@@ -265,10 +266,18 @@ USE THIS TO BIND
  
  
  -->
+ </div>
+ <iframe src="file:///Users/DTaylo02/Documents/Web/ETCodeHome/partials/emailreset.html" width="100%" height="100%"></iframe>
 
 <script>
 
 	$('.repeater').contents().unwrap();
+	
+	var newIframe = document.createElement('iframe');
+	newIframe.width = '200';newIframe.height = '200';
+	newIframe.src = 'about:blank'; 
+	document.body.appendChild(newIframe);
 
 
 </script>
+

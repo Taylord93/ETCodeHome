@@ -245,7 +245,7 @@
 		<!--End Personalization-->
 		<!--Begin Email-->
 		
-		
+		<div class="repeater" ng-repeat="i in prog track by $index" ng-bind-html="prog['section'+$index] | rawHtml"></div>
 		
 		<!-- This row fixes Gmail app scaling issues on iPhone -->
 	
